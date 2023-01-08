@@ -1,5 +1,5 @@
 # fhc-pwm
-ESP32 SSR Floor Heating Controller with zone thermostats, modulated actuators and mixing valve control
+<h1>ESP32 SSR Floor Heating Controller with zone thermostats, modulated actuators and mixing valve control</h1>
 
 Project to create a smart floor heating controller for private homes with a hydronic underfloor system and optionally combined with a radiator system mixing valve. Brief project description:
 <ul>
