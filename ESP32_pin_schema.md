@@ -1,5 +1,6 @@
-ESP32 pin schema
+<h1>ESP32 pin schema</h1>
 
+The controller IO pins are assigned according to the table below.
 <table>
   <tr><th>Function<th>Pin number<th>Optional function</tr>
   <tr><td>Zone 1 actuator<td>16<td></tr>
