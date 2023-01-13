@@ -1,0 +1,30 @@
+# WiFi configuration
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  ap:
+    ssid: "$node_name network"
+    password: !secret fallback_password
+
+# Captive portal
+captive_portal:
+
+# WiFi information sensors
+sensor:
+  - platform: wifi_signal
+    name: "$node_prefix signalstyrka"
+    update_interval: 60s
+text_sensor:
+  - platform: wifi_info
+    ip_address:
+      name: "$node_prefix IP"
+      icon: mdi:ip-network-outline
+    mac_address:
+      name: "$node_prefix MAC"
+      icon: mdi:network-outline
+
+# Web server settings
+web_server:
+  port: 80
+  ota: false
+  
