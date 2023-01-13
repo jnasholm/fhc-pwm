@@ -15,4 +15,6 @@ The controller IO pins are assigned according to the table below.
   <tr><td>Controller status LED<td>33<td></tr>  
   <tr><td>Room temperature sensors (DS18B20 or RHT03)<td>21<td></tr>
   <tr><td>Distributor line temperature sensors (DS18B20)<td>27<td></tr>
+  <tr><td>Battery voltage<td>35<td></tr>
+  <tr><td>Charging voltage<td>39<td></tr>
 </table>
