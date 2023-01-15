@@ -24,7 +24,6 @@ sensor:
     resolution: 12
 
 # Heat source supply and return lines
-sensor:
   - platform: dallas
     name: "$node_prefix framledning"
     id: ${node_name}_supply_line_temperature
