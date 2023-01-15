@@ -1,0 +1,123 @@
+# Mixing valve controller configuration
+
+# Relay configuration
+
+# Mixing valve actuator decrease
+output:
+  - platform: slow_pwm
+    id: ${node_name}_mixing_valve_actuator_decrease
+    period: 30s
+    max_power: 0.4
+    pin:
+      number: GPIO25
+      inverted: true
+# Mixing valve actuator increase
+  - platform: slow_pwm
+    id: ${node_name}_mixing_valve_actuator_increase
+    period: 30s
+    max_power: 0.4
+    pin:
+      number: GPIO26
+      inverted: true
+
+# Thermostat configuration
+
+# Supply line temperature controller
+#   Sampling time, Ts:      10 s (update interval of temperature sensor)
+#   Critical gain, Kc:       2.0 (proportional constant causing oscillation)
+#   Critical period, Pc:   480 s (cycle time at oscillating condition)
+# Calculated parameters  
+#   Integral time, Ti:     240 s (0.50 x Pc)
+#   Derivative time, Td:    60 s (0.25 x Ti)
+# Controller parameters
+#   Proportional constant, kp:   1.2       (0.60 x Kc)
+#   Integral constant, ki:       0.0041667 (1/Ti)
+#   Derivative constant, kd:     6.0       (Td/Ts)
+climate:
+  - platform: pid
+    name: "$node_prefix framledningsreglering"
+    id: ${node_name}_supply_line_controller
+    sensor: ${node_name}_supply_line_temperature
+    default_target_temperature: 21°C
+    heat_output: ${node_name}_mixing_valve_actuator_increase
+    cool_output: ${node_name}_mixing_valve_actuator_decrease
+    control_parameters:
+      kp: 1.2
+      ki: 0.0041667
+      kd: 6.0
+      output_averaging_samples: 3
+      derivative_averaging_samples: 3
+    deadband_parameters:
+      threshold_high: 0.4°C
+      threshold_low: -0.2°C
+    visual:
+      min_temperature: 20 °C
+      max_temperature: 35 °C
+      temperature_step: 0.1 °C
+
+# Supply line controller modulation level decrease
+sensor:
+  - platform: pid
+    name: "$node_prefix reglernivå minska"
+    id: ${node_name}_supply_line_modulation_level_decrease
+    icon: "mdi:chart-bell-curve-cumulative"
+    climate_id: ${node_name}_supply_line_controller
+    type: COOL
+# Supply line controller modulation level increase
+  - platform: pid
+    name: "$node_prefix reglernivå öka"
+    id: ${node_name}_supply_line_modulation_level_increase
+    icon: "mdi:chart-bell-curve-cumulative"
+    climate_id: ${node_name}_supply_line_controller
+    type: HEAT
+
+# Mixing valve actuator operational indicators
+binary_sensor:
+# Decrease
+  - platform: template
+    name: "$node_prefix minska"
+    id: ${node_name}_mixing_valve_status_decrease
+    icon: mdi:minus-circle
+    filters:
+      - delayed_on_off: 400ms
+    lambda: |-
+      if ( (id(${node_name}_supply_line_modulation_level_decrease).state > 0) && 
+           (id(${node_name}_supply_line_modulation_level_increase).state == 0) ) {
+        id(${node_name}_mixing_valve_status_neutral).publish_state(false);
+        id(${node_name}_mixing_valve_status_increase).publish_state(false);
+        return true;
+      } else {
+        return false;
+      }
+# Neutral
+  - platform: template
+    name: "$node_prefix neutral"
+    id: ${node_name}_mixing_valve_status_neutral
+    icon: mdi:circle-outline
+    filters:
+      - delayed_on_off: 400ms
+    lambda: |-
+      if ( (id(${node_name}_supply_line_modulation_level_decrease).state < 0.01) && 
+           (id(${node_name}_supply_line_modulation_level_increase).state < 0.01) ) {
+        id(${node_name}_mixing_valve_status_decrease).publish_state(false);
+        id(${node_name}_mixing_valve_status_increase).publish_state(false);
+        return true;
+      } else {
+        return false;
+      }
+# Increase
+  - platform: template
+    name: "$node_prefix öka"
+    id: ${node_name}_mixing_valve_status_increase
+    icon: mdi:plus-circle
+    filters:
+      - delayed_on_off: 400ms
+    lambda: |-
+      if ( (id(${node_name}_supply_line_modulation_level_decrease).state == 0) && 
+           (id(${node_name}_supply_line_modulation_level_increase).state > 0) ) {
+        id(${node_name}_mixing_valve_status_decrease).publish_state(false);
+        id(${node_name}_mixing_valve_status_neutral).publish_state(false);
+        return true;
+      } else {
+        return false;
+      }
