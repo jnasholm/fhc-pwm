@@ -1,0 +1,76 @@
+#
+# ESP32 SSR Floor Heating Controller
+#
+# https://github.com/jnasholm/fhc-pwm/tree/main
+#
+# Main configuration
+#
+project:
+  name: "jnasholm.fhc-pwm"
+  version: "0.1"
+
+substitutions:
+  node_name: "fhc1"
+  node_prefix: "GVR"
+
+# Define zone names
+  zone1_name: "Kök"
+  zone2_name: "Hall"
+  zone3_name: "Duschrum"
+  zone4_name: "Vardagsrum"
+#  zone5_name: "Rum 5"
+#  zone6_name: "Rum 6"
+#  zone7_name: "Rum 7"
+#  zone8_name: "Rum 8"
+
+# Board configuration
+esphome:
+  name: "$node_name"
+  platform: ESP32
+  board: esp32-devkitlipo
+#  board: esp32-poe-iso
+
+# Flash write interval
+preferences:
+  flash_write_interval: 20min
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: !secret hass_api_password
+
+# Enable OTA
+ota:
+  password: !secret ota_password
+
+# Node switches
+switch:
+  - platform: restart
+    name: "$node_prefix starta om nod"
+#  - platform: shutdown
+#    name: "$node_prefix stäng av nod"
+
+# Node uptime
+sensor:
+  - platform: uptime
+    name: "$node_prefix drifttid"
+    icon: "mdi:timer-outline"
+    update_interval: 60s
+
+# Include packages
+packages:
+  wifi: !include wifi.yaml
+#  ethernet: !include ethernet.yaml
+#  battery: !include battery.yaml
+  time: !include time.yaml
+  status: !include status.yaml
+  homeassistant: !include sensors-homeassistant.yaml
+  zone_temp: !include sensors-zone_temp.yaml
+  line_temp: !include sensors-line_temp.yaml
+  actuators_zone1-4: !include control-actuators_zone1-4.yaml
+#  actuators_zone5-6: !include control-actuators_zone5-6.yaml
+#  actuators_zone7-8: !include control-actuators_zone7-8.yaml
+  supply_line: !include control-supply_line.yaml
+  mixing_valve: !include control-mixing_valve.yaml
