@@ -67,7 +67,9 @@ packages:
   time: !include time.yaml
   status: !include status.yaml
   homeassistant: !include sensors-homeassistant.yaml
-  zone_temp: !include sensors-zone_temp.yaml
+  room_temp_zone1-4: !include sensors-room_temp_zone1-4.yaml
+#  room_temp_zone5-6: !include sensors-room_temp_zone5-6.yaml
+#  room_temp_zone7-8: !include sensors-room_temp_zone7-8.yaml
   line_temp: !include sensors-line_temp.yaml
   actuators_zone1-4: !include control-actuators_zone1-4.yaml
 #  actuators_zone5-6: !include control-actuators_zone5-6.yaml
