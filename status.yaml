@@ -1,0 +1,71 @@
+# Status configuration
+
+# Controller status indicator
+output:
+  - platform: ledc
+    id: floor_heating_controller_status
+    pin: GPIO33
+
+# System status indicator
+light:
+  - platform: status_led
+    name: "$node_prefix systemstatus"
+    id: system_status_indicator
+    pin:
+      number: GPIO32
+      inverted: true
+# Controller status indicator
+  - platform: monochromatic
+    name: "$node_prefix reglerstatus"
+    id: controller_status_indicator
+    output: floor_heating_controller_status
+    effects:
+      - pulse:
+          name: "heating"
+          transition_length: 0.2s
+          update_interval: 1s
+      - pulse:
+          name: "idle"
+          transition_length: 0.2s
+          update_interval: 4s
+
+# Controller operational state indication
+switch:
+  - platform: template
+    name: "$node_prefix aktiv reglering"
+    id: floor_heating_controller_state_indication
+    icon: "mdi:car-cruise-control"
+    lambda: |-
+      if (id(floor_heating_controller_state).state) {
+        return true;
+      } else {
+        return false;
+      }
+    turn_on_action:
+      - light.turn_on:
+          id: controller_status_indicator
+          effect: heating
+    turn_off_action:
+      - light.turn_on:
+          id: controller_status_indicator
+          effect: idle
+
+# Controller operational state
+binary_sensor:
+  - platform: template
+    id: floor_heating_controller_state
+    lambda: |-
+      if ( (id(zone1_modulation_level).state == 0) && 
+           (id(zone2_modulation_level).state == 0) && 
+           (id(zone3_modulation_level).state == 0) && 
+           (id(zone4_modulation_level).state == 0) ) {
+        if ( id(floor_heating_controller_state_indication).state ) {
+          id(floor_heating_controller_state_indication).turn_off();
+        }
+        return false;
+      } else {
+        if ( !id(floor_heating_controller_state_indication).state ) {
+          id(floor_heating_controller_state_indication).turn_on();
+        }
+        return true;
+      }
