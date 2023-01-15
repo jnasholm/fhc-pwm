@@ -1,0 +1,22 @@
+# Ethernet configuration
+ethernet:
+  id: eth0
+  type: LAN8720
+  mdc_pin: GPIO23
+  mdio_pin: GPIO18
+  clk_mode: GPIO17_OUT
+  phy_addr: 0
+  power_pin: GPIO12
+
+# Ethernet information sensors
+text_sensor:
+  - platform: template
+    name: "$node_prefix IP"
+    icon: mdi:ip-network-outline
+    entity_category: diagnostic
+    lambda: return { id(eth0).get_ip_address().str() };
+
+# Web server settings
+web_server:
+  port: 80
+  ota: false
