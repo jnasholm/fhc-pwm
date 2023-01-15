@@ -5,10 +5,6 @@
 #
 # Main configuration
 #
-project:
-  name: "jnasholm.fhc-pwm"
-  version: "0.1"
-
 substitutions:
   node_name: "fhc1"
   node_prefix: "GVR"
@@ -25,6 +21,9 @@ substitutions:
 
 # Board configuration
 esphome:
+  project:
+    name: "jnasholm.fhc-pwm"
+    version: "0.1"
   name: "$node_name"
   platform: ESP32
   board: esp32-devkitlipo
