@@ -9,7 +9,7 @@ output:
     period: 30s
     max_power: 0.4
     pin:
-      number: GPIO32
+      number: GPIO25
       inverted: true
 # Mixing valve actuator increase
   - platform: slow_pwm
@@ -17,7 +17,7 @@ output:
     period: 30s
     max_power: 0.4
     pin:
-      number: GPIO33
+      number: GPIO26
       inverted: true
 
 # Thermostat configuration
