@@ -4,7 +4,7 @@
 output:
   - platform: ledc
     id: floor_heating_controller_status
-    pin: GPIO14
+    pin: GPIO33
 
 # System status indicator
 light:
@@ -12,7 +12,7 @@ light:
     name: "$node_prefix systemstatus"
     id: system_status_indicator
     pin:
-      number: GPIO13
+      number: GPIO32
       inverted: true
 # Controller status indicator
   - platform: monochromatic
