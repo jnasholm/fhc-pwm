@@ -30,3 +30,27 @@ sensor:
     id: zone4_temperature
     address: 0x6C00000CA32B7B_S4
     resolution: 12
+# Zone 5 temperature
+#  - platform: dallas
+#    name: "$zone5_name temperatur"
+#    id: zone5_temperature
+#    address: 0x6C00000CA32B7B_S5
+#    resolution: 12
+# Zone 6 temperature
+#  - platform: dallas
+#    name: "$zone6_name temperatur"
+#    id: zone6_temperature
+#    address: 0x6C00000CA32B7B_S6
+#    resolution: 12
+# Zone 7 temperature
+#  - platform: dallas
+#    name: "$zone7_name temperatur"
+#    id: zone7_temperature
+#    address: 0x6C00000CA32B7B_S7
+#    resolution: 12
+# Zone 8 temperature
+#  - platform: dallas
+#    name: "$zone8_name temperatur"
+#    id: zone8_temperature
+#    address: 0x6C00000CA32B7B_S8
+#    resolution: 12
