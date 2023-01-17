@@ -35,6 +35,38 @@ output:
       number: GPIO23
       inverted: true
 
+# Zone 5 actuator relay
+#  - platform: slow_pwm
+#    id: zone5_modulation
+#    period: 20s
+#    pin:
+#      number: GPIO22
+#      inverted: true
+
+# Zone 6 actuator relay
+#  - platform: slow_pwm
+#    id: zone6_modulation
+#    period: 20s
+#    pin:
+#      number: GPIO23
+#      inverted: true
+
+# Zone 7 actuator relay
+#  - platform: slow_pwm
+#    id: zone7_modulation
+#    period: 20s
+#    pin:
+#      number: GPIO25
+#      inverted: true
+
+# Zone 8 actuator relay
+#  - platform: slow_pwm
+#    id: zone8_modulation
+#    period: 20s
+#    pin:
+#      number: GPIO26
+#      inverted: true
+
 # Thermostat configuration
 
 # Zone temperature controller
@@ -134,6 +166,90 @@ climate:
       max_temperature: 25 °C
       temperature_step: 0.1 °C
 
+# Zone 5 temperature controller
+#  - platform: pid
+#    name: "$zone5_name temperaturstyrning"
+#    id: zone5_temperature_controller
+#    sensor: zone5_temperature
+#    default_target_temperature: 21°C
+#    heat_output: zone5_modulation
+#    control_parameters:
+#      kp: 10.6
+#      ki: 0.0004348
+#      kd: 57.5
+#      output_averaging_samples: 3
+#      derivative_averaging_samples: 3
+#    deadband_parameters:
+#      threshold_high: 0.4°C
+#      threshold_low: -0.2°C
+#    visual:
+#      min_temperature: 17 °C
+#      max_temperature: 25 °C
+#      temperature_step: 0.1 °C
+
+# Zone 6 temperature controller
+#  - platform: pid
+#    name: "$zone6_name temperaturstyrning"
+#    id: zone6_temperature_controller
+#    sensor: zone6_temperature
+#    default_target_temperature: 21°C
+#    heat_output: zone6_modulation
+#    control_parameters:
+#      kp: 10.6
+#      ki: 0.0004348
+#      kd: 57.5
+#      output_averaging_samples: 3
+#      derivative_averaging_samples: 3
+#    deadband_parameters:
+#      threshold_high: 0.4°C
+#      threshold_low: -0.2°C
+#    visual:
+#      min_temperature: 17 °C
+#      max_temperature: 25 °C
+#      temperature_step: 0.1 °C
+
+# Zone 7 temperature controller
+#  - platform: pid
+#    name: "$zone7_name temperaturstyrning"
+#    id: zone4_temperature_controller
+#    sensor: zone4_temperature
+#    default_target_temperature: 21°C
+#    heat_output: zone4_modulation
+#    control_parameters:
+#      kp: 10.6
+#      ki: 0.0004348
+#      kd: 57.5
+#      output_averaging_samples: 3
+#      derivative_averaging_samples: 3
+#    deadband_parameters:
+#      threshold_high: 0.4°C
+#      threshold_low: -0.2°C
+#    visual:
+#      min_temperature: 17 °C
+#      max_temperature: 25 °C
+#      temperature_step: 0.1 °C
+
+# Zone 8 temperature controller
+#  - platform: pid
+#    name: "$zone8_name temperaturstyrning"
+#    id: zone4_temperature_controller
+#    sensor: zone4_temperature
+#    default_target_temperature: 21°C
+#    heat_output: zone4_modulation
+#    control_parameters:
+#      kp: 10.6
+#      ki: 0.0004348
+#      kd: 57.5
+#      output_averaging_samples: 3
+#      derivative_averaging_samples: 3
+#    deadband_parameters:
+#      threshold_high: 0.4°C
+#      threshold_low: -0.2°C
+#    visual:
+#      min_temperature: 17 °C
+#      max_temperature: 25 °C
+#      temperature_step: 0.1 °C
+
 # Zone 1 actuator modulation level
 sensor:
   - platform: pid
@@ -166,3 +282,35 @@ sensor:
     icon: "mdi:chart-bell-curve-cumulative"
     climate_id: zone4_temperature_controller
     type: HEAT
+
+# Zone 5 actuator modulation level
+#  - platform: pid
+#    name: "$zone5_name reglernivå"
+#    id: zone6_modulation_level
+#    icon: "mdi:chart-bell-curve-cumulative"
+#    climate_id: zone6_temperature_controller
+#    type: HEAT
+
+# Zone 6 actuator modulation level
+#  - platform: pid
+#    name: "$zone6_name reglernivå"
+#    id: zone6_modulation_level
+#    icon: "mdi:chart-bell-curve-cumulative"
+#    climate_id: zone6_temperature_controller
+#    type: HEAT
+
+# Zone 7 actuator modulation level
+#  - platform: pid
+#    name: "$zone7_name reglernivå"
+#    id: zone7_modulation_level
+#    icon: "mdi:chart-bell-curve-cumulative"
+#    climate_id: zone7_temperature_controller
+#    type: HEAT
+
+# Zone 8 actuator modulation level
+#  - platform: pid
+#    name: "$zone8_name reglernivå"
+#    id: zone8_modulation_level
+#    icon: "mdi:chart-bell-curve-cumulative"
+#    climate_id: zone8_temperature_controller
+#    type: HEAT
