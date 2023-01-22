@@ -14,10 +14,10 @@ substitutions:
   zone2_name: "Hall"
   zone3_name: "Duschrum"
   zone4_name: "Vardagsrum"
-#  zone5_name: "Rum 5"
-#  zone6_name: "Rum 6"
-#  zone7_name: "Rum 7"
-#  zone8_name: "Rum 8"
+#  zone5_name: "Arbetsrum"
+#  zone6_name: "Barnrum"
+#  zone7_name: "Sovrum"
+#  zone8_name: "Teverum"
 
 # Board configuration
 esphome:
