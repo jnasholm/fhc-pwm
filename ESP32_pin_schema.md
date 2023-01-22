@@ -1,6 +1,6 @@
 # ESP32 pin schema
 
-The controller IO pins are assigned according to the table below.
+The controller IO pins are assigned according to the table below[^1][^2].
 
 |Function|Pin|Comment|
 |------------------------------|:--:|--------|
@@ -19,3 +19,6 @@ The controller IO pins are assigned according to the table below.
 |Controller status LED|33|  
 |Battery voltage|35|May require soldering on the ESP32 board to enable|
 |Charging voltage|39|May require soldering on the ESP32 board to enable|
+
+[^1]: [ESP32-Devkit-Lipo GPIOs map](https://www.olimex.com/Products/IoT/ESP32/ESP32-DevKit-LiPo/resources/ESP32-DevKit-Lipo-GPIOs.png)
+[^2]: [ESP32 Pinout Reference: Which GPIO pins should you use?](https://randomnerdtutorials.com/esp32-pinout-reference-gpios/)
