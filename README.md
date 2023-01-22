@@ -4,12 +4,12 @@
 
 Project to create a smart floor heating controller for private homes with a hydronic underfloor system and optionally combined with a radiator system mixing valve. Brief project description:
 
-- The controller is an ESP32 programmed with [ESPHome](https://esphome.io/).
+- The controller is an [ESP32](https://www.olimex.com/Products/IoT/ESP32/ESP32-DevKit-LiPo/open-source-hardware) programmed with [ESPHome](https://esphome.io/).
 - The climate thermostats are based on ESPHome PID control.
-- The zone valve actuators are operated with 24 VAC (wax motor type without direct position feedback).
-- The mixing valve actuator is a stepper motor also operated with 24 VAC.
+- The [zone valve actuators](https://www.produal.com/en/a.html) are operated with 24 VAC (wax motor type without direct position feedback).
+- The [mixing valve actuator](https://esbe.eu/group/products/rotary-actuators/ara600-3-point) is a stepper motor also operated with 24 VAC.
 - The zone valve actuators are controlled with ESPHome PWM.
-- The switching modules are equipped with solid state relays.
+- The switching modules are equipped with [solid state relays](https://www.velleman.eu/products/view/?id=461412).
 - The controller can operate either 8 zone valve actuators or 6 zone valve actuators and 1 mixing valve actuator.
 
 ## Description
