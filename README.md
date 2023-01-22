@@ -6,7 +6,7 @@ Project to create a smart floor heating controller for private homes with a hydr
 
 - The controller is an [ESP32](https://www.olimex.com/Products/IoT/ESP32/ESP32-DevKit-LiPo/open-source-hardware) programmed with [ESPHome](https://esphome.io/).
 - The climate thermostats are based on ESPHome PID control[^1][^2].
-- The [zone valve actuators](https://www.produal.com/en/a.html) are operated with 24 VAC (wax motor type without direct position feedback).
+- The [zone valve actuators](https://www.produal.com/en/a.html) are operated with 24 VAC (wax motor[^3] type without direct position feedback).
 - The [mixing valve actuator](https://esbe.eu/group/products/rotary-actuators/ara600-3-point) is a stepper motor also operated with 24 VAC.
 - The zone valve actuators are controlled with ESPHome PWM.
 - The switching modules are equipped with [solid state relays](https://www.velleman.eu/products/view/?id=461412).
@@ -26,3 +26,4 @@ My home is a two floor detached building built in 2010. Insulation is quite good
 
 [^1]: [PI Parameter Influence on Underfloor Heating Energy Consumption and Setpoint Tracking in nZEBs](https://www.mdpi.com/1996-1073/13/8/2068)
 [^2]: [Reglering, om P-, I-, D-bidraget](https://www.bastec.se/anvandarmanual/reglering-p-i-d-bidraget/)
+[^3]: [Thermo-Electric Actuator](https://waxmotor.com/products/thermo-electric-actuator)
