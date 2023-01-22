@@ -13,6 +13,7 @@ Project to create a smart floor heating controller for private homes with a hydr
 - The zone valve actuators are controlled with ESPHome PWM.
 - The switching modules are equipped with [solid state relays](https://www.velleman.eu/products/view/?id=461412).
 - The controller can operate either 8 zone valve actuators or 6 zone valve actuators and 1 mixing valve actuator.
+- Integration with [Home Assistant](https://www.home-assistant.io/) is recommende. Sensor data and configuration parameters can be imported to operate the controller.
 
 If you preferr to replace the zone valve actuators with [proportinal servo actuators](https://homematic-ip.com/en/product/valve-drive-motorised), have a look at [this project](https://github.com/nliaudat/floor-heating-controller).
 
