@@ -1,4 +1,6 @@
 # fhc-pwm
+<!-- [![GitHub release (latest by date)](https://img.shields.io/github/v/release/jnasholm/fhc-pwm)](https://github.com/jnasholm/fhc-pwm/releases) -->
+<!-- ![GitHub last commit](https://img.shields.io/github/last-commit/jnasholm/fhc-pwm) -->
 
 # ESP32 SSR Floor Heating Controller with zone thermostats, modulated actuators and mixing valve control
 
