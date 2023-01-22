@@ -2,7 +2,7 @@
 
 # Input configuration room temperatures
 dallas:
-  - pin: GPIO21
+  - pin: GPIO13
     update_interval: 10s
 
 # Zone 1 temperature
