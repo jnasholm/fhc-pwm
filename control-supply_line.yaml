@@ -17,7 +17,7 @@ number:
     name: "$node_prefix framledningstemperatur p1"
     id: supply_temp_p1
     unit_of_measurement: "°C"
-    initial_value: 30
+    initial_value: 32
     restore_value: true
     optimistic: true
     max_value: 40
@@ -39,7 +39,7 @@ number:
     name: "$node_prefix framledningstemperatur p2"
     id: supply_temp_p2
     unit_of_measurement: "°C"
-    initial_value: 29
+    initial_value: 30
     restore_value: true
     optimistic: true
     max_value: 40
@@ -61,7 +61,7 @@ number:
     name: "$node_prefix framledningstemperatur p3"
     id: supply_temp_p3
     unit_of_measurement: "°C"
-    initial_value: 25
+    initial_value: 24
     restore_value: true
     optimistic: true
     max_value: 40
