@@ -34,6 +34,18 @@ output:
     pin:
       number: GPIO19
       inverted: true
+    # Link zone 5 actuator relay
+    turn_on_action:
+      - output.turn_on: zone5_modulation
+    turn_off_action:
+      - output.turn_off: zone5_modulation
+
+# Zone 5 actuator relay
+  - platform: gpio
+    id: zone5_modulation
+    pin:
+      number: GPIO22
+      inverted: true
 
 # Zone 5 actuator relay
 #  - platform: slow_pwm
@@ -84,7 +96,7 @@ output:
 # Zone 1 temperature controller
 climate:
   - platform: pid
-    name: "$zone1_name temperaturstyrning"
+    name: "$zone1_name"
     id: zone1_temperature_controller
     sensor: zone1_temperature
     default_target_temperature: 21°C
@@ -105,7 +117,7 @@ climate:
 
 # Zone 2 temperature controller
   - platform: pid
-    name: "$zone2_name temperaturstyrning"
+    name: "$zone2_name"
     id: zone2_temperature_controller
     sensor: zone2_temperature
     default_target_temperature: 21°C
@@ -126,7 +138,7 @@ climate:
 
 # Zone 3 temperature controller
   - platform: pid
-    name: "$zone3_name temperaturstyrning"
+    name: "$zone3_name"
     id: zone3_temperature_controller
     sensor: zone3_temperature
     default_target_temperature: 21°C
@@ -147,7 +159,7 @@ climate:
 
 # Zone 4 temperature controller
   - platform: pid
-    name: "$zone4_name temperaturstyrning"
+    name: "$zone4_name"
     id: zone4_temperature_controller
     sensor: zone4_temperature
     default_target_temperature: 21°C
@@ -168,7 +180,7 @@ climate:
 
 # Zone 5 temperature controller
 #  - platform: pid
-#    name: "$zone5_name temperaturstyrning"
+#    name: "$zone5_name"
 #    id: zone5_temperature_controller
 #    sensor: zone5_temperature
 #    default_target_temperature: 21°C
@@ -189,7 +201,7 @@ climate:
 
 # Zone 6 temperature controller
 #  - platform: pid
-#    name: "$zone6_name temperaturstyrning"
+#    name: "$zone6_name"
 #    id: zone6_temperature_controller
 #    sensor: zone6_temperature
 #    default_target_temperature: 21°C
@@ -210,7 +222,7 @@ climate:
 
 # Zone 7 temperature controller
 #  - platform: pid
-#    name: "$zone7_name temperaturstyrning"
+#    name: "$zone7_name"
 #    id: zone4_temperature_controller
 #    sensor: zone4_temperature
 #    default_target_temperature: 21°C
@@ -231,7 +243,7 @@ climate:
 
 # Zone 8 temperature controller
 #  - platform: pid
-#    name: "$zone8_name temperaturstyrning"
+#    name: "$zone8_name"
 #    id: zone4_temperature_controller
 #    sensor: zone4_temperature
 #    default_target_temperature: 21°C

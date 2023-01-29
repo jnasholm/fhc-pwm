@@ -115,7 +115,7 @@ number:
 # Supply line temperature as function of outdoor temperature
 sensor:
   - platform: template
-    name: "$node_prefix framledningstemperatur"
+    name: "$node_prefix framledning"
     id: ${node_name}_supply_line_target_temperature
     icon: "mdi:thermometer"
     unit_of_measurement: "°C"

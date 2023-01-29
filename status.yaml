@@ -23,7 +23,7 @@ light:
       - pulse:
           name: "heating"
           transition_length: 0.2s
-          update_interval: 1s
+          update_interval: 0.8s
       - pulse:
           name: "idle"
           transition_length: 0.2s
