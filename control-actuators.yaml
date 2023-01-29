@@ -1,4 +1,4 @@
-# Modulation configuration
+# Zone actuators modulation configuration
 
 # Relay configuration
 
@@ -34,13 +34,13 @@ output:
     pin:
       number: GPIO19
       inverted: true
-    # Link zone 5 actuator relay
+# Link zone 5 actuator relay to zone 4
     turn_on_action:
       - output.turn_on: zone5_modulation
     turn_off_action:
       - output.turn_off: zone5_modulation
 
-# Zone 5 actuator relay
+# Zone 5 actuator linked relay
   - platform: gpio
     id: zone5_modulation
     pin:

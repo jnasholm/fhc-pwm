@@ -34,7 +34,7 @@ switch:
   - platform: template
     name: "$node_prefix aktiv reglering"
     id: floor_heating_controller_state_indication
-    icon: "mdi:car-cruise-control"
+    icon: "mdi:thermostat-auto"
     lambda: |-
       if (id(floor_heating_controller_state).state) {
         return true;
