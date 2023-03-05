@@ -8,49 +8,49 @@ dallas:
 # Zone 1 temperature
 sensor:
   - platform: dallas
-    name: "$zone1_name temperatur"
+    name: $zone1_name temperatur
     id: zone1_temperature
     address: 0x6C00000CA32B7B_S1
     resolution: 12
 # Zone 2 temperature
   - platform: dallas
-    name: "$zone2_name temperatur"
+    name: $zone2_name temperatur
     id: zone2_temperature
     address: 0x6C00000CA32B7B_S2
     resolution: 12
 # Zone 3 temperature
   - platform: dallas
-    name: "$zone3_name temperatur"
+    name: $zone3_name temperatur
     id: zone3_temperature
     address: 0x6C00000CA32B7B_S3
     resolution: 12
 # Zone 4 temperature
   - platform: dallas
-    name: "$zone4_name temperatur"
+    name: $zone4_name temperatur
     id: zone4_temperature
     address: 0x6C00000CA32B7B_S4
     resolution: 12
 # Zone 5 temperature
 #  - platform: dallas
-#    name: "$zone5_name temperatur"
+#    name: $zone5_name temperatur
 #    id: zone5_temperature
 #    address: 0x6C00000CA32B7B_S5
 #    resolution: 12
 # Zone 6 temperature
 #  - platform: dallas
-#    name: "$zone6_name temperatur"
+#    name: $zone6_name temperatur
 #    id: zone6_temperature
 #    address: 0x6C00000CA32B7B_S6
 #    resolution: 12
 # Zone 7 temperature
 #  - platform: dallas
-#    name: "$zone7_name temperatur"
+#    name: $zone7_name temperatur
 #    id: zone7_temperature
 #    address: 0x6C00000CA32B7B_S7
 #    resolution: 12
 # Zone 8 temperature
 #  - platform: dallas
-#    name: "$zone8_name temperatur"
+#    name: $zone8_name temperatur
 #    id: zone8_temperature
 #    address: 0x6C00000CA32B7B_S8
 #    resolution: 12

@@ -35,7 +35,7 @@ output:
 #   Derivative constant, kd:     6.0       (Td/Ts)
 climate:
   - platform: pid
-    name: "$node_prefix framledningsreglering"
+    name: $node_prefix framledningsreglering
     id: ${node_name}_supply_line_controller
     sensor: ${node_name}_supply_line_temperature
     default_target_temperature: 21°C
@@ -51,23 +51,23 @@ climate:
       threshold_high: 0.4°C
       threshold_low: -0.2°C
     visual:
-      min_temperature: 20 °C
-      max_temperature: 35 °C
-      temperature_step: 0.1 °C
+      min_temperature: 20°C
+      max_temperature: 35°C
+      temperature_step: 0.1°C
 
 # Supply line controller modulation level decrease
 sensor:
   - platform: pid
-    name: "$node_prefix reglernivå minska"
+    name: $node_prefix reglernivå minska
     id: ${node_name}_supply_line_modulation_level_decrease
-    icon: "mdi:chart-bell-curve-cumulative"
+    icon: mdi:chart-bell-curve-cumulative
     climate_id: ${node_name}_supply_line_controller
     type: COOL
 # Supply line controller modulation level increase
   - platform: pid
-    name: "$node_prefix reglernivå öka"
+    name: $node_prefix reglernivå öka
     id: ${node_name}_supply_line_modulation_level_increase
-    icon: "mdi:chart-bell-curve-cumulative"
+    icon: mdi:chart-bell-curve-cumulative
     climate_id: ${node_name}_supply_line_controller
     type: HEAT
 
@@ -75,7 +75,7 @@ sensor:
 binary_sensor:
 # Decrease
   - platform: template
-    name: "$node_prefix minska"
+    name: $node_prefix minska
     id: ${node_name}_mixing_valve_status_decrease
     icon: mdi:minus-circle
     filters:
@@ -91,7 +91,7 @@ binary_sensor:
       }
 # Neutral
   - platform: template
-    name: "$node_prefix neutral"
+    name: $node_prefix neutral
     id: ${node_name}_mixing_valve_status_neutral
     icon: mdi:circle-outline
     filters:
@@ -107,7 +107,7 @@ binary_sensor:
       }
 # Increase
   - platform: template
-    name: "$node_prefix öka"
+    name: $node_prefix öka
     id: ${node_name}_mixing_valve_status_increase
     icon: mdi:plus-circle
     filters:

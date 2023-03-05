@@ -8,29 +8,29 @@ dallas:
 # Floor heating distributor supply, return and mixing lines
 sensor:
   - platform: dallas
-    name: "$node_prefix tillopp"
+    name: $node_prefix tillopp
     id: ${node_name}_supply_line_temperature
     address: 0x6C00000CA32B7B_S1
     resolution: 12
   - platform: dallas
-    name: "$node_prefix retur"
+    name: $node_prefix retur
     id: ${node_name}_return_line_temperature
     address: 0x6C00000CA32B7B_S2
     resolution: 12
   - platform: dallas
-    name: "$node_prefix blandning"
+    name: $node_prefix blandning
     id: ${node_name}_mixing_line_temperature
     address: 0x6C00000CA32B7B_S3
     resolution: 12
 
 # Heat source supply and return lines
   - platform: dallas
-    name: "$node_prefix framledning"
+    name: $node_prefix framledning
     id: ${node_name}_supply_line_temperature
     address: 0x6C00000CA32B7B_S4
     resolution: 12
   - platform: dallas
-    name: "$node_prefix returledning"
+    name: $node_prefix returledning
     id: ${node_name}_return_line_temperature
     address: 0x6C00000CA32B7B_S5
     resolution: 12

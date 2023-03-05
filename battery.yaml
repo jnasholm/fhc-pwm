@@ -4,7 +4,7 @@
 sensor:
   - platform: adc
     pin: GPIO35
-    name: "$node_prefix batteri"
+    name: $node_prefix batteri
     icon: mdi:battery
     attenuation: auto
     filters:
@@ -13,7 +13,7 @@ sensor:
 # Charging voltage sensor
   - platform: adc
     pin: GPIO39
-    name: "$node_prefix laddning"
+    name: $node_prefix laddning
     icon: mdi:lightning-bolt
     attenuation: auto
     filters:

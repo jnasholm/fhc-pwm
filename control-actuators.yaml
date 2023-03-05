@@ -96,7 +96,7 @@ output:
 # Zone 1 temperature controller
 climate:
   - platform: pid
-    name: "$zone1_name"
+    name: $zone1_name
     id: zone1_temperature_controller
     sensor: zone1_temperature
     default_target_temperature: 21°C
@@ -111,13 +111,13 @@ climate:
       threshold_high: 0.4°C
       threshold_low: -0.2°C
     visual:
-      min_temperature: 17 °C
-      max_temperature: 25 °C
-      temperature_step: 0.1 °C
+      min_temperature: 17°C
+      max_temperature: 25°C
+      temperature_step: 0.1°C
 
 # Zone 2 temperature controller
   - platform: pid
-    name: "$zone2_name"
+    name: $zone2_name
     id: zone2_temperature_controller
     sensor: zone2_temperature
     default_target_temperature: 21°C
@@ -132,13 +132,13 @@ climate:
       threshold_high: 0.4°C
       threshold_low: -0.2°C
     visual:
-      min_temperature: 17 °C
-      max_temperature: 25 °C
-      temperature_step: 0.1 °C
+      min_temperature: 17°C
+      max_temperature: 25°C
+      temperature_step: 0.1°C
 
 # Zone 3 temperature controller
   - platform: pid
-    name: "$zone3_name"
+    name: $zone3_name
     id: zone3_temperature_controller
     sensor: zone3_temperature
     default_target_temperature: 21°C
@@ -153,13 +153,13 @@ climate:
       threshold_high: 0.4°C
       threshold_low: -0.2°C
     visual:
-      min_temperature: 17 °C
-      max_temperature: 25 °C
-      temperature_step: 0.1 °C
+      min_temperature: 17°C
+      max_temperature: 25°C
+      temperature_step: 0.1°C
 
 # Zone 4 temperature controller
   - platform: pid
-    name: "$zone4_name"
+    name: $zone4_name
     id: zone4_temperature_controller
     sensor: zone4_temperature
     default_target_temperature: 21°C
@@ -174,13 +174,13 @@ climate:
       threshold_high: 0.4°C
       threshold_low: -0.2°C
     visual:
-      min_temperature: 17 °C
-      max_temperature: 25 °C
-      temperature_step: 0.1 °C
+      min_temperature: 17°C
+      max_temperature: 25°C
+      temperature_step: 0.1°C
 
 # Zone 5 temperature controller
 #  - platform: pid
-#    name: "$zone5_name"
+#    name: $zone5_name
 #    id: zone5_temperature_controller
 #    sensor: zone5_temperature
 #    default_target_temperature: 21°C
@@ -195,13 +195,13 @@ climate:
 #      threshold_high: 0.4°C
 #      threshold_low: -0.2°C
 #    visual:
-#      min_temperature: 17 °C
-#      max_temperature: 25 °C
-#      temperature_step: 0.1 °C
+#      min_temperature: 17°C
+#      max_temperature: 25°C
+#      temperature_step: 0.1°C
 
 # Zone 6 temperature controller
 #  - platform: pid
-#    name: "$zone6_name"
+#    name: $zone6_name
 #    id: zone6_temperature_controller
 #    sensor: zone6_temperature
 #    default_target_temperature: 21°C
@@ -216,13 +216,13 @@ climate:
 #      threshold_high: 0.4°C
 #      threshold_low: -0.2°C
 #    visual:
-#      min_temperature: 17 °C
-#      max_temperature: 25 °C
-#      temperature_step: 0.1 °C
+#      min_temperature: 17°C
+#      max_temperature: 25°C
+#      temperature_step: 0.1°C
 
 # Zone 7 temperature controller
 #  - platform: pid
-#    name: "$zone7_name"
+#    name: $zone7_name
 #    id: zone4_temperature_controller
 #    sensor: zone4_temperature
 #    default_target_temperature: 21°C
@@ -237,13 +237,13 @@ climate:
 #      threshold_high: 0.4°C
 #      threshold_low: -0.2°C
 #    visual:
-#      min_temperature: 17 °C
-#      max_temperature: 25 °C
-#      temperature_step: 0.1 °C
+#      min_temperature: 17°C
+#      max_temperature: 25°C
+#      temperature_step: 0.1°C
 
 # Zone 8 temperature controller
 #  - platform: pid
-#    name: "$zone8_name"
+#    name: $zone8_name
 #    id: zone4_temperature_controller
 #    sensor: zone4_temperature
 #    default_target_temperature: 21°C
@@ -258,72 +258,72 @@ climate:
 #      threshold_high: 0.4°C
 #      threshold_low: -0.2°C
 #    visual:
-#      min_temperature: 17 °C
-#      max_temperature: 25 °C
-#      temperature_step: 0.1 °C
+#      min_temperature: 17°C
+#      max_temperature: 25°C
+#      temperature_step: 0.1°C
 
 # Zone 1 actuator modulation level
 sensor:
   - platform: pid
-    name: "$zone1_name reglernivå"
+    name: $zone1_name reglernivå
     id: zone1_modulation_level
-    icon: "mdi:chart-bell-curve-cumulative"
+    icon: mdi:chart-bell-curve-cumulative
     climate_id: zone1_temperature_controller
     type: HEAT
 
 # Zone 2 actuator modulation level
   - platform: pid
-    name: "$zone2_name reglernivå"
+    name: $zone2_name reglernivå
     id: zone2_modulation_level
-    icon: "mdi:chart-bell-curve-cumulative"
+    icon: mdi:chart-bell-curve-cumulative
     climate_id: zone2_temperature_controller
     type: HEAT
 
 # Zone 3 actuator modulation level
   - platform: pid
-    name: "$zone3_name reglernivå"
+    name: $zone3_name reglernivå
     id: zone3_modulation_level
-    icon: "mdi:chart-bell-curve-cumulative"
+    icon: mdi:chart-bell-curve-cumulative
     climate_id: zone3_temperature_controller
     type: HEAT
 
 # Zone 4 actuator modulation level
   - platform: pid
-    name: "$zone4_name reglernivå"
+    name: $zone4_name reglernivå
     id: zone4_modulation_level
-    icon: "mdi:chart-bell-curve-cumulative"
+    icon: mdi:chart-bell-curve-cumulative
     climate_id: zone4_temperature_controller
     type: HEAT
 
 # Zone 5 actuator modulation level
 #  - platform: pid
-#    name: "$zone5_name reglernivå"
+#    name: $zone5_name reglernivå
 #    id: zone6_modulation_level
-#    icon: "mdi:chart-bell-curve-cumulative"
+#    icon: mdi:chart-bell-curve-cumulative
 #    climate_id: zone6_temperature_controller
 #    type: HEAT
 
 # Zone 6 actuator modulation level
 #  - platform: pid
-#    name: "$zone6_name reglernivå"
+#    name: $zone6_name reglernivå
 #    id: zone6_modulation_level
-#    icon: "mdi:chart-bell-curve-cumulative"
+#    icon: mdi:chart-bell-curve-cumulative
 #    climate_id: zone6_temperature_controller
 #    type: HEAT
 
 # Zone 7 actuator modulation level
 #  - platform: pid
-#    name: "$zone7_name reglernivå"
+#    name: $zone7_name reglernivå
 #    id: zone7_modulation_level
-#    icon: "mdi:chart-bell-curve-cumulative"
+#    icon: mdi:chart-bell-curve-cumulative
 #    climate_id: zone7_temperature_controller
 #    type: HEAT
 
 # Zone 8 actuator modulation level
 #  - platform: pid
-#    name: "$zone8_name reglernivå"
+#    name: $zone8_name reglernivå
 #    id: zone8_modulation_level
-#    icon: "mdi:chart-bell-curve-cumulative"
+#    icon: mdi:chart-bell-curve-cumulative
 #    climate_id: zone8_temperature_controller
 #    type: HEAT
 
@@ -332,9 +332,9 @@ sensor:
 # Zone 1 actuator
 binary_sensor:
   - platform: template
-    name: "$zone1_name aktiv"
+    name: $zone1_name aktiv
     id: zone1_actuator_status
-    icon: "mdi:circle-slice-8"
+    icon: mdi:circle-slice-8
     filters:
       - delayed_on_off: 400ms
     lambda: |-
@@ -346,9 +346,9 @@ binary_sensor:
 
 # Zone 2 actuator
   - platform: template
-    name: "$zone2_name aktiv"
+    name: $zone2_name aktiv
     id: zone2_actuator_status
-    icon: "mdi:circle-slice-8"
+    icon: mdi:circle-slice-8
     filters:
       - delayed_on_off: 400ms
     lambda: |-
@@ -360,9 +360,9 @@ binary_sensor:
 
 # Zone 3 actuator
   - platform: template
-    name: "$zone3_name aktiv"
+    name: $zone3_name aktiv
     id: zone3_actuator_status
-    icon: "mdi:circle-slice-8"
+    icon: mdi:circle-slice-8
     filters:
       - delayed_on_off: 400ms
     lambda: |-
@@ -374,9 +374,9 @@ binary_sensor:
 
 # Zone 4 actuator
   - platform: template
-    name: "$zone4_name aktiv"
+    name: $zone4_name aktiv
     id: zone4_actuator_status
-    icon: "mdi:circle-slice-8"
+    icon: mdi:circle-slice-8
     filters:
       - delayed_on_off: 400ms
     lambda: |-
@@ -388,9 +388,9 @@ binary_sensor:
 
 # Zone 5 actuator
 #  - platform: template
-#    name: "$zone5_name aktiv"
+#    name: $zone5_name aktiv
 #    id: zone5_actuator_status
-#    icon: "mdi:circle-slice-8"
+#    icon: mdi:circle-slice-8
 #    filters:
 #      - delayed_on_off: 400ms
 #    lambda: |-
@@ -402,9 +402,9 @@ binary_sensor:
 
 # Zone 6 actuator
 #  - platform: template
-#    name: "$zone6_name aktiv"
+#    name: $zone6_name aktiv
 #    id: zone6_actuator_status
-#    icon: "mdi:circle-slice-8"
+#    icon: mdi:circle-slice-8
 #    filters:
 #      - delayed_on_off: 400ms
 #    lambda: |-
@@ -416,9 +416,9 @@ binary_sensor:
 
 # Zone 7 actuator
 #  - platform: template
-#    name: "$zone7_name aktiv"
+#    name: $zone7_name aktiv
 #    id: zone7_actuator_status
-#    icon: "mdi:circle-slice-8"
+#    icon: mdi:circle-slice-8
 #    filters:
 #      - delayed_on_off: 400ms
 #    lambda: |-
@@ -430,9 +430,9 @@ binary_sensor:
 
 # Zone 8 actuator
 #  - platform: template
-#    name: "$zone8_name aktiv"
+#    name: $zone8_name aktiv
 #    id: zone8_actuator_status
-#    icon: "mdi:circle-slice-8"
+#    icon: mdi:circle-slice-8
 #    filters:
 #      - delayed_on_off: 400ms
 #    lambda: |-

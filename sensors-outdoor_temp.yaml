@@ -8,7 +8,7 @@ dallas:
 # Outdoor temperature
 sensor:
   - platform: dallas
-    name: "$node_prefix utetemperatur"
+    name: $node_prefix utetemperatur
     id: outdoor_temperature
     address: 0x6C00000CA32B7B_S10
     resolution: 12

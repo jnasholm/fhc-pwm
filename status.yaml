@@ -9,32 +9,32 @@ output:
 # System status indicator
 light:
   - platform: status_led
-    name: "$node_prefix systemstatus"
+    name: $node_prefix systemstatus
     id: system_status_indicator
     pin:
       number: GPIO32
       inverted: true
 # Controller status indicator
   - platform: monochromatic
-    name: "$node_prefix reglerstatus"
+    name: $node_prefix reglerstatus
     id: controller_status_indicator
     output: floor_heating_controller_status
     effects:
       - pulse:
-          name: "heating"
+          name: heating
           transition_length: 0.2s
           update_interval: 0.8s
       - pulse:
-          name: "idle"
+          name: idle
           transition_length: 0.2s
           update_interval: 4s
 
 # Controller operational state indication
 switch:
   - platform: template
-    name: "$node_prefix aktiv reglering"
+    name: $node_prefix aktiv reglering
     id: floor_heating_controller_state_indication
-    icon: "mdi:thermostat-auto"
+    icon: mdi:thermostat-auto
     lambda: |-
       if (id(floor_heating_controller_state).state) {
         return true;

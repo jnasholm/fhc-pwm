@@ -4,14 +4,14 @@
 time:
   - platform: sntp
     id: sntp_time
-    timezone : "Europe/Stockholm"
+    timezone: "Europe/Stockholm"
     servers: [ 0.pool.ntp.org, 1.pool.ntp.org, 2.pool.ntp.org ]
 
 # Current time in controller
 text_sensor:
   - platform: template
-    name: "$node_prefix tid"
-    icon: "mdi:clock-outline"
+    name: $node_prefix tid
+    icon: mdi:clock-outline
     id: floor_heating_current_time
     update_interval: 60s
     lambda: |-
