@@ -1,6 +1,6 @@
 # Supply line temperature configuration
 
-# Supply line temperature definition points, p1 to p4
+# Supply line temperature definition points, p1 to p5
 number:
   - platform: template
     name: $node_prefix utetemperatur p1
@@ -50,7 +50,7 @@ number:
     name: $node_prefix utetemperatur p3
     id: outdoor_temp_p3
     unit_of_measurement: °C
-    initial_value: 5
+    initial_value: 0
     restore_value: true
     optimistic: true
     max_value: 20
@@ -61,7 +61,7 @@ number:
     name: $node_prefix framledningstemperatur p3
     id: supply_temp_p3
     unit_of_measurement: °C
-    initial_value: 24
+    initial_value: 27
     restore_value: true
     optimistic: true
     max_value: 40
@@ -72,7 +72,7 @@ number:
     name: $node_prefix utetemperatur p4
     id: outdoor_temp_p4
     unit_of_measurement: °C
-    initial_value: 20
+    initial_value: 5
     restore_value: true
     optimistic: true
     max_value: 20
@@ -82,6 +82,28 @@ number:
   - platform: template
     name: $node_prefix framledningstemperatur p4
     id: supply_temp_p4
+    unit_of_measurement: °C
+    initial_value: 24
+    restore_value: true
+    optimistic: true
+    max_value: 40
+    min_value: 20
+    step: 1
+    mode: box
+  - platform: template
+    name: $node_prefix utetemperatur p5
+    id: outdoor_temp_p5
+    unit_of_measurement: °C
+    initial_value: 20
+    restore_value: true
+    optimistic: true
+    max_value: 20
+    min_value: -20
+    step: 1
+    mode: box
+  - platform: template
+    name: $node_prefix framledningstemperatur p5
+    id: supply_temp_p5
     unit_of_measurement: °C
     initial_value: 22
     restore_value: true
@@ -156,11 +178,21 @@ sensor:
         }
       }
       /* Linear interpolation (p3,p4) */
-      if (temp_od >= id(outdoor_temp_p3).state) {
+      if ((temp_od >= id(outdoor_temp_p3).state) && (temp_od < id(outdoor_temp_p4).state)) {
         float od_1 = id(outdoor_temp_p3).state;
         float od_2 = id(outdoor_temp_p4).state;
         float sl_1 = id(supply_temp_p3).state;
         float sl_2 = id(supply_temp_p4).state;
+        if (od_2 - od_1 != 0) {
+          temp_sl = sl_1 + (sl_2 - sl_1)/(od_2 - od_1) * (temp_od - od_1);
+        }
+      }
+      /* Linear interpolation (p4,p5) */
+      if (temp_od >= id(outdoor_temp_p4).state) {
+        float od_1 = id(outdoor_temp_p4).state;
+        float od_2 = id(outdoor_temp_p5).state;
+        float sl_1 = id(supply_temp_p4).state;
+        float sl_2 = id(supply_temp_p5).state;
         if (od_2 - od_1 != 0) {
           temp_sl = sl_1 + (sl_2 - sl_1)/(od_2 - od_1) * (temp_od - od_1);
         }
