@@ -18,6 +18,20 @@ http_request:
   useragent: esphome/device
   timeout: 10s
 
+# Check circulation pump relay status at specific interval
+interval:
+  - interval: 60s
+    then:
+      - http_request.get:
+          url: !lambda |-
+            return ((std::string) "http://" + id(${node_name}_circulation_pump_relay_ip).state + "/rpc/Switch.GetStatus?id=0").c_str();
+          on_response:
+            then:
+              - lambda: |-
+                  json::parse_json(id(${node_name}_http_request_data).get_string(), [](JsonObject root) {
+                      id(${node_name}_circulation_pump_status).publish_state(root["output"]);
+                  });
+
 # Circulation pump relay control
 switch:
   - platform: template
@@ -55,13 +69,14 @@ binary_sensor:
     icon: mdi:lightning-bolt-circle
     filters:
       - delayed_on_off: 400ms
-    on_state:
-      - http_request.get:
-          url: !lambda |-
-            return ((std::string) "http://" + id(${node_name}_circulation_pump_relay_ip).state + "/rpc/Switch.GetStatus?id=0").c_str();
-          on_response:
-            then:
-              - lambda: |-
-                  json::parse_json(id(${node_name}_http_request_data).get_string(), [](JsonObject root) {
-                      id(${node_name}_circulation_pump_status).publish_state(root["output"]);
-                  });
+
+#    on_state:
+#      - http_request.get:
+#          url: !lambda |-
+#            return ((std::string) "http://" + id(${node_name}_circulation_pump_relay_ip).state + "/rpc/Switch.GetStatus?id=0").c_str();
+#          on_response:
+#            then:
+#              - lambda: |-
+#                  json::parse_json(id(${node_name}_http_request_data).get_string(), [](JsonObject root) {
+#                      id(${node_name}_circulation_pump_status).publish_state(root["output"]);
+#                  });
