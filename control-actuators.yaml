@@ -99,7 +99,7 @@ climate:
     name: $zone1_name
     id: zone1_temperature_controller
     sensor: zone1_temperature
-    default_target_temperature: 21°C
+    default_target_temperature: 21.0°C
     heat_output: zone1_modulation
     control_parameters:
       kp: 10.6
@@ -111,8 +111,8 @@ climate:
       threshold_high: 0.4°C
       threshold_low: -0.2°C
     visual:
-      min_temperature: 17°C
-      max_temperature: 25°C
+      min_temperature: 17.0°C
+      max_temperature: 25.0°C
       temperature_step: 0.1°C
 
 # Zone 2 temperature controller
@@ -120,7 +120,7 @@ climate:
     name: $zone2_name
     id: zone2_temperature_controller
     sensor: zone2_temperature
-    default_target_temperature: 21°C
+    default_target_temperature: 21.0°C
     heat_output: zone2_modulation
     control_parameters:
       kp: 10.6
@@ -132,8 +132,8 @@ climate:
       threshold_high: 0.4°C
       threshold_low: -0.2°C
     visual:
-      min_temperature: 17°C
-      max_temperature: 25°C
+      min_temperature: 17.0°C
+      max_temperature: 25.0°C
       temperature_step: 0.1°C
 
 # Zone 3 temperature controller
@@ -141,7 +141,7 @@ climate:
     name: $zone3_name
     id: zone3_temperature_controller
     sensor: zone3_temperature
-    default_target_temperature: 21°C
+    default_target_temperature: 21.0°C
     heat_output: zone3_modulation
     control_parameters:
       kp: 10.6
@@ -153,8 +153,8 @@ climate:
       threshold_high: 0.4°C
       threshold_low: -0.2°C
     visual:
-      min_temperature: 17°C
-      max_temperature: 25°C
+      min_temperature: 17.0°C
+      max_temperature: 25.0°C
       temperature_step: 0.1°C
 
 # Zone 4 temperature controller
@@ -162,7 +162,7 @@ climate:
     name: $zone4_name
     id: zone4_temperature_controller
     sensor: zone4_temperature
-    default_target_temperature: 21°C
+    default_target_temperature: 21.0°C
     heat_output: zone4_modulation
     control_parameters:
       kp: 10.6
@@ -174,8 +174,8 @@ climate:
       threshold_high: 0.4°C
       threshold_low: -0.2°C
     visual:
-      min_temperature: 17°C
-      max_temperature: 25°C
+      min_temperature: 17.0°C
+      max_temperature: 25.0°C
       temperature_step: 0.1°C
 
 # Zone 5 temperature controller
@@ -183,7 +183,7 @@ climate:
 #    name: $zone5_name
 #    id: zone5_temperature_controller
 #    sensor: zone5_temperature
-#    default_target_temperature: 21°C
+#    default_target_temperature: 21.0°C
 #    heat_output: zone5_modulation
 #    control_parameters:
 #      kp: 10.6
@@ -195,8 +195,8 @@ climate:
 #      threshold_high: 0.4°C
 #      threshold_low: -0.2°C
 #    visual:
-#      min_temperature: 17°C
-#      max_temperature: 25°C
+#      min_temperature: 17.0°C
+#      max_temperature: 25.0°C
 #      temperature_step: 0.1°C
 
 # Zone 6 temperature controller
@@ -204,7 +204,7 @@ climate:
 #    name: $zone6_name
 #    id: zone6_temperature_controller
 #    sensor: zone6_temperature
-#    default_target_temperature: 21°C
+#    default_target_temperature: 21.0°C
 #    heat_output: zone6_modulation
 #    control_parameters:
 #      kp: 10.6
@@ -216,8 +216,8 @@ climate:
 #      threshold_high: 0.4°C
 #      threshold_low: -0.2°C
 #    visual:
-#      min_temperature: 17°C
-#      max_temperature: 25°C
+#      min_temperature: 17.0°C
+#      max_temperature: 25.0°C
 #      temperature_step: 0.1°C
 
 # Zone 7 temperature controller
@@ -225,7 +225,7 @@ climate:
 #    name: $zone7_name
 #    id: zone4_temperature_controller
 #    sensor: zone4_temperature
-#    default_target_temperature: 21°C
+#    default_target_temperature: 21.0°C
 #    heat_output: zone4_modulation
 #    control_parameters:
 #      kp: 10.6
@@ -237,8 +237,8 @@ climate:
 #      threshold_high: 0.4°C
 #      threshold_low: -0.2°C
 #    visual:
-#      min_temperature: 17°C
-#      max_temperature: 25°C
+#      min_temperature: 17.0°C
+#      max_temperature: 25.0°C
 #      temperature_step: 0.1°C
 
 # Zone 8 temperature controller
@@ -246,7 +246,7 @@ climate:
 #    name: $zone8_name
 #    id: zone4_temperature_controller
 #    sensor: zone4_temperature
-#    default_target_temperature: 21°C
+#    default_target_temperature: 21.0°C
 #    heat_output: zone4_modulation
 #    control_parameters:
 #      kp: 10.6
@@ -258,8 +258,8 @@ climate:
 #      threshold_high: 0.4°C
 #      threshold_low: -0.2°C
 #    visual:
-#      min_temperature: 17°C
-#      max_temperature: 25°C
+#      min_temperature: 17.0°C
+#      max_temperature: 25.0°C
 #      temperature_step: 0.1°C
 
 # Zone 1 actuator modulation level
