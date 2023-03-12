@@ -38,7 +38,7 @@ climate:
     name: $node_prefix framledningsreglering
     id: ${node_name}_supply_line_controller
     sensor: ${node_name}_supply_line_temperature
-    default_target_temperature: 21°C
+    default_target_temperature: 21.0°C
     heat_output: ${node_name}_mixing_valve_actuator_increase
     cool_output: ${node_name}_mixing_valve_actuator_decrease
     control_parameters:
@@ -51,8 +51,8 @@ climate:
       threshold_high: 0.4°C
       threshold_low: -0.2°C
     visual:
-      min_temperature: 20°C
-      max_temperature: 35°C
+      min_temperature: 20.0°C
+      max_temperature: 35.0°C
       temperature_step: 0.1°C
 
 # Supply line controller modulation level decrease
