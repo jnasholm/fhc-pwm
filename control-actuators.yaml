@@ -4,33 +4,33 @@
 
 # Zone 1 actuator relay
 output:
-  - platform: slow_pwm
+  - platform: sigma_delta_output
     id: zone1_modulation
-    period: 20s
+    update_interval: 10s
     pin:
       number: GPIO16
       inverted: true
   
 # Zone 2 actuator relay
-  - platform: slow_pwm
+  - platform: sigma_delta_output
     id: zone2_modulation
-    period: 20s
+    update_interval: 10s
     pin:
       number: GPIO17
       inverted: true
 
 # Zone 3 actuator relay
-  - platform: slow_pwm
+  - platform: sigma_delta_output
     id: zone3_modulation
-    period: 20s
+    update_interval: 10s
     pin:
       number: GPIO18
       inverted: true
 
 # Zone 4 actuator relay
-  - platform: slow_pwm
+  - platform: sigma_delta_output
     id: zone4_modulation
-    period: 20s
+    update_interval: 10s
     pin:
       number: GPIO19
       inverted: true
@@ -48,33 +48,33 @@ output:
       inverted: true
 
 # Zone 5 actuator relay
-#  - platform: slow_pwm
+#  - platform: sigma_delta_output
 #    id: zone5_modulation
-#    period: 20s
+#    update_interval: 10s
 #    pin:
 #      number: GPIO22
 #      inverted: true
 
 # Zone 6 actuator relay
-#  - platform: slow_pwm
+#  - platform: sigma_delta_output
 #    id: zone6_modulation
-#    period: 20s
+#    update_interval: 10s
 #    pin:
 #      number: GPIO23
 #      inverted: true
 
 # Zone 7 actuator relay
-#  - platform: slow_pwm
+#  - platform: sigma_delta_output
 #    id: zone7_modulation
-#    period: 20s
+#    update_interval: 10s
 #    pin:
 #      number: GPIO25
 #      inverted: true
 
 # Zone 8 actuator relay
-#  - platform: slow_pwm
+#  - platform: sigma_delta_output
 #    id: zone8_modulation
-#    period: 20s
+#    update_interval: 10s
 #    pin:
 #      number: GPIO26
 #      inverted: true
