@@ -6,110 +6,110 @@ number:
     name: $node_prefix utetemperatur p1
     id: outdoor_temp_p1
     unit_of_measurement: °C
-    initial_value: -10
+    initial_value: -10.0
     restore_value: true
     optimistic: true
-    max_value: 20
-    min_value: -20
+    max_value: 30.0
+    min_value: -20.0
     step: 1
     mode: box
   - platform: template
     name: $node_prefix framledningstemperatur p1
     id: supply_temp_p1
     unit_of_measurement: °C
-    initial_value: 32
+    initial_value: 32.0
     restore_value: true
     optimistic: true
-    max_value: 40
-    min_value: 20
+    max_value: 40.0
+    min_value: 20.0
     step: 1
     mode: box
   - platform: template
     name: $node_prefix utetemperatur p2
     id: outdoor_temp_p2
     unit_of_measurement: °C
-    initial_value: -5
+    initial_value: -5.0
     restore_value: true
     optimistic: true
-    max_value: 20
-    min_value: -20
+    max_value: 30.0
+    min_value: -20.0
     step: 1
     mode: box
   - platform: template
     name: $node_prefix framledningstemperatur p2
     id: supply_temp_p2
     unit_of_measurement: °C
-    initial_value: 30
+    initial_value: 30.0
     restore_value: true
     optimistic: true
-    max_value: 40
-    min_value: 20
+    max_value: 40.0
+    min_value: 20.0
     step: 1
     mode: box
   - platform: template
     name: $node_prefix utetemperatur p3
     id: outdoor_temp_p3
     unit_of_measurement: °C
-    initial_value: 0
+    initial_value: 0.0
     restore_value: true
     optimistic: true
-    max_value: 20
-    min_value: -20
+    max_value: 30.0
+    min_value: -20.0
     step: 1
     mode: box
   - platform: template
     name: $node_prefix framledningstemperatur p3
     id: supply_temp_p3
     unit_of_measurement: °C
-    initial_value: 27
+    initial_value: 27.0
     restore_value: true
     optimistic: true
-    max_value: 40
-    min_value: 20
+    max_value: 40.0
+    min_value: 20.0
     step: 1
     mode: box
   - platform: template
     name: $node_prefix utetemperatur p4
     id: outdoor_temp_p4
     unit_of_measurement: °C
-    initial_value: 5
+    initial_value: 5.0
     restore_value: true
     optimistic: true
-    max_value: 20
-    min_value: -20
+    max_value: 30.0
+    min_value: -20.0
     step: 1
     mode: box
   - platform: template
     name: $node_prefix framledningstemperatur p4
     id: supply_temp_p4
     unit_of_measurement: °C
-    initial_value: 24
+    initial_value: 24.0
     restore_value: true
     optimistic: true
-    max_value: 40
-    min_value: 20
+    max_value: 40.0
+    min_value: 20.0
     step: 1
     mode: box
   - platform: template
     name: $node_prefix utetemperatur p5
     id: outdoor_temp_p5
     unit_of_measurement: °C
-    initial_value: 20
+    initial_value: 20.0
     restore_value: true
     optimistic: true
-    max_value: 20
-    min_value: -20
+    max_value: 30.0
+    min_value: -20.0
     step: 1
     mode: box
   - platform: template
     name: $node_prefix framledningstemperatur p5
     id: supply_temp_p5
     unit_of_measurement: °C
-    initial_value: 22
+    initial_value: 22.0
     restore_value: true
     optimistic: true
-    max_value: 40
-    min_value: 20
+    max_value: 40.0
+    min_value: 20.0
     step: 1
     mode: box
   - platform: template
