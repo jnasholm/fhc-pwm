@@ -83,7 +83,6 @@ binary_sensor:
     lambda: |-
       if ( (id(${node_name}_supply_line_modulation_level_decrease).state > 0) && 
            (id(${node_name}_supply_line_modulation_level_increase).state == 0) ) {
-        id(${node_name}_mixing_valve_status_neutral).publish_state(false);
         id(${node_name}_mixing_valve_status_increase).publish_state(false);
         return true;
       } else {
@@ -97,10 +96,8 @@ binary_sensor:
     filters:
       - delayed_on_off: 400ms
     lambda: |-
-      if ( (id(${node_name}_supply_line_modulation_level_decrease).state < 0.01) && 
-           (id(${node_name}_supply_line_modulation_level_increase).state < 0.01) ) {
-        id(${node_name}_mixing_valve_status_decrease).publish_state(false);
-        id(${node_name}_mixing_valve_status_increase).publish_state(false);
+      if ( (id(${node_name}_supply_line_modulation_level_decrease).state < 0.04) && 
+           (id(${node_name}_supply_line_modulation_level_increase).state < 0.04) ) {
         return true;
       } else {
         return false;
@@ -116,8 +113,29 @@ binary_sensor:
       if ( (id(${node_name}_supply_line_modulation_level_decrease).state == 0) && 
            (id(${node_name}_supply_line_modulation_level_increase).state > 0) ) {
         id(${node_name}_mixing_valve_status_decrease).publish_state(false);
-        id(${node_name}_mixing_valve_status_neutral).publish_state(false);
         return true;
       } else {
         return false;
+      }
+# Operational state
+  - platform: template
+    name: $node_prefix framledningsreglering aktiv
+    id: ${node_name}_supply_line_controller_mode
+    icon: mdi:speedometer-medium
+    lambda: |-
+      float temp_od = id(outdoor_temperature).state;
+      if (temp_od > 24.0) {
+        if (id(${node_name}_supply_line_controller).mode != 1) {
+          auto call = id(${node_name}_supply_line_controller).make_call();
+          call.set_mode("OFF");
+          call.perform();
+        }
+        return false;
+      } else {
+        if (id(${node_name}_supply_line_controller).mode == 0) {
+          auto call = id(${node_name}_supply_line_controller).make_call();
+          call.set_mode("HEAT_COOL");
+          call.perform();
+        }
+        return true;
       }
