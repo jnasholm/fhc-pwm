@@ -4,18 +4,18 @@
 
 # Mixing valve actuator decrease
 output:
-  - platform: sigma_delta_output
+  - platform: slow_pwm
     id: ${node_name}_mixing_valve_actuator_decrease
-    update_interval: 30s
-#    max_power: 0.4
+    period: 30s
+    max_power: 0.4
     pin:
       number: GPIO25
       inverted: true
 # Mixing valve actuator increase
-  - platform: sigma_delta_output
+  - platform: slow_pwm
     id: ${node_name}_mixing_valve_actuator_increase
-    update_interval: 30s
-#    max_power: 0.4
+    period: 30s
+    max_power: 0.4
     pin:
       number: GPIO26
       inverted: true
