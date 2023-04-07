@@ -164,6 +164,7 @@ sensor:
     id: ${node_name}_supply_line_target_temperature
     icon: mdi:thermometer
     unit_of_measurement: °C
+    state_class: measurement
     accuracy_decimals: 2
     update_interval: 10s
     filters:
