@@ -40,3 +40,12 @@ sensor:
     entity_id: sensor.gvc_tillopp
     filters:
       - heartbeat: 10s
+
+# Circulation pump address
+text_sensor:
+  - platform: homeassistant
+    name: $node_prefix cirkulationspump adress
+    id: ${node_name}_circulation_pump_address
+    entity_id: input_text.golvvarme_cirkulationspump_adress
+    filters:
+      - heartbeat: 60s
