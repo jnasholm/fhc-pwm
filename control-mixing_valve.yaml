@@ -3,19 +3,24 @@
 # Relay configuration
 
 # Mixing valve actuator decrease
+# Calculate min_power to be a 1s pulse for ESBE valve actuators (1/period)
 output:
   - platform: slow_pwm
     id: ${node_name}_mixing_valve_actuator_decrease
-    period: 30s
+    period: 20s
     max_power: 0.4
+    min_power: 0.05
+    zero_means_zero: true
     pin:
       number: GPIO25
       inverted: true
 # Mixing valve actuator increase
   - platform: slow_pwm
     id: ${node_name}_mixing_valve_actuator_increase
-    period: 30s
+    period: 20s
     max_power: 0.4
+    min_power: 0.05
+    zero_means_zero: true
     pin:
       number: GPIO26
       inverted: true
