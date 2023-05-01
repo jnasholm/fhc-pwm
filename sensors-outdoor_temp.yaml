@@ -12,3 +12,38 @@ sensor:
     id: outdoor_temperature
     address: 0x6C00000CA32B7B_S10
     resolution: 12
+
+# Analog temperature sensor
+# NTC Beta factor calculated according to the equation below
+# https://www.ametherm.com/thermistor/ntc-thermistor-beta
+  - platform: ntc
+    name: $node_prefix utetemperatur analog
+    sensor: outdoor_temperature_analog
+    calibration:
+      b_constant: 3919
+      reference_temperature: 5°C
+      reference_resistance: 5.66kOhm
+  - platform: resistance
+    name: $node_prefix utetemperatur analog sensor
+    id: outdoor_temperature_analog
+    sensor: outdoor_temperature_analog_sensor
+    configuration: DOWNSTREAM
+    resistor: 1.0kOhm
+  - platform: adc
+    id: outdoor_temperature_analog_sensor
+    pin: GPIO34
+    update_interval: never
+
+# Analog temperature sensor power source
+switch:
+  - platform: gpio
+    pin: GPIO32
+    id: outdoor_analog_sensor_power
+
+# Analog temperature sensor update interval
+interval:
+  - interval: 60s
+    then:
+      - switch.turn_on: outdoor_analog_sensor_power
+      - component.update: outdoor_temperature_analog_sensor
+      - switch.turn_off: outdoor_analog_sensor_power
