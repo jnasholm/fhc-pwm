@@ -23,6 +23,20 @@ sensor:
       b_constant: 3919
       reference_temperature: 5°C
       reference_resistance: 5.66kOhm
+# Calibration points for UVEAB EVR-U according to documentation
+#    calibration:
+#      - 43.03kOhm -> -30°C
+#      - 31.09kOhm -> -25°C
+#      - 22.76kOhm -> -20°C
+#      - 16.86kOhm -> -15°C
+#      - 12.63kOhm -> -10°C
+#      - 9.57kOhm -> -5°C
+#      - 7.32kOhm -> 0°C
+#      - 5.66kOhm -> 5°C
+#      - 4.41kOhm -> 10°C
+#      - 3.47kOhm -> 15°C
+#      - 2.75kOhm -> 20°C
+#      - 2.20kOhm -> 25°C
   - platform: resistance
     name: $node_prefix utetemperatur analog sensor
     id: outdoor_temperature_analog
