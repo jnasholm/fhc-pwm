@@ -9,7 +9,7 @@ output:
     period: 10s
     pin:
       number: GPIO16
-      inverted: true
+      inverted: false
   
 # Zone 2 actuator relay
   - platform: slow_pwm
@@ -17,7 +17,7 @@ output:
     period: 10s
     pin:
       number: GPIO17
-      inverted: true
+      inverted: false
 
 # Zone 3 actuator relay
   - platform: slow_pwm
@@ -25,7 +25,7 @@ output:
     period: 10s
     pin:
       number: GPIO18
-      inverted: true
+      inverted: false
 
 # Zone 4 actuator relay
   - platform: slow_pwm
@@ -33,7 +33,7 @@ output:
     period: 10s
     pin:
       number: GPIO19
-      inverted: true
+      inverted: false
 # Link zone 5 actuator relay to zone 4
     turn_on_action:
       - output.turn_on: zone5_modulation
@@ -45,7 +45,7 @@ output:
     id: zone5_modulation
     pin:
       number: GPIO22
-      inverted: true
+      inverted: false
 
 # Zone 5 actuator relay
 #  - platform: slow_pwm
@@ -53,7 +53,7 @@ output:
 #    period: 10s
 #    pin:
 #      number: GPIO22
-#      inverted: true
+#      inverted: false
 
 # Zone 6 actuator relay
 #  - platform: slow_pwm
@@ -61,7 +61,7 @@ output:
 #    period: 10s
 #    pin:
 #      number: GPIO23
-#      inverted: true
+#      inverted: false
 
 # Zone 7 actuator relay
 #  - platform: slow_pwm
@@ -69,7 +69,7 @@ output:
 #    period: 10s
 #    pin:
 #      number: GPIO25
-#      inverted: true
+#      inverted: false
 
 # Zone 8 actuator relay
 #  - platform: slow_pwm
@@ -77,7 +77,7 @@ output:
 #    period: 10s
 #    pin:
 #      number: GPIO26
-#      inverted: true
+#      inverted: false
 
 # Thermostat configuration
 
@@ -102,7 +102,7 @@ climate:
     default_target_temperature: 21.0°C
     heat_output: zone1_modulation
     control_parameters:
-      kp: 10.6
+      kp: 10.8
       ki: 0.0004348
       kd: 57.5
       output_averaging_samples: 3
@@ -123,7 +123,7 @@ climate:
     default_target_temperature: 21.0°C
     heat_output: zone2_modulation
     control_parameters:
-      kp: 10.6
+      kp: 10.8
       ki: 0.0004348
       kd: 57.5
       output_averaging_samples: 3
@@ -144,7 +144,7 @@ climate:
     default_target_temperature: 21.0°C
     heat_output: zone3_modulation
     control_parameters:
-      kp: 10.6
+      kp: 10.8
       ki: 0.0004348
       kd: 57.5
       output_averaging_samples: 3
@@ -165,7 +165,7 @@ climate:
     default_target_temperature: 21.0°C
     heat_output: zone4_modulation
     control_parameters:
-      kp: 10.6
+      kp: 10.8
       ki: 0.0004348
       kd: 57.5
       output_averaging_samples: 3
@@ -186,7 +186,7 @@ climate:
 #    default_target_temperature: 21.0°C
 #    heat_output: zone5_modulation
 #    control_parameters:
-#      kp: 10.6
+#      kp: 10.8
 #      ki: 0.0004348
 #      kd: 57.5
 #      output_averaging_samples: 3
@@ -207,7 +207,7 @@ climate:
 #    default_target_temperature: 21.0°C
 #    heat_output: zone6_modulation
 #    control_parameters:
-#      kp: 10.6
+#      kp: 10.8
 #      ki: 0.0004348
 #      kd: 57.5
 #      output_averaging_samples: 3
@@ -228,7 +228,7 @@ climate:
 #    default_target_temperature: 21.0°C
 #    heat_output: zone4_modulation
 #    control_parameters:
-#      kp: 10.6
+#      kp: 10.8
 #      ki: 0.0004348
 #      kd: 57.5
 #      output_averaging_samples: 3
@@ -249,7 +249,7 @@ climate:
 #    default_target_temperature: 21.0°C
 #    heat_output: zone4_modulation
 #    control_parameters:
-#      kp: 10.6
+#      kp: 10.8
 #      ki: 0.0004348
 #      kd: 57.5
 #      output_averaging_samples: 3
