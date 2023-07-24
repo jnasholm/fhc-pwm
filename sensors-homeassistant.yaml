@@ -26,6 +26,31 @@ sensor:
     entity_id: sensor.zone4_temperature
     filters:
       - heartbeat: 10s
+#  - platform: homeassistant
+#    name: $zone5_name temperatur
+#    id: zone5_temperature
+#    entity_id: sensor.zone5_temperature
+#    filters:
+#      - heartbeat: 10s
+#  - platform: homeassistant
+#    name: $zone6_name temperatur
+#    id: zone6_temperature
+#    entity_id: sensor.zone6_temperature
+#    filters:
+#      - heartbeat: 10s
+#  - platform: homeassistant
+#    name: $zone7_name temperatur
+#    id: zone7_temperature
+#    entity_id: sensor.zone7_temperature
+#    filters:
+#      - heartbeat: 10s
+#  - platform: homeassistant
+#    name: $zone8_name temperatur
+#    id: zone8_temperature
+#    entity_id: sensor.zone8_temperature
+#    filters:
+#      - heartbeat: 10s
+
 # Outdoor temperature
   - platform: homeassistant
     name: $node_prefix utetemperatur

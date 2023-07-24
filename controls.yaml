@@ -1,0 +1,195 @@
+# Controls definitions
+
+# Default operational mode
+esphome:
+  on_boot:
+    priority: 200
+    then:
+      - switch.turn_on: ${node_name}_controller_mode
+
+# Operational switches
+switch:
+  # Operational mode
+  - platform: template
+    name: $node_prefix automatiskt driftläge
+    id: ${node_name}_controller_mode
+    icon: mdi:thermostat-auto
+    restore_mode: ALWAYS_ON
+    # Automatic mode
+    turn_on_action:
+      - lambda: |-
+          id(zone1_manual_enable).turn_off();
+          id(zone2_manual_enable).turn_off();
+          id(zone3_manual_enable).turn_off();
+          id(zone4_manual_enable).turn_off();
+          // id(zone5_manual_enable).turn_off();
+          // id(zone6_manual_enable).turn_off();
+          // id(zone7_manual_enable).turn_off();
+          // id(zone8_manual_enable).turn_off();
+          id(${node_name}_controller_mode).publish_state(true);
+          // # Restore state of relays
+          if ( id(zone1_modulation_level).state > 0.0 )
+            id(zone1_relay).turn_on();
+          if ( id(zone2_modulation_level).state > 0.0 )
+            id(zone2_relay).turn_on();
+          if ( id(zone3_modulation_level).state > 0.0 )
+            id(zone3_relay).turn_on();
+          if ( id(zone4_modulation_level).state > 0.0 )
+            id(zone4_relay).turn_on();
+          // if ( id(zone5_modulation_level).state > 0.0 )
+          //   id(zone5_relay).turn_on();
+          // if ( id(zone6_modulation_level).state > 0.0 )
+          //   id(zone6_relay).turn_on();
+          // if ( id(zone7_modulation_level).state > 0.0 )
+          //   id(zone7_relay).turn_on();
+          // if ( id(zone8_modulation_level).state > 0.0 )
+          //   id(zone8_relay).turn_on();
+    # Manual mode
+    turn_off_action:
+      - lambda: |-
+          id(zone1_relay).turn_off();
+          id(zone2_relay).turn_off();
+          id(zone3_relay).turn_off();
+          id(zone4_relay).turn_off();
+          // id(zone5_relay).turn_off();
+          // id(zone6_relay).turn_off();
+          // id(zone7_relay).turn_off();
+          // id(zone8_relay).turn_off();
+          id(${node_name}_controller_mode).publish_state(false);
+
+  # Zone 1 manual switch
+  - platform: template
+    name: $zone1_name aktivera
+    id: zone1_manual_enable
+    icon: mdi:shape-circle-plus
+    turn_on_action:
+      - lambda: |-
+          if ( id(${node_name}_controller_mode).state == 0 ) {
+            id(zone1_relay).turn_on();
+            id(zone1_manual_enable).publish_state(true);
+          }
+    turn_off_action:
+      - lambda: |-
+          if ( id(${node_name}_controller_mode).state == 0 ) {
+            id(zone1_relay).turn_off();
+            id(zone1_manual_enable).publish_state(false);
+          }
+  # Zone 2 manual switch
+  - platform: template
+    name: $zone2_name aktivera
+    id: zone2_manual_enable
+    icon: mdi:shape-circle-plus
+    turn_on_action:
+      - lambda: |-
+          if ( id(${node_name}_controller_mode).state == 0 ) {
+            id(zone2_relay).turn_on();
+            id(zone2_manual_enable).publish_state(true);
+          }
+    turn_off_action:
+      - lambda: |-
+          if ( id(${node_name}_controller_mode).state == 0 ) {
+            id(zone2_relay).turn_off();
+            id(zone2_manual_enable).publish_state(false);
+          }
+  # Zone 3 manual switch
+  - platform: template
+    name: $zone3_name aktivera
+    id: zone3_manual_enable
+    icon: mdi:shape-circle-plus
+    turn_on_action:
+      - lambda: |-
+          if ( id(${node_name}_controller_mode).state == 0 ) {
+            id(zone3_relay).turn_on();
+            id(zone3_manual_enable).publish_state(true);
+          }
+    turn_off_action:
+      - lambda: |-
+          if ( id(${node_name}_controller_mode).state == 0 ) {
+            id(zone3_relay).turn_off();
+            id(zone3_manual_enable).publish_state(false);
+          }
+  # Zone 4 manual switch
+  - platform: template
+    name: $zone4_name aktivera
+    id: zone4_manual_enable
+    icon: mdi:shape-circle-plus
+    turn_on_action:
+      - lambda: |-
+          if ( id(${node_name}_controller_mode).state == 0 ) {
+            id(zone4_relay).turn_on();
+            id(zone4_manual_enable).publish_state(true);
+          }
+    turn_off_action:
+      - lambda: |-
+          if ( id(${node_name}_controller_mode).state == 0 ) {
+            id(zone4_relay).turn_off();
+            id(zone4_manual_enable).publish_state(false);
+          }
+#  # Zone 5 manual switch
+#  - platform: template
+#    name: $zone5_name aktivera
+#    id: zone5_manual_enable
+#    icon: mdi:shape-circle-plus
+#    turn_on_action:
+#      - lambda: |-
+#          if ( id(${node_name}_controller_mode).state == 0 ) {
+#            id(zone5_relay).turn_on();
+#            id(zone5_manual_enable).publish_state(true);
+#          }
+#    turn_off_action:
+#      - lambda: |-
+#          if ( id(${node_name}_controller_mode).state == 0 ) {
+#            id(zone5_relay).turn_off();
+#            id(zone5_manual_enable).publish_state(false);
+#          }
+#  # Zone 6 manual switch
+#  - platform: template
+#    name: $zone6_name aktivera
+#    id: zone6_manual_enable
+#    icon: mdi:shape-circle-plus
+#    turn_on_action:
+#      - lambda: |-
+#          if ( id(${node_name}_controller_mode).state == 0 ) {
+#            id(zone6_relay).turn_on();
+#            id(zone6_manual_enable).publish_state(true);
+#          }
+#    turn_off_action:
+#      - lambda: |-
+#          if ( id(${node_name}_controller_mode).state == 0 ) {
+#            id(zone6_relay).turn_off();
+#            id(zone6_manual_enable).publish_state(false);
+#          }
+#  # Zone 7 manual switch
+#  - platform: template
+#    name: $zone7_name aktivera
+#    id: zone7_manual_enable
+#    icon: mdi:shape-circle-plus
+#    turn_on_action:
+#      - lambda: |-
+#          if ( id(${node_name}_controller_mode).state == 0 ) {
+#            id(zone7_relay).turn_on();
+#            id(zone7_manual_enable).publish_state(true);
+#          }
+#    turn_off_action:
+#      - lambda: |-
+#          if ( id(${node_name}_controller_mode).state == 0 ) {
+#            id(zone7_relay).turn_off();
+#            id(zone7_manual_enable).publish_state(false);
+#          }
+#  # Zone 8 manual switch
+#  - platform: template
+#    name: $zone8_name aktivera
+#    id: zone8_manual_enable
+#    icon: mdi:shape-circle-plus
+#    turn_on_action:
+#      - lambda: |-
+#          if ( id(${node_name}_controller_mode).state == 0 ) {
+#            id(zone8_relay).turn_on();
+#            id(zone8_manual_enable).publish_state(true);
+#          }
+#    turn_off_action:
+#      - lambda: |-
+#          if ( id(${node_name}_controller_mode).state == 0 ) {
+#            id(zone8_relay).turn_off();
+#            id(zone8_manual_enable).publish_state(false);
+#          }
