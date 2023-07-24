@@ -10,8 +10,8 @@ The controller IO pins are assigned according to the table below[^1][^2][^3].
 |Zone 4 actuator|19|
 |Zone 5 actuator|22|
 |Zone 6 actuator|23|Used for ethernet port if enabled
-|Zone 7 actuator or Mixing valve actuator decrease|25|
-|Zone 8 actuator or Mixing valve actuator increase|26|
+|Zone 7 actuator|25|
+|Zone 8 actuator|26|
 |Room temperature sensors (DS18B20)|13|
 |Outdoor temperature sensor (DS18B20)|14|
 |Distributor line temperature sensors (DS18B20)|27|
