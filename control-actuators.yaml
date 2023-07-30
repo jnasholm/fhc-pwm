@@ -54,9 +54,11 @@ switch:
 # Zone actuator configuration
 output:
   # Zone 1 actuator
+  #- platform: sigma_delta_output
+  #  update_interval: 10s
   - platform: slow_pwm
-    id: zone1_modulation
     period: 10s
+    id: zone1_modulation
     turn_on_action:
       - lambda: |-
           if ( id(${node_name}_controller_mode).state )
@@ -66,9 +68,11 @@ output:
           if ( id(${node_name}_controller_mode).state )
             id(zone1_relay).turn_off();
   # Zone 2 actuator
+  #- platform: sigma_delta_output
+  #  update_interval: 10s
   - platform: slow_pwm
-    id: zone2_modulation
     period: 10s
+    id: zone2_modulation
     turn_on_action:
       - lambda: |-
           if ( id(${node_name}_controller_mode).state )
@@ -78,9 +82,11 @@ output:
           if ( id(${node_name}_controller_mode).state )
             id(zone2_relay).turn_off();
   # Zone 3 actuator
+  #- platform: sigma_delta_output
+  #  update_interval: 10s
   - platform: slow_pwm
-    id: zone3_modulation
     period: 10s
+    id: zone3_modulation
     turn_on_action:
       - lambda: |-
           if ( id(${node_name}_controller_mode).state )
@@ -90,9 +96,11 @@ output:
           if ( id(${node_name}_controller_mode).state )
             id(zone3_relay).turn_off();
   # Zone 4 actuator
+  #- platform: sigma_delta_output
+  #  update_interval: 10s
   - platform: slow_pwm
-    id: zone4_modulation
     period: 10s
+    id: zone4_modulation
     turn_on_action:
       - lambda: |-
           if ( id(${node_name}_controller_mode).state )
@@ -102,9 +110,11 @@ output:
           if ( id(${node_name}_controller_mode).state )
             id(zone4_relay).turn_off();
 # Zone 5 actuator
+#  #- platform: sigma_delta_output
+#  #  update_interval: 10s
 #  - platform: slow_pwm
-#    id: zone5_modulation
 #    period: 10s
+#    id: zone5_modulation
 #    turn_on_action:
 #      - lambda: |-
 #          if ( id(${node_name}_controller_mode).state )
@@ -114,9 +124,11 @@ output:
 #          if ( id(${node_name}_controller_mode).state )
 #            id(zone5_relay).turn_off();
 # Zone 6 actuator
+#  #- platform: sigma_delta_output
+#  #  update_interval: 10s
 #  - platform: slow_pwm
-#    id: zone6_modulation
 #    period: 10s
+#    id: zone6_modulation
 #    turn_on_action:
 #      - lambda: |-
 #          if ( id(${node_name}_controller_mode).state )
@@ -126,9 +138,11 @@ output:
 #          if ( id(${node_name}_controller_mode).state )
 #            id(zone6_relay).turn_off();
 # Zone 7 actuator
+#  #- platform: sigma_delta_output
+#  #  update_interval: 10s
 #  - platform: slow_pwm
-#    id: zone7_modulation
 #    period: 10s
+#    id: zone7_modulation
 #    turn_on_action:
 #      - lambda: |-
 #          if ( id(${node_name}_controller_mode).state )
@@ -138,9 +152,11 @@ output:
 #          if ( id(${node_name}_controller_mode).state )
 #            id(zone7_relay).turn_off();
 # Zone 8 actuator
+#  #- platform: sigma_delta_output
+#  #  update_interval: 10s
 #  - platform: slow_pwm
-#    id: zone8_modulation
 #    period: 10s
+#    id: zone8_modulation
 #    turn_on_action:
 #      - lambda: |-
 #          if ( id(${node_name}_controller_mode).state )
