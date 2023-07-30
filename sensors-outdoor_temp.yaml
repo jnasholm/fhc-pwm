@@ -53,7 +53,7 @@ sensor:
 # Analog temperature sensor power source
 switch:
   - platform: gpio
-    pin: GPIO32
+    pin: GPIO13
     id: outdoor_analog_sensor_power
 
 # Analog temperature sensor update interval

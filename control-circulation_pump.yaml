@@ -1,74 +1,92 @@
 # Circulation pump controller configuration
-# 
-# Control a floor heating circulation pump relay through the RPC interface over HTTP/HTTPS.
-# The request URL below is for the Shelly Gen 2 Device API.
-
-# Circulation pump relay IP configuration
-text_sensor:
-  - platform: template
-    name: $node_prefix cirkulationspump IP
-    id: ${node_name}_circulation_pump_relay_ip
-    icon: mdi:ip-network-outline
-    lambda: |-
-      return {"172.16.2.163"};
-
-# HTTP component setup
-http_request:
-  id: ${node_name}_http_request_data
-  useragent: esphome/device
-  timeout: 10s
-
-# Check circulation pump relay status at specific interval
-interval:
-  - interval: 60s
-    then:
-      - http_request.get:
-          url: !lambda |-
-            return ((std::string) "http://" + id(${node_name}_circulation_pump_relay_ip).state + "/rpc/Switch.GetStatus?id=0").c_str();
-          on_response:
-            then:
-              - lambda: |-
-                  json::parse_json(id(${node_name}_http_request_data).get_string(), [](JsonObject root) {
-                      id(${node_name}_circulation_pump_status).publish_state(root["output"]);
-                  });
-
-# Circulation pump relay control
-switch:
-  - platform: template
-    name: $node_prefix cirkulationspump
-    id: ${node_name}_circulation_pump_relay
-    icon: mdi:arrow-right-drop-circle
-    restore_state: true
-    optimistic: true
-    turn_on_action:
-#      - http_request.get: http://172.16.2.163/rpc/Switch.Set?id=0&on=true
-      - http_request.get: !lambda |-
-          return ((std::string) "http://" + id(${node_name}_circulation_pump_relay_ip).state + "/rpc/Switch.Set?id=0&on=true").c_str();
-      - switch.template.publish:
-          id: ${node_name}_circulation_pump_relay
-          state: ON
-      - binary_sensor.template.publish:
-          id: ${node_name}_circulation_pump_status
-          state: ON
-    turn_off_action:
-#      - http_request.get: http://172.16.2.163/rpc/Switch.Set?id=0&on=false
-      - http_request.get: !lambda |-
-          return ((std::string) "http://" + id(${node_name}_circulation_pump_relay_ip).state + "/rpc/Switch.Set?id=0&on=false").c_str();
-      - switch.template.publish:
-          id: ${node_name}_circulation_pump_relay
-          state: OFF
-      - binary_sensor.template.publish:
-          id: ${node_name}_circulation_pump_status
-          state: OFF
 
 # Circulation pump active indicator
 binary_sensor:
   - platform: template
     name: $node_prefix cirkulationspump aktiv
     id: ${node_name}_circulation_pump_status
-    icon: mdi:lightning-bolt-circle
+    icon: mdi:arrow-right-drop-circle
     filters:
       - delayed_on_off: 400ms
+    lambda: |-
+      if ( id(zone1_modulation_level).state > 0.0 )
+        return true;
+      if ( id(zone2_modulation_level).state > 0.0 )
+        return true;
+      if ( id(zone3_modulation_level).state > 0.0 )
+        return true;
+      if ( id(zone4_modulation_level).state > 0.0 )
+        return true;
+      // if ( id(zone5_modulation_level).state > 0.0 )
+      //   return true;
+      // if ( id(zone6_modulation_level).state > 0.0 )
+      //   return true;
+      // if ( id(zone7_modulation_level).state > 0.0 )
+      //   return true;
+      // if ( id(zone8_modulation_level).state > 0.0 )
+      //   return true;
+      return false;
+
+# Control a floor heating circulation pump relay through the RPC interface over HTTP/HTTPS.
+# The request URL below is for the Shelly Gen 2 Device API.
+
+# Circulation pump relay IP configuration
+#text_sensor:
+#  - platform: template
+#    name: $node_prefix cirkulationspump IP
+#    id: ${node_name}_circulation_pump_relay_ip
+#    icon: mdi:ip-network-outline
+#    lambda: |-
+#      return {"172.16.2.163"};
+
+# HTTP component setup
+#http_request:
+#  id: ${node_name}_http_request_data
+#  useragent: esphome/device
+#  timeout: 10s
+
+# Check circulation pump relay status at specific interval
+#interval:
+#  - interval: 60s
+#    then:
+#      - http_request.get:
+#          url: !lambda |-
+#            return ((std::string) "http://" + id(${node_name}_circulation_pump_relay_ip).state + "/rpc/Switch.GetStatus?id=0").c_str();
+#          on_response:
+#            then:
+#              - lambda: |-
+#                  json::parse_json(id(${node_name}_http_request_data).get_string(), [](JsonObject root) {
+#                      id(${node_name}_circulation_pump_status).publish_state(root["output"]);
+#                  });
+
+# Circulation pump relay control
+#switch:
+#  - platform: template
+#    name: $node_prefix cirkulationspump
+#    id: ${node_name}_circulation_pump_relay
+#    icon: mdi:arrow-right-drop-circle
+#    restore_state: true
+#    optimistic: true
+#    turn_on_action:
+##      - http_request.get: http://172.16.2.163/rpc/Switch.Set?id=0&on=true
+#      - http_request.get: !lambda |-
+#          return ((std::string) "http://" + id(${node_name}_circulation_pump_relay_ip).state + "/rpc/Switch.Set?id=0&on=true").c_str();
+#      - switch.template.publish:
+#          id: ${node_name}_circulation_pump_relay
+#          state: ON
+#      - binary_sensor.template.publish:
+#          id: ${node_name}_circulation_pump_status
+#          state: ON
+#    turn_off_action:
+##      - http_request.get: http://172.16.2.163/rpc/Switch.Set?id=0&on=false
+#      - http_request.get: !lambda |-
+#          return ((std::string) "http://" + id(${node_name}_circulation_pump_relay_ip).state + "/rpc/Switch.Set?id=0&on=false").c_str();
+#      - switch.template.publish:
+#          id: ${node_name}_circulation_pump_relay
+#          state: OFF
+#      - binary_sensor.template.publish:
+#          id: ${node_name}_circulation_pump_status
+#          state: OFF
 
 #    on_state:
 #      - http_request.get:
