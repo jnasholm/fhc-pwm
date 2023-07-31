@@ -14,6 +14,8 @@ Project to create a smart floor heating controller for private homes with a hydr
 - The controller can operate up to 8 zone valve actuators.
 - Integration with [Home Assistant](https://www.home-assistant.io/) is recommende. Sensor data and configuration parameters can be imported to operate the controller.
 
+[ESP32 SSR Mixing valve actuator controller](https://github.com/jnasholm/mvc-pwm/tree/main)
+
 If you preferr to replace the zone valve actuators with [proportinal servo actuators](https://homematic-ip.com/en/product/valve-drive-motorised), have a look at [this project](https://github.com/nliaudat/floor-heating-controller).
 
 ## Description
