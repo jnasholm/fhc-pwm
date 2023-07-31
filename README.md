@@ -2,17 +2,16 @@
 <!-- [![GitHub release (latest by date)](https://img.shields.io/github/v/release/jnasholm/fhc-pwm)](https://github.com/jnasholm/fhc-pwm/releases) -->
 <!-- ![GitHub last commit](https://img.shields.io/github/last-commit/jnasholm/fhc-pwm) -->
 
-# ESP32 SSR Floor Heating Controller with zone thermostats, modulated actuators and mixing valve control
+# ESP32 SSR Floor Heating Controller with zone thermostats and modulated actuators
 
 Project to create a smart floor heating controller for private homes with a hydronic underfloor system and optionally combined with a radiator system mixing valve. Brief project description:
 
 - The controller is an [ESP32](https://www.olimex.com/Products/IoT/ESP32/ESP32-DevKit-LiPo/open-source-hardware) programmed with [ESPHome](https://esphome.io/).
 - The climate thermostats are based on ESPHome PID control[^1][^2].
-- The [zone valve actuators](https://www.produal.com/en/a.html) are operated with 24 VAC (wax motor[^3] type without direct position feedback).
-- The [mixing valve actuator](https://esbe.eu/group/products/rotary-actuators/ara600-3-point) is a stepper motor also operated with 24 VAC.
+- The [zone valve actuators](https://www.roth-sverige.se/fileadmin/user_upload/Roth_North_Europe/Images_for_Roth_North_Europe/Sverige/PDF_files_for_produkter/Touchline_SL/Datasheet_Roth_reglermotor_24V_och_230V_SE_20200312.pdf) are operated with 24 VAC (wax motor[^3] type without direct position feedback).
 - The zone valve actuators are controlled with ESPHome PWM.
-- The switching modules are equipped with [solid state relays](https://www.velleman.eu/products/view/?id=461412).
-- The controller can operate either 8 zone valve actuators or 6 zone valve actuators and 1 mixing valve actuator.
+- The switching modules are equipped with [solid state relays](https://www.velleman.eu/products/view?id=461416).
+- The controller can operate up to 8 zone valve actuators.
 - Integration with [Home Assistant](https://www.home-assistant.io/) is recommende. Sensor data and configuration parameters can be imported to operate the controller.
 
 If you preferr to replace the zone valve actuators with [proportinal servo actuators](https://homematic-ip.com/en/product/valve-drive-motorised), have a look at [this project](https://github.com/nliaudat/floor-heating-controller).
