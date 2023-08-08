@@ -11,8 +11,8 @@ time:
 text_sensor:
   - platform: template
     name: $node_prefix tid
+    id: ${node_name}_controller_current_time
     icon: mdi:clock-outline
-    id: floor_heating_current_time
     update_interval: 60s
     lambda: |-
       char str[21];
