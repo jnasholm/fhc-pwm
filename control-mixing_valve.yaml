@@ -10,8 +10,12 @@ switch:
       number: GPIO25
       inverted: true
     on_turn_on:
-      - delay: 1s
-      - switch.turn_off: decrease_relay
+      - while:
+          condition:
+            switch.is_on: decrease_relay
+          then:
+            - number.decrement: ${node_name}_mixing_valve_position_counter
+            - delay: 1s
   # Relay actuator increase
   - platform: gpio
     id: increase_relay
@@ -20,15 +24,23 @@ switch:
       number: GPIO26
       inverted: true
     on_turn_on:
-      - delay: 1s
-      - switch.turn_off: increase_relay
+      - while:
+          condition:
+            switch.is_on: increase_relay
+          then:
+            - number.increment: ${node_name}_mixing_valve_position_counter
+            - delay: 1s
 
 # Output configuration
+# Calculate min_power to be a 1s pulse for ESBE valve actuators (1/period)
 output:
   # Mixing valve actuator decrease
   - platform: slow_pwm
     id: ${node_name}_mixing_valve_actuator_decrease
     period: 20s
+    max_power: 0.4
+    min_power: 0.05
+    zero_means_zero: true
     turn_on_action:
       - lambda: |-
           if ( id(${node_name}_controller_mode).state )
@@ -44,6 +56,9 @@ output:
   - platform: slow_pwm
     id: ${node_name}_mixing_valve_actuator_increase
     period: 20s
+    max_power: 0.4
+    min_power: 0.05
+    zero_means_zero: true
     turn_on_action:
       - lambda: |-
           if ( id(${node_name}_controller_mode).state )
@@ -84,8 +99,8 @@ climate:
       output_averaging_samples: 3
       derivative_averaging_samples: 3
     deadband_parameters:
-      threshold_high: 0.4°C
-      threshold_low: -0.4°C
+      threshold_high: 0.2°C
+      threshold_low: -0.2°C
     visual:
       min_temperature: 20.0°C
       max_temperature: 35.0°C
@@ -119,8 +134,7 @@ binary_sensor:
       - delayed_on_off: 400ms
     lambda: |-
       if ( id(${node_name}_controller_mode).state ) {
-        if ( (id(${node_name}_supply_line_modulation_level_decrease).state > 0) && 
-             (id(${node_name}_supply_line_modulation_level_increase).state == 0) ) {
+        if ( id(${node_name}_supply_line_modulation_level_decrease).state > 0.0 ) {
           return true;
         }
       } else {
@@ -138,8 +152,8 @@ binary_sensor:
       - delayed_on_off: 400ms
     lambda: |-
       if ( id(${node_name}_controller_mode).state ) {
-        if ( (id(${node_name}_supply_line_modulation_level_decrease).state < 0.04) && 
-             (id(${node_name}_supply_line_modulation_level_increase).state < 0.04) ) {
+        if ( (id(${node_name}_supply_line_modulation_level_decrease).state <= 0.08) && 
+             (id(${node_name}_supply_line_modulation_level_increase).state <= 0.08) ) {
           return true;
         }
       } else {
@@ -158,8 +172,7 @@ binary_sensor:
       - delayed_on_off: 400ms
     lambda: |-
       if ( id(${node_name}_controller_mode).state ) {
-        if ( (id(${node_name}_supply_line_modulation_level_decrease).state == 0) && 
-             (id(${node_name}_supply_line_modulation_level_increase).state > 0) ) {
+        if ( id(${node_name}_supply_line_modulation_level_increase).state > 0.0 ) {
           return true;
         }
       } else {
@@ -168,3 +181,16 @@ binary_sensor:
         }
       }
       return false;
+
+# Mixing valve actuator position counter
+number:
+  - platform: template
+    name: $node_prefix läge
+    id: ${node_name}_mixing_valve_position_counter
+    icon: mdi:knob
+    min_value: -1200
+    max_value: 1200
+    step: 1
+    initial_value: 0
+    optimistic: true
+    restore_value: true

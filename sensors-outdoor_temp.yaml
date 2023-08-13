@@ -1,65 +1,103 @@
 # Outdoor temperature sensor configuration
 
-# Input configuration outdoor temperatures
-dallas:
-  - pin: GPIO14
-    id: outdoor_temperature_bus
-    update_interval: 10s
+## Digital outdoor temperature sensor bus configuration
+#dallas:
+#  - pin: GPIO14
+#    id: outdoor_temperature_bus
+#    update_interval: 10s
 
-# Outdoor temperature
+# Sensor configurations
 sensor:
-  - platform: dallas
+  # Active outdoor temperature sensor (choose one)
+  - platform: template
     name: $node_prefix utetemperatur
     id: outdoor_temperature
-    dallas_id: outdoor_temperature_bus
-    address: 0x6C00000CA32B7B_S10
-    resolution: 12
+    icon: mdi:thermometer
+    unit_of_measurement: °C
+    state_class: measurement
+    accuracy_decimals: 2
+    update_interval: 10s
+    lambda: return (id(outdoor_temperature_remote).state);
+    #lambda: return (id(outdoor_temperature_digital).state);
+    #lambda: return (id(outdoor_temperature_analog).state);
 
-# Analog temperature sensor
-# NTC Beta factor calculated according to the equation below
-# https://www.ametherm.com/thermistor/ntc-thermistor-beta
-  - platform: ntc
-    name: $node_prefix utetemperatur analog
-    sensor: outdoor_temperature_analog
-    calibration:
-      b_constant: 3919
-      reference_temperature: 5°C
-      reference_resistance: 5.66kOhm
-# Calibration points for UVEAB EVR-U according to documentation
+  # Remote outdoor temperature sensor (Home Assistant)
+  - platform: homeassistant
+    id: outdoor_temperature_remote
+    accuracy_decimals: 2
+    entity_id: sensor.utetemperatur
+    filters:
+      - heartbeat: 10s
+
+#  # Digital outdoor temperature sensor (DS18B20)
+#  - platform: dallas
+#    name: $node_prefix utetemperatur digital
+#    id: outdoor_temperature_digital
+#    accuracy_decimals: 2
+#    dallas_id: outdoor_temperature_bus
+#    address: 0x2c0000081d200d28
+#    resolution: 12
+#
+#  # Analog outdoor temperature sensor (NTC)
+#  # NTC Beta factor calculated according to the equation below
+#  # https://www.ametherm.com/thermistor/ntc-thermistor-beta
+#  - platform: ntc
+#    name: $node_prefix utetemperatur analog
+#    id: outdoor_temperature_analog
+#    accuracy_decimals: 2
+#    sensor: outdoor_temperature_analog_sensor
+#    # NTC Beta factor calibration
+##    calibration:
+##      b_constant: 3919
+##      reference_temperature: 5°C
+##      reference_resistance: 5.66kOhm
+#    # NTC calibration points for UVEAB EVR-U according to documentation.
 #    calibration:
-#      - 43.03kOhm -> -30°C
-#      - 31.09kOhm -> -25°C
-#      - 22.76kOhm -> -20°C
-#      - 16.86kOhm -> -15°C
+#    # - 43.03kOhm -> -30°C
+#    # - 31.09kOhm -> -25°C
+#    # - 22.76kOhm -> -20°C
+#    # - 16.86kOhm -> -15°C
 #      - 12.63kOhm -> -10°C
-#      - 9.57kOhm -> -5°C
-#      - 7.32kOhm -> 0°C
+#    # - 9.57kOhm -> -5°C
+#    # - 7.32kOhm -> 0°C
 #      - 5.66kOhm -> 5°C
-#      - 4.41kOhm -> 10°C
-#      - 3.47kOhm -> 15°C
+#    # - 4.41kOhm -> 10°C
+#    # - 3.47kOhm -> 15°C
 #      - 2.75kOhm -> 20°C
-#      - 2.20kOhm -> 25°C
-  - platform: resistance
-    name: $node_prefix utetemperatur analog sensor
-    id: outdoor_temperature_analog
-    sensor: outdoor_temperature_analog_sensor
-    configuration: DOWNSTREAM
-    resistor: 1.0kOhm
-  - platform: adc
-    id: outdoor_temperature_analog_sensor
-    pin: GPIO34
-    update_interval: never
-
-# Analog temperature sensor power source
-switch:
-  - platform: gpio
-    pin: GPIO13
-    id: outdoor_analog_sensor_power
-
-# Analog temperature sensor update interval
-interval:
-  - interval: 60s
-    then:
-      - switch.turn_on: outdoor_analog_sensor_power
-      - component.update: outdoor_temperature_analog_sensor
-      - switch.turn_off: outdoor_analog_sensor_power
+#    # - 2.20kOhm -> 25°C
+#  # Resistance calculation
+#  - platform: resistance
+#    name: $node_prefix utetemperatur analog sensor
+#    id: outdoor_temperature_analog_sensor
+#    icon: mdi:omega
+#    sensor: outdoor_temperature_analog_measure
+#    configuration: DOWNSTREAM
+#    resistor: 10kOhm
+#  # Voltage measurement (range 0.15-2.45V)
+#  - platform: adc
+#    id: outdoor_temperature_analog_measure
+#    pin: GPIO34
+#    update_interval: never
+#    attenuation: 11db
+#    filters:
+#      - median:
+#          window_size: 5
+#          send_every: 3
+#          send_first_at: 1
+#
+## Analog temperature sensor power source configuration
+#switch:
+#  - platform: gpio
+#    pin: GPIO13
+#    id: outdoor_analog_sensor_power
+#
+## Analog temperature sensor update interval
+#interval:
+#  - interval: 20s
+#    then:
+#      - switch.turn_on: outdoor_analog_sensor_power
+#      - delay: 1s
+#      - component.update: outdoor_temperature_analog_measure
+#      - delay: 1s
+#      - switch.turn_off: outdoor_analog_sensor_power
+#

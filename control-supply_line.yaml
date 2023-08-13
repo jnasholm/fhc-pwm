@@ -173,10 +173,13 @@ sensor:
       - lambda: return x * (id(supply_temp_multiply).state) + (id(supply_temp_offset).state);
       - heartbeat: 10s
     on_value:
-      then:
-        - climate.control:
-            id: ${node_name}_supply_line_controller
-            target_temperature: !lambda return x;
+      - if:
+          condition:
+            switch.is_on: ${node_name}_controller_mode
+          then:
+            - climate.control:
+                id: ${node_name}_supply_line_controller
+                target_temperature: !lambda return x;
     lambda: |-
       float temp_od = id(outdoor_temperature).state;
       float temp_sl;

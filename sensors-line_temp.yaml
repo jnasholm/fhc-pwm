@@ -12,19 +12,19 @@ sensor:
     name: $node_prefix tillopp
     id: ${node_name}_supply_line_temperature
     dallas_id: line_temperature_bus
-    address: 0x6C00000CA32B7B_S1
+    address: 0xfb00000e17852028
     resolution: 12
   - platform: dallas
     name: $node_prefix retur
     id: ${node_name}_return_line_temperature
     dallas_id: line_temperature_bus
-    address: 0x6C00000CA32B7B_S2
+    address: 0xd000000e17e5ce28
     resolution: 12
   - platform: dallas
     name: $node_prefix blandning
     id: ${node_name}_mixing_line_temperature
     dallas_id: line_temperature_bus
-    address: 0x6C00000CA32B7B_S3
+    address: 0xA300000CA437C528
     resolution: 12
 
 # Heat source supply and return lines
@@ -32,11 +32,11 @@ sensor:
     name: $node_prefix framledning
     id: ${node_name}_supply_line_temperature
     dallas_id: line_temperature_bus
-    address: 0x6C00000CA32B7B_S4
+    address: 0x7400000CAE1E8328
     resolution: 12
   - platform: dallas
     name: $node_prefix returledning
     id: ${node_name}_return_line_temperature
     dallas_id: line_temperature_bus
-    address: 0x6C00000CA32B7B_S5
+    address: 0x1200000CA4CD1728
     resolution: 12
