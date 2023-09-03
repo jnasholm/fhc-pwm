@@ -59,7 +59,7 @@ output:
   #- platform: slow_pwm
   #  period: 10s
     id: zone1_modulation
-    min_power: 0.26
+    min_power: 0.20
     zero_means_zero: true
     turn_on_action:
       - lambda: |-
@@ -75,7 +75,7 @@ output:
   #- platform: slow_pwm
   #  period: 10s
     id: zone2_modulation
-    min_power: 0.26
+    min_power: 0.20
     zero_means_zero: true
     turn_on_action:
       - lambda: |-
@@ -91,7 +91,7 @@ output:
   #- platform: slow_pwm
   #  period: 10s
     id: zone3_modulation
-    min_power: 0.26
+    min_power: 0.20
     zero_means_zero: true
     turn_on_action:
       - lambda: |-
@@ -107,7 +107,7 @@ output:
   #- platform: slow_pwm
   #  period: 10s
     id: zone4_modulation
-    min_power: 0.26
+    min_power: 0.20
     zero_means_zero: true
     turn_on_action:
       - lambda: |-
@@ -123,7 +123,7 @@ output:
 #  - platform: slow_pwm
 #    period: 10s
 #    id: zone5_modulation
-#    min_power: 0.26
+#    min_power: 0.20
 #    zero_means_zero: true
 #    turn_on_action:
 #      - lambda: |-
@@ -139,7 +139,7 @@ output:
 #  - platform: slow_pwm
 #    period: 10s
 #    id: zone6_modulation
-#    min_power: 0.26
+#    min_power: 0.20
 #    zero_means_zero: true
 #    turn_on_action:
 #      - lambda: |-
@@ -155,7 +155,7 @@ output:
 #  - platform: slow_pwm
 #    period: 10s
 #    id: zone7_modulation
-#    min_power: 0.26
+#    min_power: 0.20
 #    zero_means_zero: true
 #    turn_on_action:
 #      - lambda: |-
@@ -171,7 +171,7 @@ output:
 #  - platform: slow_pwm
 #    period: 10s
 #    id: zone8_modulation
-#    min_power: 0.26
+#    min_power: 0.20
 #    zero_means_zero: true
 #    turn_on_action:
 #      - lambda: |-
