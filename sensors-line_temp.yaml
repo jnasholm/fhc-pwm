@@ -6,37 +6,57 @@ dallas:
     id: line_temperature_bus
     update_interval: 10s
 
-# Floor heating distributor supply, return and mixing lines
+# Floor heating distributor temperatures
 sensor:
+  # Supply line temperature
   - platform: dallas
     name: $node_prefix tillopp
     id: ${node_name}_supply_line_temperature
     dallas_id: line_temperature_bus
     address: 0xfb00000e17852028
     resolution: 12
+    accuracy_decimals: 2
+  # Return line temperature
   - platform: dallas
     name: $node_prefix retur
     id: ${node_name}_return_line_temperature
     dallas_id: line_temperature_bus
     address: 0xd000000e17e5ce28
     resolution: 12
+    accuracy_decimals: 2
+  # Mixing line temperature
   - platform: dallas
     name: $node_prefix blandning
     id: ${node_name}_mixing_line_temperature
     dallas_id: line_temperature_bus
     address: 0xA300000CA437C528
     resolution: 12
+    accuracy_decimals: 2
+  # Supply line temperature median
+  - platform: template
+    name: $node_prefix tillopp medel
+    id: ${node_name}_supply_line_temperature_median
+    icon: mdi:thermometer
+    unit_of_measurement: °C
+    state_class: measurement
+    accuracy_decimals: 2
+    lambda: return (id(${node_name}_supply_line_temperature).state);
+    filters:
+      - median:
+          window_size: 180
+          send_every: 3
+          send_first_at: 1
 
-# Heat source supply and return lines
-  - platform: dallas
-    name: $node_prefix framledning
-    id: ${node_name}_supply_line_temperature
-    dallas_id: line_temperature_bus
-    address: 0x7400000CAE1E8328
-    resolution: 12
-  - platform: dallas
-    name: $node_prefix returledning
-    id: ${node_name}_return_line_temperature
-    dallas_id: line_temperature_bus
-    address: 0x1200000CA4CD1728
-    resolution: 12
+## Heat source supply and return lines
+#  - platform: dallas
+#    name: $node_prefix framledning
+#    id: ${node_name}_supply_line_temperature
+#    dallas_id: line_temperature_bus
+#    address: 0x7400000CAE1E8328
+#    resolution: 12
+#  - platform: dallas
+#    name: $node_prefix returledning
+#    id: ${node_name}_return_line_temperature
+#    dallas_id: line_temperature_bus
+#    address: 0x1200000CA4CD1728
+#    resolution: 12

@@ -1,10 +1,10 @@
 # Outdoor temperature sensor configuration
 
-## Digital outdoor temperature sensor bus configuration
+# Digital outdoor temperature sensor bus configuration
 #dallas:
 #  - pin: GPIO14
 #    id: outdoor_temperature_bus
-#    update_interval: 10s
+#    update_interval: 20s
 
 # Sensor configurations
 sensor:
@@ -16,7 +16,7 @@ sensor:
     unit_of_measurement: °C
     state_class: measurement
     accuracy_decimals: 2
-    update_interval: 10s
+    update_interval: 20s
     lambda: return (id(outdoor_temperature_remote).state);
     #lambda: return (id(outdoor_temperature_digital).state);
     #lambda: return (id(outdoor_temperature_analog).state);
@@ -27,7 +27,7 @@ sensor:
     accuracy_decimals: 2
     entity_id: sensor.utetemperatur
     filters:
-      - heartbeat: 10s
+      - heartbeat: 20s
 
 #  # Digital outdoor temperature sensor (DS18B20)
 #  - platform: dallas
@@ -65,6 +65,11 @@ sensor:
 #    # - 3.47kOhm -> 15°C
 #      - 2.75kOhm -> 20°C
 #    # - 2.20kOhm -> 25°C
+#    filters:
+#      - median:
+#          window_size: 60
+#          send_every: 3
+#          send_first_at: 1
 #  # Resistance calculation
 #  - platform: resistance
 #    name: $node_prefix utetemperatur analog sensor
@@ -79,11 +84,6 @@ sensor:
 #    pin: GPIO34
 #    update_interval: never
 #    attenuation: 11db
-#    filters:
-#      - median:
-#          window_size: 5
-#          send_every: 3
-#          send_first_at: 1
 #
 ## Analog temperature sensor power source configuration
 #switch:
@@ -100,4 +100,3 @@ sensor:
 #      - component.update: outdoor_temperature_analog_measure
 #      - delay: 1s
 #      - switch.turn_off: outdoor_analog_sensor_power
-#
