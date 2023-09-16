@@ -198,7 +198,7 @@ output:
 # Thermostat configuration
 
 # Zone temperature controller
-#   Sampling time, Ts:      10 s (update interval of temperature sensor)
+#   Sampling time, Ts:      20 s (update interval of temperature sensor)
 #   Critical gain, Kc:      18.0 (proportional constant causing oscillation)
 #   Critical period, Pc:  4600 s (cycle time at oscillating condition)
 # Calculated parameters  
@@ -207,7 +207,7 @@ output:
 # Controller parameters
 #   Proportional constant, kp:  10.8       (0.60 x Kc)
 #   Integral constant, ki:       0.0004348 (1/Ti)
-#   Derivative constant, kd:    57.5       (Td/Ts)
+#   Derivative constant, kd:    28.8       (Td/Ts)
 
 # Temperature controllers
 climate:
@@ -221,12 +221,12 @@ climate:
     control_parameters:
       kp: 10.8
       ki: 0.0004348
-      kd: 57.5
+      kd: 28.8
       output_averaging_samples: 3
-      derivative_averaging_samples: 3
-    deadband_parameters:
-      threshold_high: 0.4°C
-      threshold_low: -0.2°C
+      derivative_averaging_samples: 5
+#    deadband_parameters:
+#      threshold_high: 0.4°C
+#      threshold_low: -0.2°C
     visual:
       min_temperature: 17.0°C
       max_temperature: 25.0°C
@@ -241,12 +241,12 @@ climate:
     control_parameters:
       kp: 10.8
       ki: 0.0004348
-      kd: 57.5
+      kd: 28.8
       output_averaging_samples: 3
-      derivative_averaging_samples: 3
-    deadband_parameters:
-      threshold_high: 0.4°C
-      threshold_low: -0.2°C
+      derivative_averaging_samples: 5
+#    deadband_parameters:
+#      threshold_high: 0.4°C
+#      threshold_low: -0.2°C
     visual:
       min_temperature: 17.0°C
       max_temperature: 25.0°C
@@ -261,12 +261,12 @@ climate:
     control_parameters:
       kp: 10.8
       ki: 0.0004348
-      kd: 57.5
+      kd: 28.8
       output_averaging_samples: 3
-      derivative_averaging_samples: 3
-    deadband_parameters:
-      threshold_high: 0.4°C
-      threshold_low: -0.2°C
+      derivative_averaging_samples: 5
+#    deadband_parameters:
+#      threshold_high: 0.4°C
+#      threshold_low: -0.2°C
     visual:
       min_temperature: 17.0°C
       max_temperature: 25.0°C
@@ -281,12 +281,12 @@ climate:
     control_parameters:
       kp: 10.8
       ki: 0.0004348
-      kd: 57.5
+      kd: 28.8
       output_averaging_samples: 3
-      derivative_averaging_samples: 3
-    deadband_parameters:
-      threshold_high: 0.4°C
-      threshold_low: -0.2°C
+      derivative_averaging_samples: 5
+#    deadband_parameters:
+#      threshold_high: 0.4°C
+#      threshold_low: -0.2°C
     visual:
       min_temperature: 17.0°C
       max_temperature: 25.0°C
@@ -301,12 +301,12 @@ climate:
 #    control_parameters:
 #      kp: 10.8
 #      ki: 0.0004348
-#      kd: 57.5
+#      kd: 28.8
 #      output_averaging_samples: 3
-#      derivative_averaging_samples: 3
-#    deadband_parameters:
-#      threshold_high: 0.4°C
-#      threshold_low: -0.2°C
+#      derivative_averaging_samples: 5
+##    deadband_parameters:
+##      threshold_high: 0.4°C
+##      threshold_low: -0.2°C
 #    visual:
 #      min_temperature: 17.0°C
 #      max_temperature: 25.0°C
@@ -321,12 +321,12 @@ climate:
 #    control_parameters:
 #      kp: 10.8
 #      ki: 0.0004348
-#      kd: 57.5
+#      kd: 28.8
 #      output_averaging_samples: 3
-#      derivative_averaging_samples: 3
-#    deadband_parameters:
-#      threshold_high: 0.4°C
-#      threshold_low: -0.2°C
+#      derivative_averaging_samples: 5
+##    deadband_parameters:
+##      threshold_high: 0.4°C
+##      threshold_low: -0.2°C
 #    visual:
 #      min_temperature: 17.0°C
 #      max_temperature: 25.0°C
@@ -341,12 +341,12 @@ climate:
 #    control_parameters:
 #      kp: 10.8
 #      ki: 0.0004348
-#      kd: 57.5
+#      kd: 28.8
 #      output_averaging_samples: 3
-#      derivative_averaging_samples: 3
-#    deadband_parameters:
-#      threshold_high: 0.4°C
-#      threshold_low: -0.2°C
+#      derivative_averaging_samples: 5
+##    deadband_parameters:
+##      threshold_high: 0.4°C
+##      threshold_low: -0.2°C
 #    visual:
 #      min_temperature: 17.0°C
 #      max_temperature: 25.0°C
@@ -361,12 +361,12 @@ climate:
 #    control_parameters:
 #      kp: 10.8
 #      ki: 0.0004348
-#      kd: 57.5
+#      kd: 28.8
 #      output_averaging_samples: 3
-#      derivative_averaging_samples: 3
-#    deadband_parameters:
-#      threshold_high: 0.4°C
-#      threshold_low: -0.2°C
+#      derivative_averaging_samples: 5
+##    deadband_parameters:
+##      threshold_high: 0.4°C
+##      threshold_low: -0.2°C
 #    visual:
 #      min_temperature: 17.0°C
 #      max_temperature: 25.0°C
