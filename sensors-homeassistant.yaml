@@ -7,49 +7,49 @@ sensor:
     id: zone1_temperature
     entity_id: sensor.zone1_temperature
     filters:
-      - heartbeat: 10s
+      - heartbeat: 20s
   - platform: homeassistant
     name: $zone2_name temperatur
     id: zone2_temperature
     entity_id: sensor.zone2_temperature
     filters:
-      - heartbeat: 10s
+      - heartbeat: 20s
   - platform: homeassistant
     name: $zone3_name temperatur
     id: zone3_temperature
     entity_id: sensor.zone3_temperature
     filters:
-      - heartbeat: 10s
+      - heartbeat: 20s
   - platform: homeassistant
     name: $zone4_name temperatur
     id: zone4_temperature
     entity_id: sensor.zone4_temperature
     filters:
-      - heartbeat: 10s
+      - heartbeat: 20s
 #  - platform: homeassistant
 #    name: $zone5_name temperatur
 #    id: zone5_temperature
 #    entity_id: sensor.zone5_temperature
 #    filters:
-#      - heartbeat: 10s
+#      - heartbeat: 20s
 #  - platform: homeassistant
 #    name: $zone6_name temperatur
 #    id: zone6_temperature
 #    entity_id: sensor.zone6_temperature
 #    filters:
-#      - heartbeat: 10s
+#      - heartbeat: 20s
 #  - platform: homeassistant
 #    name: $zone7_name temperatur
 #    id: zone7_temperature
 #    entity_id: sensor.zone7_temperature
 #    filters:
-#      - heartbeat: 10s
+#      - heartbeat: 20s
 #  - platform: homeassistant
 #    name: $zone8_name temperatur
 #    id: zone8_temperature
 #    entity_id: sensor.zone8_temperature
 #    filters:
-#      - heartbeat: 10s
+#      - heartbeat: 20s
 
 # Remote sensors 
 #sensor:
@@ -59,14 +59,14 @@ sensor:
 #    id: outdoor_temperature
 #    entity_id: sensor.utetemperatur
 #    filters:
-#      - heartbeat: 10s
+#      - heartbeat: 20s
 #  # Supply line temperature
 #  - platform: homeassistant
 #    name: $node_prefix tillopp
 #    id: ${node_name}_supply_line_temperature
 #    entity_id: sensor.gvc_tillopp
 #    filters:
-#      - heartbeat: 10s
+#      - heartbeat: 20s
 #  # Mixing valve modulation period
 #  - platform: homeassistant
 #    name: $node_prefix blandningsventil reglertid
