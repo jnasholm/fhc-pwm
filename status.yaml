@@ -23,27 +23,69 @@ light:
       - pulse:
           name: auto_mode
           transition_length: 0.2s
-          update_interval: 0.8s
+          update_interval: 0.6s
       - pulse:
           name: manual_mode
           transition_length: 0.2s
-          update_interval: 4s
+          update_interval: 2s
 
-# Controller operational state indication
-binary_sensor:
+# Controller operational status codes
+sensor:
   - platform: template
-    id: ${node_name}_controller_state
+    name: $node_prefix driftläge
+    id: ${node_name}_controller_status_code
+    icon: mdi:message
+    accuracy_decimals: 0
+    update_interval: 4s
     lambda: |-
-      if ( id(${node_name}_controller_mode).state ) {
-        return true;
-      } else {
-        return false;
+      static int op_code = 1;
+      auto call = id(${node_name}_controller_status_indicator).turn_on();
+      // Inactive
+      if ( id(${node_name}_controller_mode).state == 0 ) {
+        op_code = 0;
       }
-    on_press:
-      - light.turn_on:
-          id: ${node_name}_controller_status_indicator
-          effect: auto_mode
-    on_release:
-      - light.turn_on:
-          id: ${node_name}_controller_status_indicator
-          effect: manual_mode
+      // Automatic mode
+      if ( (id(${node_name}_controller_mode).state) ) {
+        op_code = 1;
+        call.set_effect("auto_mode");
+      }
+      // Semi-automatic mode
+      // - not applicable -
+      // Manual mode
+      if ( (id(zone1_manual_enable).state) ||
+           (id(zone2_manual_enable).state) ||
+           (id(zone3_manual_enable).state) ||
+           (id(zone4_manual_enable).state) ) {
+           //(id(zone5_manual_enable).state) ||
+           //(id(zone6_manual_enable).state) ||
+           //(id(zone7_manual_enable).state) ||
+           //(id(zone8_manual_enable).state) ) {
+        op_code = 3;
+        call.set_effect("manual_mode");
+      }
+      if ( op_code == 0 ) {
+        call = id(${node_name}_controller_status_indicator).turn_off();
+      }
+      id(${node_name}_controller_status_code).publish_state(op_code);
+      id(${node_name}_controller_status_message).update();
+      call.perform();
+      return op_code;
+
+# Controller operational status messages
+text_sensor:
+  - platform: template
+    name: $node_prefix driftmeddelande
+    id: ${node_name}_controller_status_message
+    icon: mdi:message
+    lambda: |-
+      int op_code = id(${node_name}_controller_status_code).state;
+      std::string op_message = "";
+      if ( op_code == 0 )
+        op_message = "S.0 Inaktiv";
+      if ( op_code == 1 )
+        op_message = "S.1 Automatiskt driftläge";
+      if ( op_code == 2 )
+        op_message = "S.2 Halvautomatiskt driftläge";
+      if ( op_code == 3 )
+        op_message = "S.3 Manuellt driftläge";
+      return {op_message};
