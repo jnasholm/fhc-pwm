@@ -56,10 +56,10 @@ output:
   # Zone 1 actuator
   - platform: sigma_delta_output
     update_interval: 6s
-  #- platform: slow_pwm
-  #  period: 10s
+#  - platform: slow_pwm
+#    period: 10s
     id: zone1_modulation
-    min_power: 0.20
+    min_power: 0.30
     zero_means_zero: true
     turn_on_action:
       - lambda: |-
@@ -72,10 +72,10 @@ output:
   # Zone 2 actuator
   - platform: sigma_delta_output
     update_interval: 6s
-  #- platform: slow_pwm
-  #  period: 10s
+#  - platform: slow_pwm
+#    period: 10s
     id: zone2_modulation
-    min_power: 0.20
+    min_power: 0.30
     zero_means_zero: true
     turn_on_action:
       - lambda: |-
@@ -88,10 +88,10 @@ output:
   # Zone 3 actuator
   - platform: sigma_delta_output
     update_interval: 6s
-  #- platform: slow_pwm
-  #  period: 10s
+#  - platform: slow_pwm
+#    period: 10s
     id: zone3_modulation
-    min_power: 0.20
+    min_power: 0.30
     zero_means_zero: true
     turn_on_action:
       - lambda: |-
@@ -104,10 +104,10 @@ output:
   # Zone 4 actuator
   - platform: sigma_delta_output
     update_interval: 6s
-  #- platform: slow_pwm
-  #  period: 10s
+#  - platform: slow_pwm
+#    period: 10s
     id: zone4_modulation
-    min_power: 0.20
+    min_power: 0.30
     zero_means_zero: true
     turn_on_action:
       - lambda: |-
@@ -123,7 +123,7 @@ output:
 #  - platform: slow_pwm
 #    period: 10s
 #    id: zone5_modulation
-#    min_power: 0.20
+#    min_power: 0.30
 #    zero_means_zero: true
 #    turn_on_action:
 #      - lambda: |-
@@ -139,7 +139,7 @@ output:
 #  - platform: slow_pwm
 #    period: 10s
 #    id: zone6_modulation
-#    min_power: 0.20
+#    min_power: 0.30
 #    zero_means_zero: true
 #    turn_on_action:
 #      - lambda: |-
@@ -155,7 +155,7 @@ output:
 #  - platform: slow_pwm
 #    period: 10s
 #    id: zone7_modulation
-#    min_power: 0.20
+#    min_power: 0.30
 #    zero_means_zero: true
 #    turn_on_action:
 #      - lambda: |-
@@ -171,7 +171,7 @@ output:
 #  - platform: slow_pwm
 #    period: 10s
 #    id: zone8_modulation
-#    min_power: 0.20
+#    min_power: 0.30
 #    zero_means_zero: true
 #    turn_on_action:
 #      - lambda: |-
@@ -198,16 +198,16 @@ output:
 # Thermostat configuration
 
 # Zone temperature controller
-#   Sampling time, Ts:      20 s (update interval of temperature sensor)
-#   Critical gain, Kc:      18.0 (proportional constant causing oscillation)
+#   Sampling time, Ts:      10 s (update interval of temperature sensor)
+#   Critical gain, Kc:       2.0 (proportional constant causing oscillation)
 #   Critical period, Pc:  4600 s (cycle time at oscillating condition)
 # Calculated parameters  
 #   Integral time, Ti:    2300 s (0.50 x Pc)
 #   Derivative time, Td:   575 s (0.25 x Ti)
 # Controller parameters
-#   Proportional constant, kp:  10.8       (0.60 x Kc)
+#   Proportional constant, kp:   1.2       (0.60 x Kc)
 #   Integral constant, ki:       0.0004348 (1/Ti)
-#   Derivative constant, kd:    28.8       (Td/Ts)
+#   Derivative constant, kd:    57.5       (Td/Ts)
 
 # Temperature controllers
 climate:
@@ -219,14 +219,17 @@ climate:
     default_target_temperature: 21.0°C
     heat_output: zone1_modulation
     control_parameters:
-      kp: 10.8
+      kp: 1.2
       ki: 0.0004348
-      kd: 28.8
+      kd: 57.5
       output_averaging_samples: 3
       derivative_averaging_samples: 5
-#    deadband_parameters:
-#      threshold_high: 0.4°C
-#      threshold_low: -0.2°C
+    deadband_parameters:
+      threshold_high: 0.2°C
+      threshold_low: -0.2°C
+      kp_multiplier: 0.0
+      ki_multiplier: 0.05
+      kd_multiplier: 0.0
     visual:
       min_temperature: 17.0°C
       max_temperature: 25.0°C
@@ -239,14 +242,17 @@ climate:
     default_target_temperature: 21.0°C
     heat_output: zone2_modulation
     control_parameters:
-      kp: 10.8
+      kp: 1.2
       ki: 0.0004348
-      kd: 28.8
+      kd: 57.5
       output_averaging_samples: 3
       derivative_averaging_samples: 5
-#    deadband_parameters:
-#      threshold_high: 0.4°C
-#      threshold_low: -0.2°C
+    deadband_parameters:
+      threshold_high: 0.2°C
+      threshold_low: -0.2°C
+      kp_multiplier: 0.0
+      ki_multiplier: 0.05
+      kd_multiplier: 0.0
     visual:
       min_temperature: 17.0°C
       max_temperature: 25.0°C
@@ -259,14 +265,17 @@ climate:
     default_target_temperature: 21.0°C
     heat_output: zone3_modulation
     control_parameters:
-      kp: 10.8
+      kp: 1.2
       ki: 0.0004348
-      kd: 28.8
+      kd: 57.5
       output_averaging_samples: 3
       derivative_averaging_samples: 5
-#    deadband_parameters:
-#      threshold_high: 0.4°C
-#      threshold_low: -0.2°C
+    deadband_parameters:
+      threshold_high: 0.2°C
+      threshold_low: -0.2°C
+      kp_multiplier: 0.0
+      ki_multiplier: 0.05
+      kd_multiplier: 0.0
     visual:
       min_temperature: 17.0°C
       max_temperature: 25.0°C
@@ -279,14 +288,17 @@ climate:
     default_target_temperature: 21.0°C
     heat_output: zone4_modulation
     control_parameters:
-      kp: 10.8
+      kp: 1.2
       ki: 0.0004348
-      kd: 28.8
+      kd: 57.5
       output_averaging_samples: 3
       derivative_averaging_samples: 5
-#    deadband_parameters:
-#      threshold_high: 0.4°C
-#      threshold_low: -0.2°C
+    deadband_parameters:
+      threshold_high: 0.2°C
+      threshold_low: -0.2°C
+      kp_multiplier: 0.0
+      ki_multiplier: 0.05
+      kd_multiplier: 0.0
     visual:
       min_temperature: 17.0°C
       max_temperature: 25.0°C
@@ -299,14 +311,17 @@ climate:
 #    default_target_temperature: 21.0°C
 #    heat_output: zone5_modulation
 #    control_parameters:
-#      kp: 10.8
+#      kp: 1.2
 #      ki: 0.0004348
-#      kd: 28.8
+#      kd: 57.5
 #      output_averaging_samples: 3
 #      derivative_averaging_samples: 5
-##    deadband_parameters:
-##      threshold_high: 0.4°C
-##      threshold_low: -0.2°C
+#    deadband_parameters:
+#      threshold_high: 0.2°C
+#      threshold_low: -0.2°C
+#      kp_multiplier: 0.0
+#      ki_multiplier: 0.05
+#      kd_multiplier: 0.0
 #    visual:
 #      min_temperature: 17.0°C
 #      max_temperature: 25.0°C
@@ -319,14 +334,17 @@ climate:
 #    default_target_temperature: 21.0°C
 #    heat_output: zone6_modulation
 #    control_parameters:
-#      kp: 10.8
+#      kp: 1.2
 #      ki: 0.0004348
-#      kd: 28.8
+#      kd: 57.5
 #      output_averaging_samples: 3
 #      derivative_averaging_samples: 5
-##    deadband_parameters:
-##      threshold_high: 0.4°C
-##      threshold_low: -0.2°C
+#    deadband_parameters:
+#      threshold_high: 0.2°C
+#      threshold_low: -0.2°C
+#      kp_multiplier: 0.0
+#      ki_multiplier: 0.05
+#      kd_multiplier: 0.0
 #    visual:
 #      min_temperature: 17.0°C
 #      max_temperature: 25.0°C
@@ -339,14 +357,17 @@ climate:
 #    default_target_temperature: 21.0°C
 #    heat_output: zone4_modulation
 #    control_parameters:
-#      kp: 10.8
+#      kp: 1.2
 #      ki: 0.0004348
-#      kd: 28.8
+#      kd: 57.5
 #      output_averaging_samples: 3
 #      derivative_averaging_samples: 5
-##    deadband_parameters:
-##      threshold_high: 0.4°C
-##      threshold_low: -0.2°C
+#    deadband_parameters:
+#      threshold_high: 0.2°C
+#      threshold_low: -0.2°C
+#      kp_multiplier: 0.0
+#      ki_multiplier: 0.05
+#      kd_multiplier: 0.0
 #    visual:
 #      min_temperature: 17.0°C
 #      max_temperature: 25.0°C
@@ -359,14 +380,17 @@ climate:
 #    default_target_temperature: 21.0°C
 #    heat_output: zone4_modulation
 #    control_parameters:
-#      kp: 10.8
+#      kp: 1.2
 #      ki: 0.0004348
-#      kd: 28.8
+#      kd: 57.5
 #      output_averaging_samples: 3
 #      derivative_averaging_samples: 5
-##    deadband_parameters:
-##      threshold_high: 0.4°C
-##      threshold_low: -0.2°C
+#    deadband_parameters:
+#      threshold_high: 0.2°C
+#      threshold_low: -0.2°C
+#      kp_multiplier: 0.0
+#      ki_multiplier: 0.05
+#      kd_multiplier: 0.0
 #    visual:
 #      min_temperature: 17.0°C
 #      max_temperature: 25.0°C
