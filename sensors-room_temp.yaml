@@ -4,7 +4,7 @@
 dallas:
   - pin: GPIO13
     id: room_temperature_bus
-    update_interval: 20s
+    update_interval: 10s
 
 # Zone 1 temperature
 sensor:
