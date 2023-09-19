@@ -454,6 +454,46 @@ sensor:
 #    icon: mdi:chart-bell-curve-cumulative
 #    climate_id: zone8_temperature_controller
 #    type: HEAT
+  # Zone 1 actuator temperature calculated error
+  - platform: pid
+    id: zone1_temperature_error
+    climate_id: zone1_temperature_controller
+    type: ERROR
+  # Zone 2 actuator temperature calculated error
+  - platform: pid
+    id: zone2_temperature_error
+    climate_id: zone2_temperature_controller
+    type: ERROR
+  # Zone 3 actuator temperature calculated error
+  - platform: pid
+    id: zone3_temperature_error
+    climate_id: zone3_temperature_controller
+    type: ERROR
+  # Zone 4 actuator temperature calculated error
+  - platform: pid
+    id: zone4_temperature_error
+    climate_id: zone4_temperature_controller
+    type: ERROR
+#  # Zone 5 actuator temperature calculated error
+#  - platform: pid
+#    id: zone5_temperature_error
+#    climate_id: zone5_temperature_controller
+#    type: ERROR
+#  # Zone 6 actuator temperature calculated error
+#  - platform: pid
+#    id: zone6_temperature_error
+#    climate_id: zone6_temperature_controller
+#    type: ERROR
+#  # Zone 7 actuator temperature calculated error
+#  - platform: pid
+#    id: zone7_temperature_error
+#    climate_id: zone7_temperature_controller
+#    type: ERROR
+#  # Zone 8 actuator temperature calculated error
+#  - platform: pid
+#    id: zone8_temperature_error
+#    climate_id: zone8_temperature_controller
+#    type: ERROR
 
 # Zone valve actuator operational indicators
 binary_sensor:
@@ -569,7 +609,7 @@ binary_sensor:
 #          return true;
 #      }
 #      return false;
-##  # Zone 8 actuator
+#  # Zone 8 actuator
 #  - platform: template
 #    name: $zone8_name aktiv
 #    id: zone8_actuator_status
