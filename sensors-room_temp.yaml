@@ -14,6 +14,7 @@ sensor:
     dallas_id: room_temperature_bus
     address: 0x6C00000CA32B7B_S1
     resolution: 12
+    accuracy_decimals: 2
 # Zone 2 temperature
   - platform: dallas
     name: $zone2_name temperatur
@@ -21,6 +22,7 @@ sensor:
     dallas_id: room_temperature_bus
     address: 0x6C00000CA32B7B_S2
     resolution: 12
+    accuracy_decimals: 2
 # Zone 3 temperature
   - platform: dallas
     name: $zone3_name temperatur
@@ -28,6 +30,7 @@ sensor:
     dallas_id: room_temperature_bus
     address: 0x6C00000CA32B7B_S3
     resolution: 12
+    accuracy_decimals: 2
 # Zone 4 temperature
   - platform: dallas
     name: $zone4_name temperatur
@@ -35,6 +38,7 @@ sensor:
     dallas_id: room_temperature_bus
     address: 0x6C00000CA32B7B_S4
     resolution: 12
+    accuracy_decimals: 2
 # Zone 5 temperature
 #  - platform: dallas
 #    name: $zone5_name temperatur
@@ -42,6 +46,7 @@ sensor:
 #    dallas_id: room_temperature_bus
 #    address: 0x6C00000CA32B7B_S5
 #    resolution: 12
+#    accuracy_decimals: 2
 # Zone 6 temperature
 #  - platform: dallas
 #    name: $zone6_name temperatur
@@ -49,6 +54,7 @@ sensor:
 #    dallas_id: room_temperature_bus
 #    address: 0x6C00000CA32B7B_S6
 #    resolution: 12
+#    accuracy_decimals: 2
 # Zone 7 temperature
 #  - platform: dallas
 #    name: $zone7_name temperatur
@@ -56,6 +62,7 @@ sensor:
 #    dallas_id: room_temperature_bus
 #    address: 0x6C00000CA32B7B_S7
 #    resolution: 12
+#    accuracy_decimals: 2
 # Zone 8 temperature
 #  - platform: dallas
 #    name: $zone8_name temperatur
@@ -63,3 +70,4 @@ sensor:
 #    dallas_id: room_temperature_bus
 #    address: 0x6C00000CA32B7B_S8
 #    resolution: 12
+#    accuracy_decimals: 2
