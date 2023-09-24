@@ -10,12 +10,8 @@ switch:
       number: GPIO25
       inverted: true
     on_turn_on:
-      - while:
-          condition:
-            switch.is_on: decrease_relay
-          then:
-            - number.decrement: ${node_name}_mixing_valve_position_counter
-            - delay: 1s
+      - delay: 400ms
+      - switch.turn_off: decrease_relay
   # Relay actuator increase
   - platform: gpio
     id: increase_relay
@@ -24,52 +20,76 @@ switch:
       number: GPIO26
       inverted: true
     on_turn_on:
+      - delay: 400ms
+      - switch.turn_off: increase_relay
+
+  # Mixing valve actuator decrease
+  - platform: template
+    id: ${node_name}_mixing_valve_actuator_decrease
+    optimistic: true
+    on_turn_on:
       - while:
           condition:
-            switch.is_on: increase_relay
+            switch.is_on: ${node_name}_mixing_valve_actuator_decrease
           then:
-            - number.increment: ${node_name}_mixing_valve_position_counter
-            - delay: 1s
+            - switch.turn_on: decrease_relay
+            - number.decrement:
+                id: ${node_name}_mixing_valve_position_counter
+                cycle: false
+            - delay: !lambda  if (id(${node_name}_controller_mode).state) return 4000; else return 1000;
+    on_turn_off:
+      - switch.turn_off: decrease_relay
 
-# Output configuration
-# Calculate min_power to be a 1s pulse for ESBE valve actuators (1/period)
+  # Mixing valve actuator increase
+  - platform: template
+    id: ${node_name}_mixing_valve_actuator_increase
+    optimistic: true
+    on_turn_on:
+      - while:
+          condition:
+            switch.is_on: ${node_name}_mixing_valve_actuator_increase
+          then:
+            - switch.turn_on: increase_relay
+            - number.increment:
+                id: ${node_name}_mixing_valve_position_counter
+                cycle: false
+            - delay: !lambda  if (id(${node_name}_controller_mode).state) return 4000; else return 1000;
+
+    on_turn_off:
+      - switch.turn_off: increase_relay
+
+# Mixing valve actuator configuration
 output:
   # Mixing valve actuator decrease
-  - platform: slow_pwm
-    id: ${node_name}_mixing_valve_actuator_decrease
-    period: 20s
+  - platform: sigma_delta_output
+    update_interval: 6s
+    id: ${node_name}_actuator_modulation_decrease
     max_power: 0.4
-    min_power: 0.05
+    min_power: 0.0
     zero_means_zero: true
     turn_on_action:
       - lambda: |-
           if ( id(${node_name}_controller_mode).state )
-            id(decrease_relay).turn_on();
+            id(${node_name}_mixing_valve_actuator_decrease).turn_on();
     turn_off_action:
       - lambda: |-
           if ( id(${node_name}_controller_mode).state )
-            id(decrease_relay).turn_off();
-#    pin:
-#      number: GPIO25
-#      inverted: true
+            id(${node_name}_mixing_valve_actuator_decrease).turn_off();
   # Mixing valve actuator increase
-  - platform: slow_pwm
-    id: ${node_name}_mixing_valve_actuator_increase
-    period: 20s
+  - platform: sigma_delta_output
+    update_interval: 6s
+    id: ${node_name}_actuator_modulation_increase
     max_power: 0.4
-    min_power: 0.05
+    min_power: 0.0
     zero_means_zero: true
     turn_on_action:
       - lambda: |-
           if ( id(${node_name}_controller_mode).state )
-            id(increase_relay).turn_on();
+            id(${node_name}_mixing_valve_actuator_increase).turn_on();
     turn_off_action:
       - lambda: |-
           if ( id(${node_name}_controller_mode).state )
-            id(increase_relay).turn_off();
-#    pin:
-#      number: GPIO26
-#      inverted: true
+            id(${node_name}_mixing_valve_actuator_increase).turn_off();
 
 # Thermostat configuration
 
@@ -88,26 +108,41 @@ climate:
   - platform: pid
     name: $node_prefix framledningsreglering
     id: ${node_name}_supply_line_controller
-    sensor: ${node_name}_supply_line_temperature
+    sensor: active_supply_line_temperature
     default_target_temperature: 21.0°C
-    heat_output: ${node_name}_mixing_valve_actuator_increase
-    cool_output: ${node_name}_mixing_valve_actuator_decrease
+    cool_output: ${node_name}_actuator_modulation_decrease
+    heat_output: ${node_name}_actuator_modulation_increase
+    on_control:
+      - climate.pid.reset_integral_term: ${node_name}_supply_line_controller
     control_parameters:
       kp: 1.2
       ki: 0.0041667
       kd: 6.0
       output_averaging_samples: 3
-      derivative_averaging_samples: 3
+      derivative_averaging_samples: 5
     deadband_parameters:
       threshold_high: 0.2°C
       threshold_low: -0.2°C
+      kp_multiplier: 0.0
+      ki_multiplier: 0.05
+      kd_multiplier: 0.0
     visual:
-      min_temperature: 20.0°C
+      min_temperature: 15.0°C
       max_temperature: 35.0°C
       temperature_step: 0.1°C
 
-# Supply line modulation level sensors
+# Supply line temperature controller sensors
 sensor:
+  # Active Supply line temperature sensor
+  - platform: template
+    id: active_supply_line_temperature
+    accuracy_decimals: 2
+    update_interval: 10s
+    lambda: |-
+      if ( id(${node_name}_supply_line_temperature_median).state > 0.0 )
+        return id(${node_name}_supply_line_temperature_median).state;
+      else
+        return id(${node_name}_supply_line_temperature).state;
   # Supply line modulation level decrease
   - platform: pid
     name: $node_prefix reglernivå minska
@@ -122,6 +157,26 @@ sensor:
     icon: mdi:chart-bell-curve-cumulative
     climate_id: ${node_name}_supply_line_controller
     type: HEAT
+  # Supply line temperature calculated error
+  - platform: pid
+    id: ${node_name}_supply_line_temperature_error
+    climate_id: ${node_name}_supply_line_controller
+    type: ERROR
+  # Supply line controller proportional term
+  - platform: pid
+    id: ${node_name}_supply_line_controller_term_p
+    climate_id: ${node_name}_supply_line_controller
+    type: PROPORTIONAL
+  # Supply line controller integral term
+  - platform: pid
+    id: ${node_name}_supply_line_controller_term_i
+    climate_id: ${node_name}_supply_line_controller
+    type: INTEGRAL
+  # Supply line controller derivative term
+  - platform: pid
+    id: ${node_name}_supply_line_controller_term_d
+    climate_id: ${node_name}_supply_line_controller
+    type: DERIVATIVE
 
 # Mixing valve actuator operational indicators
 binary_sensor:
@@ -134,13 +189,11 @@ binary_sensor:
       - delayed_on_off: 400ms
     lambda: |-
       if ( id(${node_name}_controller_mode).state ) {
-        if ( id(${node_name}_supply_line_modulation_level_decrease).state > 0.0 ) {
+        if ( id(${node_name}_supply_line_modulation_level_decrease).state > 0.0 )
           return true;
-        }
       } else {
-        if ( id(mixing_valve_manual_decrease).state ) {
+        if ( id(mixing_valve_manual_decrease).state )
           return true;
-        }
       }
       return false;
   # Neutral
@@ -152,15 +205,13 @@ binary_sensor:
       - delayed_on_off: 400ms
     lambda: |-
       if ( id(${node_name}_controller_mode).state ) {
-        if ( (id(${node_name}_supply_line_modulation_level_decrease).state <= 0.08) && 
-             (id(${node_name}_supply_line_modulation_level_increase).state <= 0.08) ) {
+        if ( (id(${node_name}_supply_line_modulation_level_decrease).state <= 4.0) && 
+             (id(${node_name}_supply_line_modulation_level_increase).state <= 4.0) )
           return true;
-        }
       } else {
         if ( (id(mixing_valve_manual_decrease).state == 0) &&
-             (id(mixing_valve_manual_increase).state == 0) ) {
+             (id(mixing_valve_manual_increase).state == 0) )
           return true;
-        }
       }
       return false;
   # Increase
@@ -172,13 +223,11 @@ binary_sensor:
       - delayed_on_off: 400ms
     lambda: |-
       if ( id(${node_name}_controller_mode).state ) {
-        if ( id(${node_name}_supply_line_modulation_level_increase).state > 0.0 ) {
+        if ( id(${node_name}_supply_line_modulation_level_increase).state > 0.0 )
           return true;
-        }
       } else {
-        if ( id(mixing_valve_manual_increase).state ) {
+        if ( id(mixing_valve_manual_increase).state )
           return true;
-        }
       }
       return false;
 
@@ -188,9 +237,11 @@ number:
     name: $node_prefix läge
     id: ${node_name}_mixing_valve_position_counter
     icon: mdi:knob
-    min_value: -1200
-    max_value: 1200
-    step: 1
+    unit_of_measurement: ""
     initial_value: 0
-    optimistic: true
     restore_value: true
+    optimistic: true
+    min_value: 0
+    max_value: 240
+    step: 1
+    mode: slider
