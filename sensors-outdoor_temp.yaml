@@ -8,7 +8,7 @@
 
 # Sensor configurations
 sensor:
-  # Active outdoor temperature sensor (choose one)
+  # Active outdoor temperature sensor (automatic fail-over with backup value)
   - platform: template
     name: $node_prefix utetemperatur
     id: outdoor_temperature
@@ -17,9 +17,14 @@ sensor:
     state_class: measurement
     accuracy_decimals: 2
     update_interval: 20s
-    lambda: return (id(outdoor_temperature_remote).state);
-    #lambda: return (id(outdoor_temperature_digital).state);
-    #lambda: return (id(outdoor_temperature_analog).state);
+    lambda: |-
+      if ( id(outdoor_temperature_remote).state > 0.0 )
+        return id(outdoor_temperature_remote).state;
+      //if ( id(outdoor_temperature_analog).state > 0.0 )
+      //  return id(outdoor_temperature_analog).state;
+      //if ( id(outdoor_temperature_digital).state > 0.0 )
+      //  return id(outdoor_temperature_digital).state;
+      return 4.0;
 
   # Remote outdoor temperature sensor (Home Assistant)
   - platform: homeassistant
@@ -37,7 +42,7 @@ sensor:
 #    dallas_id: outdoor_temperature_bus
 #    address: 0x2c0000081d200d28
 #    resolution: 12
-#
+
 #  # Analog outdoor temperature sensor (NTC)
 #  # NTC Beta factor calculated according to the equation below
 #  # https://www.ametherm.com/thermistor/ntc-thermistor-beta
@@ -67,7 +72,7 @@ sensor:
 #    # - 2.20kOhm -> 25°C
 #    filters:
 #      - median:
-#          window_size: 60
+#          window_size: 9
 #          send_every: 3
 #          send_first_at: 1
 #  # Resistance calculation
@@ -84,6 +89,11 @@ sensor:
 #    pin: GPIO34
 #    update_interval: never
 #    attenuation: 11db
+#    filters:
+#      - exponential_moving_average:
+#          alpha: 0.06
+#          send_every: 3
+#          send_first_at: 1
 #
 ## Analog temperature sensor power source configuration
 #switch:
