@@ -1,5 +1,31 @@
 # Supply line temperature configuration
 
+# Default operational mode
+esphome:
+  on_boot:
+    priority: 201
+    then:
+      - switch.turn_on: ${node_name}_outdoor_temp_compensated_mode
+
+# Operational switches
+switch:
+  # Operational mode
+  - platform: template
+    name: $node_prefix tillopp utetemperaturkompensering
+    id: ${node_name}_outdoor_temp_compensated_mode
+    icon: mdi:thermometer-auto
+    restore_mode: ALWAYS_ON
+    # Automatic outdoor temperature compensated supply line temperature mode
+    turn_on_action:
+      - lambda: |-
+          if ( id(${node_name}_controller_mode).state == 0 )
+            id(${node_name}_controller_mode).turn_on();
+          id(${node_name}_outdoor_temp_compensated_mode).publish_state(true);
+    # Manual supply line temperature mode
+    turn_off_action:
+      - lambda: |-
+          id(${node_name}_outdoor_temp_compensated_mode).publish_state(false);
+
 # Supply line temperature definition points, p1 to p6
 number:
   - platform: template
@@ -175,7 +201,7 @@ sensor:
     on_value:
       - if:
           condition:
-            switch.is_on: ${node_name}_controller_mode
+            switch.is_on: ${node_name}_outdoor_temp_compensated_mode
           then:
             - climate.control:
                 id: ${node_name}_supply_line_controller
