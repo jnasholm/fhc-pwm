@@ -11,7 +11,7 @@ sensor:
       - heartbeat: 10s
       - exponential_moving_average:
           alpha: 0.06
-          send_every: 3
+          send_every: 1
           send_first_at: 1
   - platform: homeassistant
     name: $zone2_name temperatur
@@ -22,7 +22,7 @@ sensor:
       - heartbeat: 10s
       - exponential_moving_average:
           alpha: 0.06
-          send_every: 3
+          send_every: 1
           send_first_at: 1
   - platform: homeassistant
     name: $zone3_name temperatur
@@ -33,7 +33,7 @@ sensor:
       - heartbeat: 10s
       - exponential_moving_average:
           alpha: 0.06
-          send_every: 3
+          send_every: 1
           send_first_at: 1
   - platform: homeassistant
     name: $zone4_name temperatur
@@ -44,7 +44,7 @@ sensor:
       - heartbeat: 10s
       - exponential_moving_average:
           alpha: 0.06
-          send_every: 3
+          send_every: 1
           send_first_at: 1
 #  - platform: homeassistant
 #    name: $zone5_name temperatur
@@ -55,7 +55,7 @@ sensor:
 #      - heartbeat: 10s
 #      - exponential_moving_average:
 #          alpha: 0.06
-#          send_every: 3
+#          send_every: 1
 #          send_first_at: 1
 #  - platform: homeassistant
 #    name: $zone6_name temperatur
@@ -66,7 +66,7 @@ sensor:
 #      - heartbeat: 10s
 #      - exponential_moving_average:
 #          alpha: 0.06
-#          send_every: 3
+#          send_every: 1
 #          send_first_at: 1
 #  - platform: homeassistant
 #    name: $zone7_name temperatur
@@ -77,7 +77,7 @@ sensor:
 #      - heartbeat: 10s
 #      - exponential_moving_average:
 #          alpha: 0.06
-#          send_every: 3
+#          send_every: 1
 #          send_first_at: 1
 #  - platform: homeassistant
 #    name: $zone8_name temperatur
@@ -88,7 +88,7 @@ sensor:
 #      - heartbeat: 10s
 #      - exponential_moving_average:
 #          alpha: 0.06
-#          send_every: 3
+#          send_every: 1
 #          send_first_at: 1
 
 # Remote sensors 
