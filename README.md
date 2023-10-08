@@ -31,19 +31,19 @@ My home is a two floor detached building built in 2010. Insulation is quite good
 The smart controller as two principal modes of operation, automatic and manual.
 
 ### Automatic mode
-This is the active state (1) for the actuators. The thermostat function and modulation is in effect for each zone individually. The actuator is operated completely based on parameter settings.
+This is the active state (1) for the actuators. The thermostat function and modulation is in effect for each zone individually. Each actuator is operated completely based on parameter settings.
 
-When the first actuator is switched on, the indicator to run the circulation pump is also switched on. When the last actuator is switched off, the indicator to run the circulation pump is also switched off.
+When the first actuator is switched on, the indicator to run the circulation pump is also switched on. When the last actuator is switched off, the indicator to run the circulation pump is also switched off. This can be used to start and stop the circulation pump if needed.
 
 ### Manual mode
-This is the idle state (0) for the actuators. No thermostat function or modulation is in effect. The actuators are operated completely through manual switches, one for each zone. Each actuator remains energised until the corresponding switch in the front-end is turned off.
+This is the idle state (0) for the actuators. No thermostat function or modulation is in effect. The actuators are operated in the front-end through manual switches, one for each zone. Each actuator remains energised until the corresponding switch in the front-end is turned off.
 
 ## Front-end configuration and control
 
 |Configuration and control|Description|Default|
 |----------------------------|--------------------------------------|:------:|
 |**Controller mode**|Switch on for automatic mode, switch off for manual mode.|on|
-|**Zone 1, 2, 3, ... activate**|Switch on to open the corresponding zone valve, switch off to close the corresponding zone valve.|on|
+|**Zone 1, 2, 3, ... activate**|Switch on to open the corresponding zone valve, switch off to close the corresponding zone valve. Functioning in manual mode only.|off|
 
 ## Static controller configuration parameters
 
