@@ -189,9 +189,9 @@ output:
 #   Integral time, Ti:    2300 s (0.50 x Pc)
 #   Derivative time, Td:   575 s (0.25 x Ti)
 # Controller parameters
-#   Proportional constant, kp:   1.2       (0.60 x Kc)
-#   Integral constant, ki:       0.0004348 (1/Ti)
-#   Derivative constant, kd:    57.5       (Td/Ts)
+#   Proportional constant, kp:   1.2        (0.60 x Kc)
+#   Integral constant, ki:       0.00043478 (1/Ti)
+#   Derivative constant, kd:    57.5        (Td/Ts)
 
 # Temperature controllers
 climate:
@@ -206,16 +206,16 @@ climate:
       - climate.pid.reset_integral_term: zone1_temperature_controller
     control_parameters:
       kp: 1.2
-      ki: 0.0004348
+      ki: 0.00043478
       kd: 57.5
       output_averaging_samples: 3
       derivative_averaging_samples: 5
     deadband_parameters:
       threshold_high: 0.2°C
-      threshold_low: -0.2°C
-      kp_multiplier: 0.0
-      ki_multiplier: 0.05
-      kd_multiplier: 0.0
+      threshold_low:  0°C
+      kp_multiplier: 0.1
+      ki_multiplier: 0.2
+      kd_multiplier: 0.4
     visual:
       min_temperature: 17.0°C
       max_temperature: 25.0°C
@@ -231,16 +231,16 @@ climate:
       - climate.pid.reset_integral_term: zone2_temperature_controller
     control_parameters:
       kp: 1.2
-      ki: 0.0004348
+      ki: 0.00043478
       kd: 57.5
       output_averaging_samples: 3
       derivative_averaging_samples: 5
     deadband_parameters:
       threshold_high: 0.2°C
-      threshold_low: -0.2°C
-      kp_multiplier: 0.0
-      ki_multiplier: 0.05
-      kd_multiplier: 0.0
+      threshold_low:  0°C
+      kp_multiplier: 0.1
+      ki_multiplier: 0.2
+      kd_multiplier: 0.4
     visual:
       min_temperature: 17.0°C
       max_temperature: 25.0°C
@@ -256,16 +256,16 @@ climate:
       - climate.pid.reset_integral_term: zone3_temperature_controller
     control_parameters:
       kp: 1.2
-      ki: 0.0004348
+      ki: 0.00043478
       kd: 57.5
       output_averaging_samples: 3
       derivative_averaging_samples: 5
     deadband_parameters:
       threshold_high: 0.2°C
-      threshold_low: -0.2°C
-      kp_multiplier: 0.0
-      ki_multiplier: 0.05
-      kd_multiplier: 0.0
+      threshold_low:  0°C
+      kp_multiplier: 0.1
+      ki_multiplier: 0.2
+      kd_multiplier: 0.4
     visual:
       min_temperature: 17.0°C
       max_temperature: 25.0°C
@@ -281,16 +281,16 @@ climate:
       - climate.pid.reset_integral_term: zone4_temperature_controller
     control_parameters:
       kp: 1.2
-      ki: 0.0004348
+      ki: 0.00043478
       kd: 57.5
       output_averaging_samples: 3
       derivative_averaging_samples: 5
     deadband_parameters:
       threshold_high: 0.2°C
-      threshold_low: -0.2°C
-      kp_multiplier: 0.0
-      ki_multiplier: 0.05
-      kd_multiplier: 0.0
+      threshold_low:  0°C
+      kp_multiplier: 0.1
+      ki_multiplier: 0.2
+      kd_multiplier: 0.4
     visual:
       min_temperature: 17.0°C
       max_temperature: 25.0°C
@@ -306,16 +306,16 @@ climate:
 #      - climate.pid.reset_integral_term: zone5_temperature_controller
 #    control_parameters:
 #      kp: 1.2
-#      ki: 0.0004348
+#      ki: 0.00043478
 #      kd: 57.5
 #      output_averaging_samples: 3
 #      derivative_averaging_samples: 5
 #    deadband_parameters:
 #      threshold_high: 0.2°C
-#      threshold_low: -0.2°C
-#      kp_multiplier: 0.0
-#      ki_multiplier: 0.05
-#      kd_multiplier: 0.0
+#      threshold_low:  0°C
+#      kp_multiplier: 0.1
+#      ki_multiplier: 0.2
+#      kd_multiplier: 0.4
 #    visual:
 #      min_temperature: 17.0°C
 #      max_temperature: 25.0°C
@@ -331,16 +331,16 @@ climate:
 #      - climate.pid.reset_integral_term: zone6_temperature_controller
 #    control_parameters:
 #      kp: 1.2
-#      ki: 0.0004348
+#      ki: 0.00043478
 #      kd: 57.5
 #      output_averaging_samples: 3
 #      derivative_averaging_samples: 5
 #    deadband_parameters:
 #      threshold_high: 0.2°C
-#      threshold_low: -0.2°C
-#      kp_multiplier: 0.0
-#      ki_multiplier: 0.05
-#      kd_multiplier: 0.0
+#      threshold_low:  0°C
+#      kp_multiplier: 0.1
+#      ki_multiplier: 0.2
+#      kd_multiplier: 0.4
 #    visual:
 #      min_temperature: 17.0°C
 #      max_temperature: 25.0°C
@@ -356,16 +356,16 @@ climate:
 #      - climate.pid.reset_integral_term: zone7_temperature_controller
 #    control_parameters:
 #      kp: 1.2
-#      ki: 0.0004348
+#      ki: 0.00043478
 #      kd: 57.5
 #      output_averaging_samples: 3
 #      derivative_averaging_samples: 5
 #    deadband_parameters:
 #      threshold_high: 0.2°C
-#      threshold_low: -0.2°C
-#      kp_multiplier: 0.0
-#      ki_multiplier: 0.05
-#      kd_multiplier: 0.0
+#      threshold_low:  0°C
+#      kp_multiplier: 0.1
+#      ki_multiplier: 0.2
+#      kd_multiplier: 0.4
 #    visual:
 #      min_temperature: 17.0°C
 #      max_temperature: 25.0°C
@@ -381,16 +381,16 @@ climate:
 #      - climate.pid.reset_integral_term: zone8_temperature_controller
 #    control_parameters:
 #      kp: 1.2
-#      ki: 0.0004348
+#      ki: 0.00043478
 #      kd: 57.5
 #      output_averaging_samples: 3
 #      derivative_averaging_samples: 5
 #    deadband_parameters:
 #      threshold_high: 0.2°C
-#      threshold_low: -0.2°C
-#      kp_multiplier: 0.0
-#      ki_multiplier: 0.05
-#      kd_multiplier: 0.0
+#      threshold_low:  0°C
+#      kp_multiplier: 0.1
+#      ki_multiplier: 0.2
+#      kd_multiplier: 0.4
 #    visual:
 #      min_temperature: 17.0°C
 #      max_temperature: 25.0°C
