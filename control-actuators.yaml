@@ -183,15 +183,15 @@ output:
 
 # Zone temperature controller
 #   Sampling time, Ts:      10 s (update interval of temperature sensor)
-#   Critical gain, Kc:       2.0 (proportional constant causing oscillation)
-#   Critical period, Pc:  1080 s (cycle time at oscillating condition)
+#   Critical gain, Kc:       8.0 (proportional constant causing oscillation)
+#   Critical period, Pc:   720 s (cycle time at oscillating condition)
 # Calculated parameters  
-#   Integral time, Ti:     540 s (0.50 x Pc)
-#   Derivative time, Td:   135 s (0.25 x Ti)
+#   Integral time, Ti:     360 s (0.50 x Pc)
+#   Derivative time, Td:    90 s (0.25 x Ti)
 # Controller parameters
-#   Proportional constant, kp:   1.2        (0.60 x Kc)
-#   Integral constant, ki:       0.00185185 (1/Ti)
-#   Derivative constant, kd:    13.5        (Td/Ts)
+#   Proportional constant, kp:   4.8        (0.60 x Kc)
+#   Integral constant, ki:       0.00277778 (1/Ti)
+#   Derivative constant, kd:     9.0        (Td/Ts)
 
 # Temperature controllers
 climate:
@@ -205,9 +205,9 @@ climate:
     on_control:
       - climate.pid.reset_integral_term: zone1_temperature_controller
     control_parameters:
-      kp: 1.2
-      ki: 0.00185185
-      kd: 13.5
+      kp: 4.8
+      ki: 0.00277778
+      kd: 9.0
       output_averaging_samples: 3
       derivative_averaging_samples: 5
     deadband_parameters:
@@ -230,9 +230,9 @@ climate:
     on_control:
       - climate.pid.reset_integral_term: zone2_temperature_controller
     control_parameters:
-      kp: 1.2
-      ki: 0.00185185
-      kd: 13.5
+      kp: 4.8
+      ki: 0.00277778
+      kd: 9.0
       output_averaging_samples: 3
       derivative_averaging_samples: 5
     deadband_parameters:
@@ -255,9 +255,9 @@ climate:
     on_control:
       - climate.pid.reset_integral_term: zone3_temperature_controller
     control_parameters:
-      kp: 1.2
-      ki: 0.00185185
-      kd: 13.5
+      kp: 4.8
+      ki: 0.00277778
+      kd: 9.0
       output_averaging_samples: 3
       derivative_averaging_samples: 5
     deadband_parameters:
@@ -280,9 +280,9 @@ climate:
     on_control:
       - climate.pid.reset_integral_term: zone4_temperature_controller
     control_parameters:
-      kp: 1.2
-      ki: 0.00185185
-      kd: 13.5
+      kp: 4.8
+      ki: 0.00277778
+      kd: 9.0
       output_averaging_samples: 3
       derivative_averaging_samples: 5
     deadband_parameters:
@@ -305,9 +305,9 @@ climate:
 #    on_control:
 #      - climate.pid.reset_integral_term: zone5_temperature_controller
 #    control_parameters:
-#      kp: 1.2
-#      ki: 0.00185185
-#      kd: 13.5
+#      kp: 4.8
+#      ki: 0.00277778
+#      kd: 9.0
 #      output_averaging_samples: 3
 #      derivative_averaging_samples: 5
 #    deadband_parameters:
@@ -330,9 +330,9 @@ climate:
 #    on_control:
 #      - climate.pid.reset_integral_term: zone6_temperature_controller
 #    control_parameters:
-#      kp: 1.2
-#      ki: 0.00185185
-#      kd: 13.5
+#      kp: 4.8
+#      ki: 0.00277778
+#      kd: 9.0
 #      output_averaging_samples: 3
 #      derivative_averaging_samples: 5
 #    deadband_parameters:
@@ -355,9 +355,9 @@ climate:
 #    on_control:
 #      - climate.pid.reset_integral_term: zone7_temperature_controller
 #    control_parameters:
-#      kp: 1.2
-#      ki: 0.00185185
-#      kd: 13.5
+#      kp: 4.8
+#      ki: 0.00277778
+#      kd: 9.0
 #      output_averaging_samples: 3
 #      derivative_averaging_samples: 5
 #    deadband_parameters:
@@ -380,9 +380,9 @@ climate:
 #    on_control:
 #      - climate.pid.reset_integral_term: zone8_temperature_controller
 #    control_parameters:
-#      kp: 1.2
-#      ki: 0.00185185
-#      kd: 13.5
+#      kp: 4.8
+#      ki: 0.00277778
+#      kd: 9.0
 #      output_averaging_samples: 3
 #      derivative_averaging_samples: 5
 #    deadband_parameters:
