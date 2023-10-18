@@ -9,7 +9,7 @@ sensor:
     accuracy_decimals: 2
     filters:
       - sliding_window_moving_average:
-          window_size: 5
+          window_size: 3
           send_every: 1
       - heartbeat: 10s
   - platform: homeassistant
@@ -19,7 +19,7 @@ sensor:
     accuracy_decimals: 2
     filters:
       - sliding_window_moving_average:
-          window_size: 5
+          window_size: 3
           send_every: 1
       - heartbeat: 10s
   - platform: homeassistant
@@ -29,7 +29,7 @@ sensor:
     accuracy_decimals: 2
     filters:
       - sliding_window_moving_average:
-          window_size: 5
+          window_size: 3
           send_every: 1
       - heartbeat: 10s
   - platform: homeassistant
@@ -39,7 +39,7 @@ sensor:
     accuracy_decimals: 2
     filters:
       - sliding_window_moving_average:
-          window_size: 5
+          window_size: 3
           send_every: 1
       - heartbeat: 10s
 #  - platform: homeassistant
@@ -49,7 +49,7 @@ sensor:
 #    accuracy_decimals: 2
 #    filters:
 #      - sliding_window_moving_average:
-#          window_size: 5
+#          window_size: 3
 #          send_every: 1
 #      - heartbeat: 10s
 #  - platform: homeassistant
@@ -59,7 +59,7 @@ sensor:
 #    accuracy_decimals: 2
 #    filters:
 #      - sliding_window_moving_average:
-#          window_size: 5
+#          window_size: 3
 #          send_every: 1
 #      - heartbeat: 10s
 #  - platform: homeassistant
@@ -69,7 +69,7 @@ sensor:
 #    accuracy_decimals: 2
 #    filters:
 #      - sliding_window_moving_average:
-#          window_size: 5
+#          window_size: 3
 #          send_every: 1
 #      - heartbeat: 10s
 #  - platform: homeassistant
@@ -79,7 +79,7 @@ sensor:
 #    accuracy_decimals: 2
 #    filters:
 #      - sliding_window_moving_average:
-#          window_size: 5
+#          window_size: 3
 #          send_every: 1
 #      - heartbeat: 10s
 
