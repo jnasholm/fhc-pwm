@@ -71,10 +71,11 @@ sensor:
 #      - 2.75kOhm -> 20°C
 #    # - 2.20kOhm -> 25°C
 #    filters:
-#      - median:
+#      - sliding_window_moving_average:
 #          window_size: 9
-#          send_every: 3
+#          send_every: 1
 #          send_first_at: 1
+##      - offset: -0.4
 #  # Resistance calculation
 #  - platform: resistance
 #    name: $node_prefix utetemperatur analog sensor
