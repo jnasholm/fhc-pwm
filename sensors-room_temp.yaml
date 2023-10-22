@@ -1,45 +1,127 @@
 # Room temperature sensor configuration
 
-# Input configuration room temperatures
-dallas:
-  - pin: GPIO13
-    id: room_temperature_bus
-    update_interval: 10s
+# Digital floor heating zone temperature sensor bus configuration
+#dallas:
+#  - pin: GPIO13
+#    id: room_temperature_bus
+#    update_interval: 10s
 
-# Zone 1 temperature
+# Remote floor heating zone temperature sensors (Home Assistant)
 sensor:
-  - platform: dallas
+  - platform: homeassistant
     name: $zone1_name temperatur
     id: zone1_temperature
-    dallas_id: room_temperature_bus
-    address: 0x6C00000CA32B7B_S1
-    resolution: 12
+    entity_id: sensor.zone1_temperature
     accuracy_decimals: 2
-# Zone 2 temperature
-  - platform: dallas
+    filters:
+      - sliding_window_moving_average:
+          window_size: 3
+          send_every: 1
+      - heartbeat: 10s
+  - platform: homeassistant
     name: $zone2_name temperatur
     id: zone2_temperature
-    dallas_id: room_temperature_bus
-    address: 0x6C00000CA32B7B_S2
-    resolution: 12
+    entity_id: sensor.zone2_temperature
     accuracy_decimals: 2
-# Zone 3 temperature
-  - platform: dallas
+    filters:
+      - sliding_window_moving_average:
+          window_size: 3
+          send_every: 1
+      - heartbeat: 10s
+  - platform: homeassistant
     name: $zone3_name temperatur
     id: zone3_temperature
-    dallas_id: room_temperature_bus
-    address: 0x6C00000CA32B7B_S3
-    resolution: 12
+    entity_id: sensor.zone3_temperature
     accuracy_decimals: 2
-# Zone 4 temperature
-  - platform: dallas
+    filters:
+      - sliding_window_moving_average:
+          window_size: 3
+          send_every: 1
+      - heartbeat: 10s
+  - platform: homeassistant
     name: $zone4_name temperatur
     id: zone4_temperature
-    dallas_id: room_temperature_bus
-    address: 0x6C00000CA32B7B_S4
-    resolution: 12
+    entity_id: sensor.zone4_temperature
     accuracy_decimals: 2
-# Zone 5 temperature
+    filters:
+      - sliding_window_moving_average:
+          window_size: 3
+          send_every: 1
+      - heartbeat: 10s
+#  - platform: homeassistant
+#    name: $zone5_name temperatur
+#    id: zone5_temperature
+#    entity_id: sensor.zone5_temperature
+#    accuracy_decimals: 2
+#    filters:
+#      - sliding_window_moving_average:
+#          window_size: 3
+#          send_every: 1
+#      - heartbeat: 10s
+#  - platform: homeassistant
+#    name: $zone6_name temperatur
+#    id: zone6_temperature
+#    entity_id: sensor.zone6_temperature
+#    accuracy_decimals: 2
+#    filters:
+#      - sliding_window_moving_average:
+#          window_size: 3
+#          send_every: 1
+#      - heartbeat: 10s
+#  - platform: homeassistant
+#    name: $zone7_name temperatur
+#    id: zone7_temperature
+#    entity_id: sensor.zone7_temperature
+#    accuracy_decimals: 2
+#    filters:
+#      - sliding_window_moving_average:
+#          window_size: 3
+#          send_every: 1
+#      - heartbeat: 10s
+#  - platform: homeassistant
+#    name: $zone8_name temperatur
+#    id: zone8_temperature
+#    entity_id: sensor.zone8_temperature
+#    accuracy_decimals: 2
+#    filters:
+#      - sliding_window_moving_average:
+#          window_size: 3
+#          send_every: 1
+#      - heartbeat: 10s
+
+#  Digital zone 1 temperature (DS18B20)
+#  - platform: dallas
+#    name: $zone1_name temperatur
+#    id: zone1_temperature
+#    dallas_id: room_temperature_bus
+#    address: 0x6C00000CA32B7B_S1
+#    resolution: 12
+#    accuracy_decimals: 2
+#  Digital zone 2 temperature (DS18B20)
+#  - platform: dallas
+#    name: $zone2_name temperatur
+#    id: zone2_temperature
+#    dallas_id: room_temperature_bus
+#    address: 0x6C00000CA32B7B_S2
+#    resolution: 12
+#    accuracy_decimals: 2
+#  Digital zone 3 temperature (DS18B20)
+#  - platform: dallas
+#    name: $zone3_name temperatur
+#    id: zone3_temperature
+#    dallas_id: room_temperature_bus
+#    address: 0x6C00000CA32B7B_S3
+#    resolution: 12
+#    accuracy_decimals: 2
+#  Digital zone 4 temperature (DS18B20)
+#  - platform: dallas
+#    name: $zone4_name temperatur
+#    id: zone4_temperature
+#    dallas_id: room_temperature_bus
+#    address: 0x6C00000CA32B7B_S4
+#    resolution: 12
+#    accuracy_decimals: 2
+#  Digital zone 5 temperature (DS18B20)
 #  - platform: dallas
 #    name: $zone5_name temperatur
 #    id: zone5_temperature
@@ -47,7 +129,7 @@ sensor:
 #    address: 0x6C00000CA32B7B_S5
 #    resolution: 12
 #    accuracy_decimals: 2
-# Zone 6 temperature
+#  Digital zone 6 temperature (DS18B20)
 #  - platform: dallas
 #    name: $zone6_name temperatur
 #    id: zone6_temperature
@@ -55,7 +137,7 @@ sensor:
 #    address: 0x6C00000CA32B7B_S6
 #    resolution: 12
 #    accuracy_decimals: 2
-# Zone 7 temperature
+#  Digital zone 7 temperature (DS18B20)
 #  - platform: dallas
 #    name: $zone7_name temperatur
 #    id: zone7_temperature
@@ -63,7 +145,7 @@ sensor:
 #    address: 0x6C00000CA32B7B_S7
 #    resolution: 12
 #    accuracy_decimals: 2
-# Zone 8 temperature
+#  Digital zone 8 temperature (DS18B20)
 #  - platform: dallas
 #    name: $zone8_name temperatur
 #    id: zone8_temperature
