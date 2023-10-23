@@ -75,7 +75,7 @@ This is how the parameters for my current controller are calculated. The same co
 
 |Parameter|Value|Description or calculation|
 |--------------------|:----:|--------------------------------------------------|
-|Sampling time, Ts|10s|Update interval of the supply line temperature sensor|
+|Sampling time, Ts|10s|Update interval of the zone temperature sensor|
 |Critical gain, Kc|2.0|Proportional constant causing oscillation|
 |Critical period, Pc|4600s|Cycle time at oscillating condition|
 |Integral time, Ti|2300s|0.50 x Pc|
