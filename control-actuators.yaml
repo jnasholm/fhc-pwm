@@ -211,7 +211,7 @@ climate:
       output_averaging_samples: 3
       derivative_averaging_samples: 5
     deadband_parameters:
-      threshold_high: 0.2°C
+      threshold_high: 0.16°C
       threshold_low:  0°C
       kp_multiplier: 0.1
       ki_multiplier: 0.2
@@ -236,7 +236,7 @@ climate:
       output_averaging_samples: 3
       derivative_averaging_samples: 5
     deadband_parameters:
-      threshold_high: 0.2°C
+      threshold_high: 0.16°C
       threshold_low:  0°C
       kp_multiplier: 0.1
       ki_multiplier: 0.2
@@ -261,7 +261,7 @@ climate:
       output_averaging_samples: 3
       derivative_averaging_samples: 5
     deadband_parameters:
-      threshold_high: 0.2°C
+      threshold_high: 0.16°C
       threshold_low:  0°C
       kp_multiplier: 0.1
       ki_multiplier: 0.2
@@ -286,7 +286,7 @@ climate:
       output_averaging_samples: 3
       derivative_averaging_samples: 5
     deadband_parameters:
-      threshold_high: 0.2°C
+      threshold_high: 0.16°C
       threshold_low:  0°C
       kp_multiplier: 0.1
       ki_multiplier: 0.2
@@ -311,7 +311,7 @@ climate:
 #      output_averaging_samples: 3
 #      derivative_averaging_samples: 5
 #    deadband_parameters:
-#      threshold_high: 0.2°C
+#      threshold_high: 0.16°C
 #      threshold_low:  0°C
 #      kp_multiplier: 0.1
 #      ki_multiplier: 0.2
@@ -336,7 +336,7 @@ climate:
 #      output_averaging_samples: 3
 #      derivative_averaging_samples: 5
 #    deadband_parameters:
-#      threshold_high: 0.2°C
+#      threshold_high: 0.16°C
 #      threshold_low:  0°C
 #      kp_multiplier: 0.1
 #      ki_multiplier: 0.2
@@ -361,7 +361,7 @@ climate:
 #      output_averaging_samples: 3
 #      derivative_averaging_samples: 5
 #    deadband_parameters:
-#      threshold_high: 0.2°C
+#      threshold_high: 0.16°C
 #      threshold_low:  0°C
 #      kp_multiplier: 0.1
 #      ki_multiplier: 0.2
@@ -386,7 +386,7 @@ climate:
 #      output_averaging_samples: 3
 #      derivative_averaging_samples: 5
 #    deadband_parameters:
-#      threshold_high: 0.2°C
+#      threshold_high: 0.16°C
 #      threshold_low:  0°C
 #      kp_multiplier: 0.1
 #      ki_multiplier: 0.2
