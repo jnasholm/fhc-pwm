@@ -13,7 +13,9 @@ The controller IO pins are assigned according to the table below[^1][^2][^3].
 |Zone 7 actuator|25|
 |Zone 8 actuator|26|
 |Room temperature sensors (DS18B20)|13|
+|Room climate sensors (I2C SDA)|13|Alternative use
 |Outdoor temperature sensor (DS18B20)|14|
+|Room climate sensors (I2C SCL)|14|Alternative use
 |Distributor line temperature sensors (DS18B20)|27|
 |System status LED|32|
 |Controller status LED|33|  
