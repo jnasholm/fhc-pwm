@@ -69,6 +69,7 @@ packages:
   controls: !include controls.yaml
 #  homeassistant: !include sensors-homeassistant.yaml
   room_temp: !include sensors-room_temp.yaml
+#  room_climate: !include sensors-room_climate.yaml
   outdoor_temp: !include sensors-outdoor_temp.yaml
   actuators: !include control-actuators.yaml
   circulation_pump: !include control-circulation_pump.yaml
