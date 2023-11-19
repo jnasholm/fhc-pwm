@@ -1,0 +1,237 @@
+# Room climate sensor configuration
+
+# Input configuration room sensors
+i2c:
+  sda: GPIO13
+  scl: GPIO14
+  scan: true
+
+# Input multiplexer configuration (TCA9548A)
+tca9548a:
+  - address: 0x70
+    id: mpx0
+    i2c_id: i2c0
+    channels:
+      - bus_id: mpx0ch0
+        channel: 0
+      - bus_id: mpx0ch1
+        channel: 1
+      - bus_id: mpx0ch2
+        channel: 2
+      - bus_id: mpx0ch3
+        channel: 3
+#      - bus_id: mpx0ch4
+#        channel: 4
+#      - bus_id: mpx0ch5
+#        channel: 5
+#      - bus_id: mpx0ch6
+#        channel: 6
+#      - bus_id: mpx0ch7
+#        channel: 7
+
+# Room climate sensor BMP280 (temperature and pressure)
+sensor:
+  - platform: bmp280
+    i2c_id: mpx0ch0
+    temperature:
+      name: $zone1_name temperatur
+      id: zone1_temperature
+      oversampling: 16x
+    pressure:
+      name: $zone1_name lufttryck
+      id: zone1_pressure
+    address: 0x76
+    update_interval: 10s
+  - platform: bmp280
+    i2c_id: mpx0ch1
+    temperature:
+      name: $zone2_name temperatur
+      id: zone2_temperature
+      oversampling: 16x
+    pressure:
+      name: $zone2_name lufttryck
+      id: zone2_pressure
+    address: 0x76
+    update_interval: 10s
+  - platform: bmp280
+    i2c_id: mpx0ch2
+    temperature:
+      name: $zone3_name temperatur
+      id: zone3_temperature
+      oversampling: 16x
+    pressure:
+      name: $zone3_name lufttryck
+      id: zone3_pressure
+    address: 0x76
+    update_interval: 10s
+  - platform: bmp280
+    i2c_id: mpx0ch3
+    temperature:
+      name: $zone4_name temperatur
+      id: zone4_temperature
+      oversampling: 16x
+    pressure:
+      name: $zone4_name lufttryck
+      id: zone4_pressure
+    address: 0x76
+    update_interval: 10s
+#  - platform: bmp280
+#    i2c_id: mpx0ch4
+#    temperature:
+#      name: $zone5_name temperatur
+#      id: zone5_temperature
+#      oversampling: 16x
+#    pressure:
+#      name: $zone5_name lufttryck
+#      id: zone5_pressure
+#    address: 0x76
+#    update_interval: 10s
+#  - platform: bmp280
+#    i2c_id: mpx0ch5
+#    temperature:
+#      name: $zone6_name temperatur
+#      id: zone6_temperature
+#      oversampling: 16x
+#    pressure:
+#      name: $zone6_name lufttryck
+#      id: zone6_pressure
+#    address: 0x76
+#    update_interval: 10s
+#  - platform: bmp280
+#    i2c_id: mpx0ch6
+#    temperature:
+#      name: $zone7_name temperatur
+#      id: zone7_temperature
+#      oversampling: 16x
+#    pressure:
+#      name: $zone7_name lufttryck
+#      id: zone7_pressure
+#    address: 0x76
+#    update_interval: 10s
+#  - platform: bmp280
+#    i2c_id: mpx0ch7
+#    temperature:
+#      name: $zone8_name temperatur
+#      id: zone8_temperature
+#      oversampling: 16x
+#    pressure:
+#      name: $zone8_name lufttryck
+#      id: zone8_pressure
+#    address: 0x76
+#    update_interval: 10s
+
+
+## Room climate sensor BME280 (temperature, humidity and pressure)
+#sensor:
+#  - platform: bme280
+#    i2c_id: mpx0ch0
+#    temperature:
+#      name: $zone1_name temperatur
+#      id: zone1_temperature
+#      oversampling: 16x
+#    humidity:
+#      name: $zone1_name luftfuktighet
+#      id: zone1_humidity
+#    pressure:
+#      name: $zone1_name lufttryck
+#      id: zone1_pressure
+#    address: 0x76
+#    update_interval: 10s
+#  - platform: bme280
+#    i2c_id: mpx0ch1
+#    temperature:
+#      name: $zone2_name temperatur
+#      id: zone2_temperature
+#      oversampling: 16x
+#    humidity:
+#      name: $zone2_name luftfuktighet
+#      id: zone2_humidity
+#    pressure:
+#      name: $zone2_name lufttryck
+#      id: zone2_pressure
+#    address: 0x76
+#    update_interval: 10s
+#  - platform: bme280
+#    i2c_id: mpx0ch2
+#    temperature:
+#      name: $zone3_name temperatur
+#      id: zone3_temperature
+#      oversampling: 16x
+#    humidity:
+#      name: $zone3_name luftfuktighet
+#      id: zone3_humidity
+#    pressure:
+#      name: $zone3_name lufttryck
+#      id: zone3_pressure
+#    address: 0x76
+#    update_interval: 10s
+#  - platform: bme280
+#    i2c_id: mpx0ch3
+#    temperature:
+#      name: $zone4_name temperatur
+#      id: zone4_temperature
+#      oversampling: 16x
+#    humidity:
+#      name: $zone4_name luftfuktighet
+#      id: zone4_humidity
+#    pressure:
+#      name: $zone4_name lufttryck
+#      id: zone4_pressure
+#    address: 0x76
+#    update_interval: 10s
+#  - platform: bme280
+#    i2c_id: mpx0ch4
+#    temperature:
+#      name: $zone5_name temperatur
+#      id: zone5_temperature
+#      oversampling: 16x
+#    humidity:
+#      name: $zone5_name luftfuktighet
+#      id: zone5_humidity
+#    pressure:
+#      name: $zone5_name lufttryck
+#      id: zone5_pressure
+#    address: 0x76
+#    update_interval: 10s
+#  - platform: bme280
+#    i2c_id: mpx0ch5
+#    temperature:
+#      name: $zone6_name temperatur
+#      id: zone6_temperature
+#      oversampling: 16x
+#    humidity:
+#      name: $zone6_name luftfuktighet
+#      id: zone6_humidity
+#    pressure:
+#      name: $zone6_name lufttryck
+#      id: zone6_pressure
+#    address: 0x76
+#    update_interval: 10s
+#  - platform: bme280
+#    i2c_id: mpx0ch6
+#    temperature:
+#      name: $zone7_name temperatur
+#      id: zone7_temperature
+#      oversampling: 16x
+#    humidity:
+#      name: $zone7_name luftfuktighet
+#      id: zone7_humidity
+#    pressure:
+#      name: $zone7_name lufttryck
+#      id: zone7_pressure
+#    address: 0x76
+#    update_interval: 10s
+#  - platform: bme280
+#    i2c_id: mpx0ch7
+#    temperature:
+#      name: $zone8_name temperatur
+#      id: zone8_temperature
+#      oversampling: 16x
+#    humidity:
+#      name: $zone8_name luftfuktighet
+#      id: zone8_humidity
+#    pressure:
+#      name: $zone8_name lufttryck
+#      id: zone8_pressure
+#    address: 0x76
+#    update_interval: 10s
