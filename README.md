@@ -18,7 +18,7 @@ Project to create a smart floor heating controller for private homes with a hydr
 > In case the supply line controller needs the same upgrade: [ESP32 SSR Mixing valve actuator controller](https://github.com/jnasholm/mvc-pwm)
 
 > [!NOTE]
-> The controller hardware is theoretically capable of operating 110-230 VAC zone valve and mixing valve actuators. This will however not be tested in the project.
+> The controller hardware is theoretically capable of operating 110-230 VAC zone valve  actuators. This will however not be tested in the project.
 
 If you preferr to replace the zone valve actuators with [proportinal servo actuators](https://homematic-ip.com/en/product/valve-drive-motorised), have a look at [this project](https://github.com/nliaudat/floor-heating-controller).
 
