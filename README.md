@@ -14,7 +14,8 @@ Project to create a smart floor heating controller for private homes with a hydr
 - The controller can operate up to 8 zone valve actuators.
 - Integration with [Home Assistant](https://www.home-assistant.io/) is recommended. Sensor data and configuration parameters can be imported to operate the controller.
 
-In case the supply line controller needs the same upgrade: [ESP32 SSR Mixing valve actuator controller](https://github.com/jnasholm/mvc-pwm)
+> [!TIP]
+> In case the supply line controller needs the same upgrade: [ESP32 SSR Mixing valve actuator controller](https://github.com/jnasholm/mvc-pwm)
 
 > [!NOTE]
 > The controller hardware is theoretically capable of operating 110-230 VAC zone valve and mixing valve actuators. This will however not be tested in the project.
@@ -28,7 +29,8 @@ Room temperature data can be provided by digital sensors like the [DS18B20](http
 
 Room climate data can be provided either by the Bosch [BMP280](https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp280/) temperature and pressure sensor, or the Bosch [BME280](https://www.bosch-sensortec.com/products/environmental-sensors/humidity-sensors-bme280/) temperature, humidity and pressure sensor. Optionally the [RHT03](https://www.electrokit.com/en/product/temp-moist-sensor-rht03/) sensor can be used for room temperature data which would give relative humidity data as well.
 
-Custom room temperature or climate sensors: [ESP Room Climate Sensor](https://github.com/jnasholm/rcs)
+> [!TIP]
+> Upgrade for the room temperature or climate sensors: [ESP Room Climate Sensor](https://github.com/jnasholm/rcs)
 
 Modulation of the valve actuators is done with solid state relay modules which have galvanic isolation between control signal pins and switching terminals. The modules are equipped with one solid state relay for each valve actuator which usually equals the number of zones to control. Each solid state relay can switch a current up to 2 A. Reasonably modern valve actuators draw a current of 0.3 A during initial warm-up, which can last for about 2 minutes. After warm-up the power consumption for each actuator is usually 1 W. Connecting two actuators to each solid state relay is possible in case a zone is controlled by more than one actuator.
 
