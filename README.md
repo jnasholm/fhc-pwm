@@ -27,7 +27,7 @@ The controller is designed to be a drop-in replacement for legacy hydronic floor
 
 Room temperature data can be provided by digital sensors like the [DS18B20](https://www.electrokit.com/en/product/ds18b20-to-92-temperature-sensor/) which also works perfectly fine for outdoor temperature data.
 
-Room climate data can be provided either by the Bosch [BMP280](https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp280/) temperature and pressure sensor, or the Bosch [BME280](https://www.bosch-sensortec.com/products/environmental-sensors/humidity-sensors-bme280/) temperature, humidity and pressure sensor. These sensors are connected to the controllers I<sup>2</sup>C bus with a configurable adress, 0x76 or 0x77. Connect a [multiplexer](https://learn.adafruit.com/adafruit-tca9548a-1-to-8-i2c-multiplexer-breakou) to the controllers I<sup>2</sup>C bus in order to extend the possible number of connected sensors.
+Room climate data can be provided either by the Bosch [BMP280](https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp280/) temperature and pressure sensor, or the Bosch [BME280](https://www.bosch-sensortec.com/products/environmental-sensors/humidity-sensors-bme280/) temperature, humidity and pressure sensor. These sensors are connected to the controllers I<sup>2</sup>C bus with a configurable adress (0x76 or 0x77). Connect a [multiplexer](https://www.electrokit.com/produkt/tca9548a-i2c-multiplexer-8ch) to the controllers I<sup>2</sup>C bus in order to extend the possible number of connected sensors.
 
 Alternatively the [RHT03](https://www.electrokit.com/en/product/temp-moist-sensor-rht03/) sensor can be used for room temperature data which would give relative humidity data as well.
 
