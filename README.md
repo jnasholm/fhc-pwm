@@ -117,7 +117,7 @@ This is how the parameters for my current controller are calculated. The same co
 
 ![Prototype installed](/images/prototype-installed_1.png)
 <br>
-*Prototype installed in connection cabinet. Floor heating controller to the left and mixing valve controller to the right.*
+*Prototype installed in connection cabinet. Floor heating controller on the left and mixing valve controller on the right.*
 
 ## References
 
