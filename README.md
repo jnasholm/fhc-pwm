@@ -107,6 +107,17 @@ This is how the parameters for my current controller are calculated. The same co
 <br>
 *Prototype wired on experiment board and assembled with solid state relays.*
 
+![Prototype in enclosure](/images/prototype-enclosure_1.png)
+<br>
+*Prototype in enclosure connected to status LEDs on breadboard.*
+
+![Prototype in enclosure](/images/prototype-enclosure_2.png)
+<br>
+*Prototype in enclosure with status LEDs.*
+
+![Prototype installed](/images/prototype-installed_1.png)
+<br>
+*Prototype installed in connection cabinet. Floor heating controller to the left and mixing valve controller to the right.*
 
 ## References
 
