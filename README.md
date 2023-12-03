@@ -101,7 +101,12 @@ This is how the parameters for my current controller are calculated. The same co
 
 ![Prototype on breadboard](/images/prototype-breadboard_1.png)
 <br>
-*Prototype wired on breadboard.*
+*Prototype wired on breadboard and connected to solid state relays.*
+
+![Prototype on experiment board](/images/prototype-experimentboard_1.png)
+<br>
+*Prototype wired on experiment board and assembled with solid state relays.*
+
 
 ## References
 
