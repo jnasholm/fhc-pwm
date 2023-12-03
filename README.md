@@ -97,6 +97,12 @@ This is how the parameters for my current controller are calculated. The same co
 |Integral constant, ki|0.00043478|1/Ti|
 |Derivative constant, kd|57.5|Td/Ts|
 
+## Prototype
+
+![Prototype on breadboard](/images/prototype-breadboard_1.png)
+<br>
+*Prototype wired on breadboard.*
+
 ## References
 
 [^1]: [PI Parameter Influence on Underfloor Heating Energy Consumption and Setpoint Tracking in nZEBs](https://www.mdpi.com/1996-1073/13/8/2068)
