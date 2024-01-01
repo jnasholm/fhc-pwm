@@ -14,9 +14,9 @@ sensor:
     entity_id: sensor.zone1_temperature
     accuracy_decimals: 2
     filters:
-      - sliding_window_moving_average:
-          window_size: 3
-          send_every: 1
+#      - sliding_window_moving_average:
+#          window_size: 3
+#          send_every: 1
       - heartbeat: 10s
   - platform: homeassistant
     name: $zone2_name temperatur
@@ -24,9 +24,9 @@ sensor:
     entity_id: sensor.zone2_temperature
     accuracy_decimals: 2
     filters:
-      - sliding_window_moving_average:
-          window_size: 3
-          send_every: 1
+#      - sliding_window_moving_average:
+#          window_size: 3
+#          send_every: 1
       - heartbeat: 10s
   - platform: homeassistant
     name: $zone3_name temperatur
@@ -34,9 +34,9 @@ sensor:
     entity_id: sensor.zone3_temperature
     accuracy_decimals: 2
     filters:
-      - sliding_window_moving_average:
-          window_size: 3
-          send_every: 1
+#      - sliding_window_moving_average:
+#          window_size: 3
+#          send_every: 1
       - heartbeat: 10s
   - platform: homeassistant
     name: $zone4_name temperatur
@@ -44,9 +44,9 @@ sensor:
     entity_id: sensor.zone4_temperature
     accuracy_decimals: 2
     filters:
-      - sliding_window_moving_average:
-          window_size: 3
-          send_every: 1
+#      - sliding_window_moving_average:
+#          window_size: 3
+#          send_every: 1
       - heartbeat: 10s
 #  - platform: homeassistant
 #    name: $zone5_name temperatur
