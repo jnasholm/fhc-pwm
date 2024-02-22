@@ -123,7 +123,7 @@ sensor:
 
 ## Room climate sensor BME280 (temperature, humidity and pressure)
 #sensor:
-#  - platform: bme280
+#  - platform: bme280_i2c
 #    i2c_id: mpx0ch0
 #    temperature:
 #      name: $zone1_name temperatur
@@ -137,7 +137,7 @@ sensor:
 #      id: zone1_pressure
 #    address: 0x76
 #    update_interval: 10s
-#  - platform: bme280
+#  - platform: bme280_i2c
 #    i2c_id: mpx0ch1
 #    temperature:
 #      name: $zone2_name temperatur
@@ -151,7 +151,7 @@ sensor:
 #      id: zone2_pressure
 #    address: 0x76
 #    update_interval: 10s
-#  - platform: bme280
+#  - platform: bme280_i2c
 #    i2c_id: mpx0ch2
 #    temperature:
 #      name: $zone3_name temperatur
@@ -165,7 +165,7 @@ sensor:
 #      id: zone3_pressure
 #    address: 0x76
 #    update_interval: 10s
-#  - platform: bme280
+#  - platform: bme280_i2c
 #    i2c_id: mpx0ch3
 #    temperature:
 #      name: $zone4_name temperatur
@@ -179,7 +179,7 @@ sensor:
 #      id: zone4_pressure
 #    address: 0x76
 #    update_interval: 10s
-#  - platform: bme280
+#  - platform: bme280_i2c
 #    i2c_id: mpx0ch4
 #    temperature:
 #      name: $zone5_name temperatur
@@ -193,7 +193,7 @@ sensor:
 #      id: zone5_pressure
 #    address: 0x76
 #    update_interval: 10s
-#  - platform: bme280
+#  - platform: bme280_i2c
 #    i2c_id: mpx0ch5
 #    temperature:
 #      name: $zone6_name temperatur
@@ -207,7 +207,7 @@ sensor:
 #      id: zone6_pressure
 #    address: 0x76
 #    update_interval: 10s
-#  - platform: bme280
+#  - platform: bme280_i2c
 #    i2c_id: mpx0ch6
 #    temperature:
 #      name: $zone7_name temperatur
@@ -221,7 +221,7 @@ sensor:
 #      id: zone7_pressure
 #    address: 0x76
 #    update_interval: 10s
-#  - platform: bme280
+#  - platform: bme280_i2c
 #    i2c_id: mpx0ch7
 #    temperature:
 #      name: $zone8_name temperatur
