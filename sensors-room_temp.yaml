@@ -18,7 +18,7 @@ sensor:
 #          window_size: 3
 #          send_every: 1
       - heartbeat: 10s
-      - lambda: if ( !isnan(id(zone1_temperature).state) ) return x; else return 20.0;
+      - lambda: if ( id(zone1_temperature).state > 0 ) return x; else return 20.0;
   - platform: homeassistant
     name: $zone2_name temperatur
     id: zone2_temperature
@@ -29,7 +29,7 @@ sensor:
 #          window_size: 3
 #          send_every: 1
       - heartbeat: 10s
-      - lambda: if ( !isnan(id(zone2_temperature).state) ) return x; else return 20.0;
+      - lambda: if ( id(zone2_temperature).state > 0 ) return x; else return 20.0;
   - platform: homeassistant
     name: $zone3_name temperatur
     id: zone3_temperature
@@ -40,7 +40,7 @@ sensor:
 #          window_size: 3
 #          send_every: 1
       - heartbeat: 10s
-      - lambda: if ( !isnan(id(zone3_temperature).state) ) return x; else return 20.0;
+      - lambda: if ( id(zone3_temperature).state > 0 ) return x; else return 20.0;
   - platform: homeassistant
     name: $zone4_name temperatur
     id: zone4_temperature
@@ -51,7 +51,7 @@ sensor:
 #          window_size: 3
 #          send_every: 1
       - heartbeat: 10s
-      - lambda: if ( !isnan(id(zone4_temperature).state) ) return x; else return 20.0;
+      - lambda: if ( id(zone4_temperature).state > 0 ) return x; else return 20.0;
 #  - platform: homeassistant
 #    name: $zone5_name temperatur
 #    id: zone5_temperature
@@ -62,7 +62,7 @@ sensor:
 #          window_size: 3
 #          send_every: 1
 #      - heartbeat: 10s
-#      - lambda: if ( !isnan(id(zone5_temperature).state) ) return x; else return 20.0;
+#      - lambda: if ( id(zone5_temperature).state > 0 ) return x; else return 20.0;
 #  - platform: homeassistant
 #    name: $zone6_name temperatur
 #    id: zone6_temperature
@@ -73,7 +73,7 @@ sensor:
 #          window_size: 3
 #          send_every: 1
 #      - heartbeat: 10s
-#      - lambda: if ( !isnan(id(zone6_temperature).state) ) return x; else return 20.0;
+#      - lambda: if ( id(zone6_temperature).state > 0 ) return x; else return 20.0;
 #  - platform: homeassistant
 #    name: $zone7_name temperatur
 #    id: zone7_temperature
@@ -84,7 +84,7 @@ sensor:
 #          window_size: 3
 #          send_every: 1
 #      - heartbeat: 10s
-#      - lambda: if ( !isnan(id(zone7_temperature).state) ) return x; else return 20.0;
+#      - lambda: if ( id(zone7_temperature).state > 0 ) return x; else return 20.0;
 #  - platform: homeassistant
 #    name: $zone8_name temperatur
 #    id: zone8_temperature
@@ -95,7 +95,7 @@ sensor:
 #          window_size: 3
 #          send_every: 1
 #      - heartbeat: 10s
-#      - lambda: if ( !isnan(id(zone8_temperature).state) ) return x; else return 20.0;
+#      - lambda: if ( id(zone8_temperature).state > 0 ) return x; else return 20.0;
 
 #  Digital zone 1 temperature (DS18B20)
 #  - platform: dallas
