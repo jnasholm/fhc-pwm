@@ -125,7 +125,7 @@ The goal is to mature the hardware design enough to get proper printed circuit b
 
 ![Prototype PCB](/images/esp32_ssr_fhc_pcb.png)
 <br>
-*Prototype printed circuit board.*
+*Prototype printed circuit board for a 9 unit 159.2 mm DIN enclosure.*
 
 ## References
 
