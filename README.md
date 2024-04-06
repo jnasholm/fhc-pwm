@@ -119,6 +119,10 @@ This is how the parameters for my current controller are calculated. The same co
 <br>
 *Prototype installed in DIN rail connection cabinet. Floor heating controller on the left and [mixing valve controller](https://github.com/jnasholm/mvc-pwm) on the right.*
 
+## Future
+
+The goal is to mature the hardware design enough to get proper printed circuit boards fabricated. Next step is to make a second prototype with all components positioned as realistically as possible. For this purpose only through hole components are used. Using surface mount components may be the final step of prototyping.
+
 ## References
 
 [^1]: [PI Parameter Influence on Underfloor Heating Energy Consumption and Setpoint Tracking in nZEBs](https://www.mdpi.com/1996-1073/13/8/2068)
