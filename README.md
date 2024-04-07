@@ -89,13 +89,13 @@ This is how the parameters for my current controller are calculated. The same co
 |Parameter|Value|Description or calculation|
 |--------------------|:----:|--------------------------------------------------|
 |Sampling time, Ts|10 s|Update interval of the zone temperature sensor|
-|Critical gain, Kc|2.0|Proportional constant causing oscillation|
-|Critical period, Pc|4600 s|Cycle time at oscillating condition|
-|Integral time, Ti|2300 s|0.50 x Pc|
-|Derivative time, Td|575 s|0.25 x Ti|
-|Proportional constant, kp|1.2|0.60 x Kc|
-|Integral constant, ki|0.00043478|1/Ti|
-|Derivative constant, kd|57.5|Td/Ts|
+|Critical gain, Kc|8.0|Proportional constant causing oscillation|
+|Critical period, Pc|720 s|Cycle time at oscillating condition|
+|Integral time, Ti|360 s|0.50 x Pc|
+|Derivative time, Td|90 s|0.25 x Ti|
+|Proportional constant, kp|4.8|0.60 x Kc|
+|Integral constant, ki|0.00277778|1/Ti|
+|Derivative constant, kd|9.0|Td/Ts|
 
 ## Prototype
 
