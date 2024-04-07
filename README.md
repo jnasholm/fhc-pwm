@@ -64,12 +64,12 @@ The following parameters are configurable in the source code of ```control-actua
 
 |Parameter|Value|Description|
 |--------------------|:----:|--------------------------------------------------|
-|```kp```|1.2|PID climate proportional control parameter|
-|```ki```|0.00043478|PID climate integral control parameter|
-|```kd```|57.5|PID climate derivative control parameter|
+|```kp```|4.8|PID climate proportional control parameter|
+|```ki```|0.00277778|PID climate integral control parameter|
+|```kd```|9.0|PID climate derivative control parameter|
 |```output_averaging_samples```|3|PID climate output averaging|
 |```derivative_averaging_samples```|5|PID climate derivative averaging|
-|```threshold_high```|0.2°C|PID climate deadband upper limit|
+|```threshold_high```|0.16°C|PID climate deadband upper limit|
 |```threshold_low```|0°C|PID climate deadband lower limit|
 |```kp_multiplier```|0.1|PID climate deadband proportional scaling|
 |```ki_multiplier```|0.2|PID climate deadband integral scaling|
