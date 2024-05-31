@@ -1,0 +1,61 @@
+# Change to summer operational mode
+alias: Golvvärmereglering driftläge sommar
+description: ""
+trigger:
+  - platform: numeric_state
+    entity_id:
+      - sensor.utetemperatur
+    for:
+      hours: 0
+      minutes: 40
+      seconds: 0
+    above: 20
+condition:
+  - condition: state
+    entity_id: switch.gvr_automatiskt_driftlage
+    state: "on"
+action:
+  - service: switch.turn_off
+    data: {}
+    target:
+      entity_id:
+        - switch.gvr_automatiskt_driftlage
+  - service: notify.mobile_app_my_iphone
+    data:
+      message: GVR driftläge sommar ({{ states('sensor.utetemperatur') }}).
+  - service: switch.turn_on
+    data: {}
+    target:
+      entity_id:
+        - switch.kok_aktivera
+        - switch.hall_aktivera
+        - switch.duschrum_aktivera
+        - switch.vardagsrum_aktivera
+mode: single
+
+# Change to normal oprtational mode
+alias: Golvvärmereglering driftläge normal
+description: ""
+trigger:
+  - platform: numeric_state
+    entity_id:
+      - sensor.utetemperatur
+    for:
+      hours: 1
+      minutes: 0
+      seconds: 0
+    below: 16
+condition:
+  - condition: state
+    entity_id: switch.gvr_automatiskt_driftlage
+    state: "off"
+action:
+  - service: switch.turn_on
+    target:
+      entity_id:
+        - switch.gvr_automatiskt_driftlage
+    data: {}
+  - service: notify.mobile_app_my_iphone
+    data:
+      message: GVR driftläge normal ({{ states('sensor.utetemperatur') }}).
+mode: single
