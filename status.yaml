@@ -25,9 +25,13 @@ light:
           transition_length: 0.2s
           update_interval: 0.6s
       - pulse:
-          name: manual_mode
+          name: summer_mode
           transition_length: 0.2s
           update_interval: 2s
+      - pulse:
+          name: manual_mode
+          transition_length: 0.2s
+          update_interval: 4s
 
 # Controller operational status codes
 sensor:
@@ -56,12 +60,16 @@ sensor:
       // - thermostats off
       // - circulation pump on
       // Enable:
-      // - outdoor temperature above p6
+      // - outdoor temperature above setting, default 20°C
       //   when in automatic mode
       // Disable:
-      // - outdoor temperature below p6 with some margin
+      // - outdoor temperature below setting with margin, default 16°C
       //   and return to automatic mode
       //
+      if ( id(${node_name}_summer_mode).state ) {
+        op_code = 2;
+        call.set_effect("summer_mode");
+      }
       // Manual mode
       if ( (id(zone1_manual_enable).state) ||
            (id(zone2_manual_enable).state) ||
@@ -74,9 +82,8 @@ sensor:
         op_code = 3;
         call.set_effect("manual_mode");
       }
-      if ( op_code == 0 ) {
+      if ( op_code == 0 )
         call = id(${node_name}_controller_status_indicator).turn_off();
-      }
       id(${node_name}_controller_status_code).publish_state(op_code);
       id(${node_name}_controller_status_message).update();
       call.perform();

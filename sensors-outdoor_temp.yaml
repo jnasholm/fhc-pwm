@@ -112,3 +112,37 @@ sensor:
 #      - component.update: outdoor_temperature_analog_measure
 #      - delay: 1s
 #      - switch.turn_off: outdoor_analog_sensor_power
+
+# Summer mode temperature confiuration
+number:
+  - platform: template
+    name: $node_prefix sommarlägestemperatur
+    id: ${node_name}_summer_mode_temp
+    unit_of_measurement: °C
+    initial_value: 20.0
+    restore_value: true
+    optimistic: true
+    max_value: 40.0
+    min_value: 10.0
+    step: 1
+    mode: box
+
+# Summer mode operational indicator
+binary_sensor:
+  - platform: template
+    name: $node_prefix sommarläge
+    id: ${node_name}_summer_mode
+    icon: mdi:sun-thermometer
+    filters:
+      - delayed_on_off: 400ms
+    lambda: |-
+      if ( id(${node_name}_controller_mode).state ) {
+        if ( id(${node_name}_summer_mode).state == false ) {
+          if ( id(outdoor_temperature).state > id(${node_name}_summer_mode_temp).state )
+            return true;
+        } else {
+          if ( id(outdoor_temperature).state < id(${node_name}_summer_mode_temp).state - 4.0 )
+            return false;
+        }
+      }
+      return false;
