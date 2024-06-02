@@ -49,8 +49,19 @@ sensor:
         op_code = 1;
         call.set_effect("auto_mode");
       }
-      // Semi-automatic mode
-      // - not applicable -
+      // Summer mode
+      //
+      // To be implemented:
+      // - actuators on
+      // - thermostats off
+      // - circulation pump on
+      // Enable:
+      // - outdoor temperature above p6
+      //   when in automatic mode
+      // Disable:
+      // - outdoor temperature below p6 with some margin
+      //   and return to automatic mode
+      //
       // Manual mode
       if ( (id(zone1_manual_enable).state) ||
            (id(zone2_manual_enable).state) ||
@@ -85,7 +96,7 @@ text_sensor:
       if ( op_code == 1 )
         op_message = "S.1 Automatiskt driftläge";
       if ( op_code == 2 )
-        op_message = "S.2 Halvautomatiskt driftläge";
+        op_message = "S.2 Sommardrift";
       if ( op_code == 3 )
         op_message = "S.3 Manuellt driftläge";
       return {op_message};
