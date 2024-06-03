@@ -137,11 +137,15 @@ binary_sensor:
       - delayed_on_off: 400ms
     lambda: |-
       if ( id(${node_name}_controller_mode).state ) {
-        if ( id(${node_name}_summer_mode).state == false ) {
-          if ( id(outdoor_temperature).state > id(${node_name}_summer_mode_temp).state )
+        float temp_sm = id(${node_name}_summer_mode_temp).state;
+        float temp_od = id(outdoor_temperature).state;
+        if ( temp_sm < 10.0 || temp_sm > 40.0 )
+          temp_sm = 20.5;
+        if ( id(${node_name}_summer_mode).state == 0 ) {
+          if ( temp_od > temp_sm )
             return true;
         } else {
-          if ( id(outdoor_temperature).state < id(${node_name}_summer_mode_temp).state - 4.0 )
+          if ( temp_od < (temp_sm - 4.0) )
             return false;
         }
       }
