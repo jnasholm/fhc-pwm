@@ -114,7 +114,7 @@ sensor:
 #      - delay: 1s
 #      - switch.turn_off: outdoor_analog_sensor_power
 
-# Summer mode temperature confiuration
+# Summer mode temperature configuration
 number:
   - platform: template
     name: $node_prefix sommarlägestemperatur
