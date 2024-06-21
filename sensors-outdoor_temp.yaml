@@ -144,12 +144,12 @@ binary_sensor:
           temp_sm = 20.5;
         if ( id(${node_name}_summer_mode).state == 0 ) {
           if ( temp_od > temp_sm ) {
-            id(summer_mode).execute();
+            id(enable_summer_mode).execute();
             return true;
           }
         } else {
           if ( temp_od < (temp_sm - 4.0) ) {
-            id(automatic_mode).execute();
+            id(enable_automatic_mode).execute();
             return false;
           }
         }
