@@ -1,8 +1,9 @@
 # Outdoor temperature sensor configuration
 
 # Digital outdoor temperature sensor bus configuration
-#dallas:
-#  - pin: GPIO14
+#one_wire:
+#  - platform: gpio
+#    pin: GPIO14
 #    id: outdoor_temperature_bus
 #    update_interval: 20s
 
@@ -36,7 +37,7 @@ sensor:
       - heartbeat: 20s
 
 #  # Digital outdoor temperature sensor (DS18B20)
-#  - platform: dallas
+#  - platform: dallas_temp
 #    name: $node_prefix utetemperatur digital
 #    id: outdoor_temperature_digital
 #    accuracy_decimals: 2
