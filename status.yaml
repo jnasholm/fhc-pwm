@@ -54,18 +54,6 @@ sensor:
         call.set_effect("auto_mode");
       }
       // Summer mode
-      //
-      // To be implemented:
-      // - actuators on
-      // - thermostats off
-      // - circulation pump on
-      // Enable:
-      // - outdoor temperature above setting, default 20°C
-      //   when in automatic mode
-      // Disable:
-      // - outdoor temperature below setting with margin, default 16°C
-      //   and return to automatic mode
-      //
       if ( id(${node_name}_summer_mode).state ) {
         op_code = 2;
         call.set_effect("summer_mode");
