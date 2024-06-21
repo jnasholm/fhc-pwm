@@ -1,8 +1,9 @@
 # Room temperature sensor configuration
 
 # Digital floor heating zone temperature sensor bus configuration
-#dallas:
-#  - pin: GPIO13
+#one_wire:
+#  - platform: gpio
+#    pin: GPIO13
 #    id: room_temperature_bus
 #    update_interval: 10s
 
@@ -98,7 +99,7 @@ sensor:
 #      - lambda: if ( !isnan(id(zone8_temperature).state) ) return x; else return 20.0;
 
 #  Digital zone 1 temperature (DS18B20)
-#  - platform: dallas
+#  - platform: dallas_temp
 #    name: $zone1_name temperatur
 #    id: zone1_temperature
 #    dallas_id: room_temperature_bus
@@ -106,7 +107,7 @@ sensor:
 #    resolution: 12
 #    accuracy_decimals: 2
 #  Digital zone 2 temperature (DS18B20)
-#  - platform: dallas
+#  - platform: dallas_temp
 #    name: $zone2_name temperatur
 #    id: zone2_temperature
 #    dallas_id: room_temperature_bus
@@ -114,7 +115,7 @@ sensor:
 #    resolution: 12
 #    accuracy_decimals: 2
 #  Digital zone 3 temperature (DS18B20)
-#  - platform: dallas
+#  - platform: dallas_temp
 #    name: $zone3_name temperatur
 #    id: zone3_temperature
 #    dallas_id: room_temperature_bus
@@ -122,7 +123,7 @@ sensor:
 #    resolution: 12
 #    accuracy_decimals: 2
 #  Digital zone 4 temperature (DS18B20)
-#  - platform: dallas
+#  - platform: dallas_temp
 #    name: $zone4_name temperatur
 #    id: zone4_temperature
 #    dallas_id: room_temperature_bus
@@ -130,7 +131,7 @@ sensor:
 #    resolution: 12
 #    accuracy_decimals: 2
 #  Digital zone 5 temperature (DS18B20)
-#  - platform: dallas
+#  - platform: dallas_temp
 #    name: $zone5_name temperatur
 #    id: zone5_temperature
 #    dallas_id: room_temperature_bus
@@ -138,7 +139,7 @@ sensor:
 #    resolution: 12
 #    accuracy_decimals: 2
 #  Digital zone 6 temperature (DS18B20)
-#  - platform: dallas
+#  - platform: dallas_temp
 #    name: $zone6_name temperatur
 #    id: zone6_temperature
 #    dallas_id: room_temperature_bus
@@ -146,7 +147,7 @@ sensor:
 #    resolution: 12
 #    accuracy_decimals: 2
 #  Digital zone 7 temperature (DS18B20)
-#  - platform: dallas
+#  - platform: dallas_temp
 #    name: $zone7_name temperatur
 #    id: zone7_temperature
 #    dallas_id: room_temperature_bus
@@ -154,7 +155,7 @@ sensor:
 #    resolution: 12
 #    accuracy_decimals: 2
 #  Digital zone 8 temperature (DS18B20)
-#  - platform: dallas
+#  - platform: dallas_temp
 #    name: $zone8_name temperatur
 #    id: zone8_temperature
 #    dallas_id: room_temperature_bus
