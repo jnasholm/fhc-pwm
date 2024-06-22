@@ -102,7 +102,7 @@ sensor:
 #  - platform: dallas_temp
 #    name: $zone1_name temperatur
 #    id: zone1_temperature
-#    dallas_id: room_temperature_bus
+#    one_wire_id: room_temperature_bus
 #    address: 0x6C00000CA32B7B_S1
 #    resolution: 12
 #    accuracy_decimals: 2
@@ -110,7 +110,7 @@ sensor:
 #  - platform: dallas_temp
 #    name: $zone2_name temperatur
 #    id: zone2_temperature
-#    dallas_id: room_temperature_bus
+#    one_wire_id: room_temperature_bus
 #    address: 0x6C00000CA32B7B_S2
 #    resolution: 12
 #    accuracy_decimals: 2
@@ -118,7 +118,7 @@ sensor:
 #  - platform: dallas_temp
 #    name: $zone3_name temperatur
 #    id: zone3_temperature
-#    dallas_id: room_temperature_bus
+#    one_wire_id: room_temperature_bus
 #    address: 0x6C00000CA32B7B_S3
 #    resolution: 12
 #    accuracy_decimals: 2
@@ -126,7 +126,7 @@ sensor:
 #  - platform: dallas_temp
 #    name: $zone4_name temperatur
 #    id: zone4_temperature
-#    dallas_id: room_temperature_bus
+#    one_wire_id: room_temperature_bus
 #    address: 0x6C00000CA32B7B_S4
 #    resolution: 12
 #    accuracy_decimals: 2
@@ -134,7 +134,7 @@ sensor:
 #  - platform: dallas_temp
 #    name: $zone5_name temperatur
 #    id: zone5_temperature
-#    dallas_id: room_temperature_bus
+#    one_wire_id: room_temperature_bus
 #    address: 0x6C00000CA32B7B_S5
 #    resolution: 12
 #    accuracy_decimals: 2
@@ -142,7 +142,7 @@ sensor:
 #  - platform: dallas_temp
 #    name: $zone6_name temperatur
 #    id: zone6_temperature
-#    dallas_id: room_temperature_bus
+#    one_wire_id: room_temperature_bus
 #    address: 0x6C00000CA32B7B_S6
 #    resolution: 12
 #    accuracy_decimals: 2
@@ -150,7 +150,7 @@ sensor:
 #  - platform: dallas_temp
 #    name: $zone7_name temperatur
 #    id: zone7_temperature
-#    dallas_id: room_temperature_bus
+#    one_wire_id: room_temperature_bus
 #    address: 0x6C00000CA32B7B_S7
 #    resolution: 12
 #    accuracy_decimals: 2
@@ -158,7 +158,7 @@ sensor:
 #  - platform: dallas_temp
 #    name: $zone8_name temperatur
 #    id: zone8_temperature
-#    dallas_id: room_temperature_bus
+#    one_wire_id: room_temperature_bus
 #    address: 0x6C00000CA32B7B_S8
 #    resolution: 12
 #    accuracy_decimals: 2
