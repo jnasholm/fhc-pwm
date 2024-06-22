@@ -86,7 +86,7 @@ The following parameters are configurable in the source code of ```control-actua
 |```temperature_step```|0.1°C|PID climate thermostat minimum change|
 
 > [!NOTE]
-> Control parameters are entered for each zone individually.
+> Configuration parameters are entered for each zone individually.
 
 ## PID controller parameters
 
@@ -104,6 +104,9 @@ This is how the parameters for my current controller are calculated. The same co
 |Proportional constant, kp|4.8|0.60 x Kc|
 |Integral constant, ki|0.00277778|1/Ti|
 |Derivative constant, kd|9.0|Td/Ts|
+
+> [!NOTE]
+> Control parameters are entered for each zone individually.
 
 ## Prototype
 
