@@ -6,6 +6,7 @@ esphome:
     priority: 200
     then:
       - switch.turn_on: ${node_name}_controller_mode
+      - switch.turn_off: ${node_name}_controller_summer_mode
 
 # Operational switches
 switch:
@@ -21,6 +22,18 @@ switch:
     # Manual mode
     turn_off_action:
       - script.execute: enable_manual_mode
+  # Operational summer mode
+  - platform: template
+    name: $node_prefix sommardriftläge
+    id: ${node_name}_controller_summer_mode
+    icon: mdi:sun-thermometer
+    restore_mode: ALWAYS_OFF
+    # Summer mode
+    turn_on_action:
+      - script.execute: enable_summer_mode
+    # Normal mode
+    turn_off_action:
+      - script.execute: enable_automatic_mode
 
   # Zone 1 manual switch
   - platform: template
@@ -176,6 +189,7 @@ script:
           // id(zone7_manual_enable).turn_off();
           // id(zone8_manual_enable).turn_off();
           id(${node_name}_controller_mode).publish_state(true);
+          id(${node_name}_controller_summer_mode).publish_state(false);
           id(zone1_temperature_controller).make_call().set_mode("HEAT");
           id(zone2_temperature_controller).make_call().set_mode("HEAT");
           id(zone3_temperature_controller).make_call().set_mode("HEAT");
@@ -215,6 +229,7 @@ script:
           // id(zone6_temperature_controller).make_call().set_mode("OFF");
           // id(zone7_temperature_controller).make_call().set_mode("OFF");
           // id(zone8_temperature_controller).make_call().set_mode("OFF");
+          id(${node_name}_controller_summer_mode).publish_state(true);
           id(zone1_relay).turn_on();
           id(zone2_relay).turn_on();
           id(zone3_relay).turn_on();
@@ -239,6 +254,7 @@ script:
           // id(zone7_relay).turn_off();
           // id(zone8_relay).turn_off();
           id(${node_name}_controller_mode).publish_state(false);
+          id(${node_name}_controller_summer_mode).publish_state(false);
           id(zone1_temperature_controller).make_call().set_mode("OFF");
           id(zone2_temperature_controller).make_call().set_mode("OFF");
           id(zone3_temperature_controller).make_call().set_mode("OFF");
