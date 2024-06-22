@@ -41,7 +41,7 @@ My home is a two floor detached building built in 2010. Insulation is quite good
 
 ## Controller function
 
-The smart floor heating controller has two principal modes of operation, automatic and manual. Chose the mode of operation from the front-end or through automations in Home Assistant.
+The smart floor heating controller has three principal modes of operation, automatic, summer and manual. Chose the mode of operation from the front-end or through automations in Home Assistant.
 
 ### Automatic mode
 This is the active state (1) for the actuators. The thermostat function and modulation is in effect for each zone individually. Each actuator is operated completely based on parameter settings.
