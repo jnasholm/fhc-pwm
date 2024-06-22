@@ -51,7 +51,7 @@ When the first actuator is switched on, the indicator to run the circulation pum
 ### Summer mode
 This is the active state (2) for the actuators. No thermostat function or modulation is in effect. All actuators are switched on and the indicator to run the circulation pump is also switched on.
 
-The controller enters summer mode when the outdoor temperature is above the configured level. This mode will maintain circulation in all zones regardless of current temperature in each zone.
+The controller enters summer mode when the outdoor temperature is above the configured temperature. This mode will maintain circulation in all zones regardless of current temperature in each zone.
 
 ### Manual mode
 This is the idle state (3) for the actuators. No thermostat function or modulation is in effect. The actuators are operated in the front-end through manual switches, one for each zone. Each actuator remains energised until the corresponding switch in the front-end is turned off.
@@ -62,6 +62,7 @@ This is the idle state (3) for the actuators. No thermostat function or modulati
 |----------------------------|--------------------------------------|:------:|
 |**Controller mode**|Switch on for automatic mode, switch off for manual mode.|on|
 |**Zone 1, 2, 3, ... activate**|Switch on to open the corresponding zone valve, switch off to close the corresponding zone valve. Functioning in manual mode only.|off|
+|**Summer mode**|Switch on for summer mode, switch off for normal mode.|off|
 |**Summer mode temperature**|Enable summer mode above this outdoor temperature.|20.0°C|
 
 ## Static controller configuration parameters
