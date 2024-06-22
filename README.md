@@ -85,7 +85,8 @@ The following parameters are configurable in the source code of ```control-actua
 |```max_temperature```|25.0°C|PID climate thermostat upper limit|
 |```temperature_step```|0.1°C|PID climate thermostat minimum change|
 
-*Control parameters are entered for each zone individually.*
+> [!NOTE]
+> Control parameters are entered for each zone individually.
 
 ## PID controller parameters
 
