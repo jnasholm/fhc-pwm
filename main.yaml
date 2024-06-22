@@ -23,7 +23,7 @@ substitutions:
 esphome:
   project:
     name: "jnasholm.fhc-pwm"
-    version: "0.1"
+    version: "0.2"
   name: $node_name
   platform: ESP32
   board: esp32-devkitlipo
