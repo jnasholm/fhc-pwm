@@ -114,6 +114,34 @@ sensor:
 #      - delay: 1s
 #      - switch.turn_off: outdoor_analog_sensor_power
 
+# Summer mode operational control and indicator
+binary_sensor:
+  - platform: template
+    name: $node_prefix sommarläge aktiv
+    id: ${node_name}_summer_mode
+    icon: mdi:sun-thermometer
+    filters:
+      - delayed_on_off: 400ms
+    lambda: |-
+      if ( id(${node_name}_controller_mode).state ) {
+        float temp_sm = id(${node_name}_summer_mode_temp).state;
+        float temp_od = id(outdoor_temperature).state;
+        if ( temp_sm < 10.0 || temp_sm > 40.0 )
+          temp_sm = 20.5;
+        if ( id(${node_name}_summer_mode).state == 0 ) {
+          if ( temp_od > temp_sm ) {
+            id(${node_name}_controller_summer_mode).publish_state(true);
+            return true;
+          }
+        } else {
+          if ( temp_od < (temp_sm - 4.0) ) {
+            id(${node_name}_controller_summer_mode).publish_state(false);
+            return false;
+          }
+        }
+      }
+      return false;
+
 # Summer mode temperature configuration
 number:
   - platform: template
@@ -127,31 +155,3 @@ number:
     min_value: 10.0
     step: 1
     mode: box
-
-# Summer mode operational indicator
-binary_sensor:
-  - platform: template
-    name: $node_prefix sommarläge
-    id: ${node_name}_summer_mode
-    icon: mdi:sun-thermometer
-    filters:
-      - delayed_on_off: 400ms
-    lambda: |-
-      if ( id(${node_name}_controller_mode).state ) {
-        float temp_sm = id(${node_name}_summer_mode_temp).state;
-        float temp_od = id(outdoor_temperature).state;
-        if ( temp_sm < 10.0 || temp_sm > 40.0 )
-          temp_sm = 20.5;
-        if ( id(${node_name}_summer_mode).state == 0 ) {
-          if ( temp_od > temp_sm ) {
-            id(enable_summer_mode).execute();
-            return true;
-          }
-        } else {
-          if ( temp_od < (temp_sm - 4.0) ) {
-            id(enable_automatic_mode).execute();
-            return false;
-          }
-        }
-      }
-      return false;
