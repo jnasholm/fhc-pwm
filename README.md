@@ -63,7 +63,7 @@ This is the idle state (3) for the actuators. No thermostat function or modulati
 |**Controller mode**|Switch on for automatic mode, switch off for manual mode.|on|
 |**Zone 1, 2, 3, ... activate**|Switch on to open the corresponding zone valve, switch off to close the corresponding zone valve. Functioning in manual mode only.|off|
 |**Summer mode**|Switch on for summer mode, switch off for normal mode.|off|
-|**Summer mode temperature**|Enable summer mode above this outdoor temperature.|20.0°C|
+|**Summer mode temperature**|Enable summer mode above this outdoor temperature.|20°C|
 
 ## Static controller configuration parameters
 
