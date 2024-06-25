@@ -134,7 +134,7 @@ binary_sensor:
             return true;
           }
         } else {
-          if ( temp_od < (temp_sm - 4.0) ) {
+          if ( temp_od < temp_sm - 4.0 ) {
             id(${node_name}_controller_summer_mode).publish_state(false);
             return false;
           }
