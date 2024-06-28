@@ -144,5 +144,5 @@ number:
     optimistic: true
     max_value: 40.0
     min_value: 10.0
-    step: 1
+    step: 0.5
     mode: box
