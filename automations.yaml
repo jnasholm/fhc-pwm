@@ -36,8 +36,7 @@ trigger:
       hours: 1
       minutes: 0
       seconds: 0
-    below: number.gvr_sommarlagestemperatur
-    value_template: "{{ states('number.gvr_sommarlagestemperatur') | float(20) - 4.0 }}"
+    below: 16
 condition:
   - condition: state
     entity_id: switch.gvr_automatiskt_driftlage
