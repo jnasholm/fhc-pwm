@@ -505,15 +505,12 @@ binary_sensor:
     filters:
       - delayed_on_off: 400ms
     lambda: |-
-      if ( id(${node_name}_controller_mode).state ) {
-        if ( id(zone1_modulation_level).state > 0 )
-          return true;
-        if ( id(zone1_relay).state )
-          return true;
-      } else {
-        if ( id(zone1_manual_enable).state )
-          return true;
-      }
+      if ( id(zone1_modulation_level).state > 0 )
+        return true;
+      if ( id(zone1_relay).state )
+        return true;
+      if ( id(zone1_manual_enable).state )
+        return true;
       return false;
   # Zone 2 actuator
   - platform: template
@@ -523,15 +520,12 @@ binary_sensor:
     filters:
       - delayed_on_off: 400ms
     lambda: |-
-      if ( id(${node_name}_controller_mode).state ) {
-        if ( id(zone2_modulation_level).state > 0 )
-          return true;
-        if ( id(zone2_relay).state )
-          return true;
-      } else {
-        if ( id(zone2_manual_enable).state )
-          return true;
-      }
+      if ( id(zone2_modulation_level).state > 0 )
+        return true;
+      if ( id(zone2_relay).state )
+        return true;
+      if ( id(zone2_manual_enable).state )
+        return true;
       return false;
   # Zone 3 actuator
   - platform: template
@@ -541,15 +535,12 @@ binary_sensor:
     filters:
       - delayed_on_off: 400ms
     lambda: |-
-      if ( id(${node_name}_controller_mode).state ) {
-        if ( id(zone3_modulation_level).state > 0 )
-          return true;
-        if ( id(zone3_relay).state )
-          return true;
-      } else {
-        if ( id(zone3_manual_enable).state )
-          return true;
-      }
+      if ( id(zone3_modulation_level).state > 0 )
+        return true;
+      if ( id(zone3_relay).state )
+        return true;
+      if ( id(zone3_manual_enable).state )
+        return true;
       return false;
   # Zone 4 actuator
   - platform: template
@@ -559,15 +550,12 @@ binary_sensor:
     filters:
       - delayed_on_off: 400ms
     lambda: |-
-      if ( id(${node_name}_controller_mode).state ) {
-        if ( id(zone4_modulation_level).state > 0 )
-          return true;
-        if ( id(zone4_relay).state )
-          return true;
-      } else {
-        if ( id(zone4_manual_enable).state )
-          return true;
-      }
+      if ( id(zone4_modulation_level).state > 0 )
+        return true;
+      if ( id(zone4_relay).state )
+        return true;
+      if ( id(zone4_manual_enable).state )
+        return true;
       return false;
 #  # Zone 5 actuator
 #  - platform: template
@@ -577,15 +565,12 @@ binary_sensor:
 #    filters:
 #      - delayed_on_off: 400ms
 #    lambda: |-
-#      if ( id(${node_name}_controller_mode).state ) {
-#        if ( id(zone5_modulation_level).state > 0 )
-#          return true;
-#        if ( id(zone5_relay).state )
-#          return true;
-#      } else {
-#        if ( id(zone5_manual_enable).state )
-#          return true;
-#      }
+#      if ( id(zone5_modulation_level).state > 0 )
+#        return true;
+#      if ( id(zone5_relay).state )
+#        return true;
+#      if ( id(zone5_manual_enable).state )
+#        return true;
 #      return false;
 #  # Zone 6 actuator
 #  - platform: template
@@ -595,15 +580,12 @@ binary_sensor:
 #    filters:
 #      - delayed_on_off: 400ms
 #    lambda: |-
-#      if ( id(${node_name}_controller_mode).state ) {
-#        if ( id(zone6_modulation_level).state > 0 )
-#          return true;
-#        if ( id(zone6_relay).state )
-#          return true;
-#      } else {
-#        if ( id(zone6_manual_enable).state )
-#          return true;
-#        }
+#      if ( id(zone6_modulation_level).state > 0 )
+#        return true;
+#      if ( id(zone6_relay).state )
+#        return true;
+#      if ( id(zone6_manual_enable).state )
+#        return true;
 #      return false;
 #  # Zone 7 actuator
 #  - platform: template
@@ -613,15 +595,12 @@ binary_sensor:
 #    filters:
 #      - delayed_on_off: 400ms
 #    lambda: |-
-#      if ( id(${node_name}_controller_mode).state ) {
-#        if ( id(zone7_modulation_level).state > 0 )
-#          return true;
-#        if ( id(zone7_relay).state )
-#          return true;
-#      } else {
-#        if ( id(zone7_manual_enable).state )
-#          return true;
-#      }
+#      if ( id(zone7_modulation_level).state > 0 )
+#        return true;
+#      if ( id(zone7_relay).state )
+#        return true;
+#      if ( id(zone7_manual_enable).state )
+#        return true;
 #      return false;
 #  # Zone 8 actuator
 #  - platform: template
@@ -631,13 +610,10 @@ binary_sensor:
 #    filters:
 #      - delayed_on_off: 400ms
 #    lambda: |-
-#      if ( id(${node_name}_controller_mode).state ) {
-#        if ( id(zone8_modulation_level).state > 0 )
-#          return true;
-#        if ( id(zone8_relay).state )
-#          return true;
-#      } else {
-#        if ( id(zone8_manual_enable).state )
-#          return true;
-#      }
+#      if ( id(zone8_modulation_level).state > 0 )
+#        return true;
+#      if ( id(zone8_relay).state )
+#        return true;
+#      if ( id(zone8_manual_enable).state )
+#        return true;
 #      return false;
