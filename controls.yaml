@@ -189,14 +189,14 @@ script:
           // id(zone7_manual_enable).turn_off();
           // id(zone8_manual_enable).turn_off();
           id(${node_name}_controller_mode).publish_state(true);
-          id(zone1_temperature_controller).make_call().set_mode("HEAT");
-          id(zone2_temperature_controller).make_call().set_mode("HEAT");
-          id(zone3_temperature_controller).make_call().set_mode("HEAT");
-          id(zone4_temperature_controller).make_call().set_mode("HEAT");
-          // id(zone5_temperature_controller).make_call().set_mode("HEAT");
-          // id(zone6_temperature_controller).make_call().set_mode("HEAT");
-          // id(zone7_temperature_controller).make_call().set_mode("HEAT");
-          // id(zone8_temperature_controller).make_call().set_mode("HEAT");
+          id(zone1_temperature_controller).make_call().set_mode("HEAT").perform();
+          id(zone2_temperature_controller).make_call().set_mode("HEAT").perform();
+          id(zone3_temperature_controller).make_call().set_mode("HEAT").perform();
+          id(zone4_temperature_controller).make_call().set_mode("HEAT").perform();
+          // id(zone5_temperature_controller).make_call().set_mode("HEAT").perform();
+          // id(zone6_temperature_controller).make_call().set_mode("HEAT").perform();
+          // id(zone7_temperature_controller).make_call().set_mode("HEAT").perform();
+          // id(zone8_temperature_controller).make_call().set_mode("HEAT").perform();
           // # Restore state of relays
           if ( id(zone1_modulation_level).state > 0.0 )
             id(zone1_relay).turn_on();
@@ -221,14 +221,6 @@ script:
       - script.stop: enable_manual_mode
       - lambda: |-
           if ( id(${node_name}_controller_mode).state ) {
-            id(zone1_temperature_controller).make_call().set_mode("OFF");
-            id(zone2_temperature_controller).make_call().set_mode("OFF");
-            id(zone3_temperature_controller).make_call().set_mode("OFF");
-            id(zone4_temperature_controller).make_call().set_mode("OFF");
-            // id(zone5_temperature_controller).make_call().set_mode("OFF");
-            // id(zone6_temperature_controller).make_call().set_mode("OFF");
-            // id(zone7_temperature_controller).make_call().set_mode("OFF");
-            // id(zone8_temperature_controller).make_call().set_mode("OFF");
             id(${node_name}_controller_summer_mode).publish_state(true);
             id(zone1_relay).turn_on();
             id(zone2_relay).turn_on();
@@ -246,14 +238,6 @@ script:
     then:
       - script.stop: enable_summer_mode
       - lambda: |-
-          id(zone1_temperature_controller).make_call().set_mode("HEAT");
-          id(zone2_temperature_controller).make_call().set_mode("HEAT");
-          id(zone3_temperature_controller).make_call().set_mode("HEAT");
-          id(zone4_temperature_controller).make_call().set_mode("HEAT");
-          // id(zone5_temperature_controller).make_call().set_mode("HEAT");
-          // id(zone6_temperature_controller).make_call().set_mode("HEAT");
-          // id(zone7_temperature_controller).make_call().set_mode("HEAT");
-          // id(zone8_temperature_controller).make_call().set_mode("HEAT");
           id(${node_name}_controller_summer_mode).publish_state(false);
           if ( id(zone1_modulation_level).state == 0.0 )
             id(zone1_relay).turn_off();
@@ -287,11 +271,11 @@ script:
           // id(zone8_relay).turn_off();
           id(${node_name}_controller_mode).publish_state(false);
           id(${node_name}_controller_summer_mode).publish_state(false);
-          id(zone1_temperature_controller).make_call().set_mode("OFF");
-          id(zone2_temperature_controller).make_call().set_mode("OFF");
-          id(zone3_temperature_controller).make_call().set_mode("OFF");
-          id(zone4_temperature_controller).make_call().set_mode("OFF");
-          // id(zone5_temperature_controller).make_call().set_mode("OFF");
-          // id(zone6_temperature_controller).make_call().set_mode("OFF");
-          // id(zone7_temperature_controller).make_call().set_mode("OFF");
-          // id(zone8_temperature_controller).make_call().set_mode("OFF");
+          id(zone1_temperature_controller).make_call().set_mode("OFF").perform();
+          id(zone2_temperature_controller).make_call().set_mode("OFF").perform();
+          id(zone3_temperature_controller).make_call().set_mode("OFF").perform();
+          id(zone4_temperature_controller).make_call().set_mode("OFF").perform();
+          // id(zone5_temperature_controller).make_call().set_mode("OFF").perform();
+          // id(zone6_temperature_controller).make_call().set_mode("OFF").perform();
+          // id(zone7_temperature_controller).make_call().set_mode("OFF").perform();
+          // id(zone8_temperature_controller).make_call().set_mode("OFF").perform();
