@@ -50,12 +50,12 @@ sensor:
       }
       // Automatic mode
       if ( (id(${node_name}_controller_mode).state) &&
-           (id(${node_name}_summer_mode).state == 0) ) {
+           (id(${node_name}_controller_summer_mode).state == 0) ) {
         op_code = 1;
         call.set_effect("auto_mode");
       }
       // Summer mode
-      if ( id(${node_name}_summer_mode).state ) {
+      if ( id(${node_name}_controller_summer_mode).state ) {
         op_code = 2;
         call.set_effect("summer_mode");
       }

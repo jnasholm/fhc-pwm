@@ -41,6 +41,8 @@ binary_sensor:
       //      (id(zone8_manual_enable).state) ) {
       //   return true;
       // }
+      if ( id(${node_name}_controller_summer_mode).state )
+        return true;
       /* Otherwise deactivate circulation pump */
       return false;
 

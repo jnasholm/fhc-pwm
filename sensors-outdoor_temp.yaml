@@ -119,7 +119,7 @@ binary_sensor:
   - platform: template
     name: $node_prefix sommarläge aktiv
     id: ${node_name}_summer_mode
-    icon: mdi:sun-thermometer
+    icon: mdi:weather-sunny
     filters:
       - delayed_on_off: 400ms
     lambda: |-
@@ -128,17 +128,8 @@ binary_sensor:
         float temp_od = id(outdoor_temperature).state;
         if ( temp_sm < 10.0 || temp_sm > 40.0 )
           temp_sm = 20.5;
-        if ( id(${node_name}_summer_mode).state == 0 ) {
-          if ( temp_od > temp_sm ) {
-            id(${node_name}_controller_summer_mode).publish_state(true);
-            return true;
-          }
-        } else {
-          if ( temp_od < temp_sm - 4.0 ) {
-            id(${node_name}_controller_summer_mode).publish_state(false);
-            return false;
-          }
-        }
+        if ( temp_od > temp_sm )
+          return true;
       }
       return false;
 
