@@ -505,7 +505,7 @@ binary_sensor:
     filters:
       - delayed_on_off: 400ms
     lambda: |-
-      if ( id(zone1_modulation_level).state > 0 )
+      if ( id(zone1_modulation_level).state > 0.0 )
         return true;
       if ( id(zone1_relay).state )
         return true;
@@ -520,7 +520,7 @@ binary_sensor:
     filters:
       - delayed_on_off: 400ms
     lambda: |-
-      if ( id(zone2_modulation_level).state > 0 )
+      if ( id(zone2_modulation_level).state > 0.0 )
         return true;
       if ( id(zone2_relay).state )
         return true;
@@ -535,7 +535,7 @@ binary_sensor:
     filters:
       - delayed_on_off: 400ms
     lambda: |-
-      if ( id(zone3_modulation_level).state > 0 )
+      if ( id(zone3_modulation_level).state > 0.0 )
         return true;
       if ( id(zone3_relay).state )
         return true;
@@ -550,7 +550,7 @@ binary_sensor:
     filters:
       - delayed_on_off: 400ms
     lambda: |-
-      if ( id(zone4_modulation_level).state > 0 )
+      if ( id(zone4_modulation_level).state > 0.0 )
         return true;
       if ( id(zone4_relay).state )
         return true;
@@ -565,7 +565,7 @@ binary_sensor:
 #    filters:
 #      - delayed_on_off: 400ms
 #    lambda: |-
-#      if ( id(zone5_modulation_level).state > 0 )
+#      if ( id(zone5_modulation_level).state > 0.0 )
 #        return true;
 #      if ( id(zone5_relay).state )
 #        return true;
@@ -580,7 +580,7 @@ binary_sensor:
 #    filters:
 #      - delayed_on_off: 400ms
 #    lambda: |-
-#      if ( id(zone6_modulation_level).state > 0 )
+#      if ( id(zone6_modulation_level).state > 0.0 )
 #        return true;
 #      if ( id(zone6_relay).state )
 #        return true;
@@ -595,7 +595,7 @@ binary_sensor:
 #    filters:
 #      - delayed_on_off: 400ms
 #    lambda: |-
-#      if ( id(zone7_modulation_level).state > 0 )
+#      if ( id(zone7_modulation_level).state > 0.0 )
 #        return true;
 #      if ( id(zone7_relay).state )
 #        return true;
@@ -610,7 +610,7 @@ binary_sensor:
 #    filters:
 #      - delayed_on_off: 400ms
 #    lambda: |-
-#      if ( id(zone8_modulation_level).state > 0 )
+#      if ( id(zone8_modulation_level).state > 0.0 )
 #        return true;
 #      if ( id(zone8_relay).state )
 #        return true;
