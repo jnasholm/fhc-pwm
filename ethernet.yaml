@@ -10,11 +10,13 @@ ethernet:
 
 # Ethernet information sensors
 text_sensor:
-  - platform: template
-    name: $node_prefix IP
-    icon: mdi:ip-network-outline
-    entity_category: diagnostic
-    lambda: return { id(eth0).get_ip_address().str() };
+  - platform: ethernet_info
+    ip_address:
+      name: $node_prefix IP
+      icon: mdi:ip-network-outline
+    mac_address:
+      name: $node_prefix MAC
+      icon: mdi:network-outline
 
 # Web server settings
 web_server:

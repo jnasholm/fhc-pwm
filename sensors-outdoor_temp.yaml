@@ -5,7 +5,6 @@
 #  - platform: gpio
 #    pin: GPIO14
 #    id: outdoor_temperature_bus
-#    update_interval: 20s
 
 # Sensor configurations
 sensor:
@@ -41,6 +40,7 @@ sensor:
 #    name: $node_prefix utetemperatur digital
 #    id: outdoor_temperature_digital
 #    accuracy_decimals: 2
+#    update_interval: 20s
 #    one_wire_id: outdoor_temperature_bus
 #    address: 0x2c0000081d200d28
 #    resolution: 12
@@ -91,7 +91,7 @@ sensor:
 #    id: outdoor_temperature_analog_measure
 #    pin: GPIO34
 #    update_interval: never
-#    attenuation: 11db
+#    attenuation: 12db
 #    filters:
 #      - exponential_moving_average:
 #          alpha: 0.06
