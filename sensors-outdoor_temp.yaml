@@ -132,12 +132,16 @@ binary_sensor:
           if ( temp_od >= temp_sm ) {
             id(${node_name}_controller_summer_mode).publish_state(true);
             return true;
+          } else {
+            return false;          
           }
         }
         if ( id(${node_name}_controller_summer_mode).state ) {
           if ( temp_od <= temp_sm - 4.0 ) {
             id(${node_name}_controller_summer_mode).publish_state(false);
             return false;
+          } else {
+            return true;          
           }
         }
       }
