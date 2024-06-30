@@ -128,8 +128,18 @@ binary_sensor:
         float temp_od = id(outdoor_temperature).state;
         if ( temp_sm < 10.0 || temp_sm > 40.0 )
           temp_sm = 20.5;
-        if ( temp_od > temp_sm )
-          return true;
+        if ( id(${node_name}_controller_summer_mode).state == 0 ) {
+          if ( temp_od >= temp_sm ) {
+            id(${node_name}_controller_summer_mode).publish_state(true);
+            return true;
+          }
+        }
+        if ( id(${node_name}_controller_summer_mode).state ) {
+          if ( temp_od <= temp_sm - 4.0 ) {
+            id(${node_name}_controller_summer_mode).publish_state(false);
+            return false;
+          }
+        }
       }
       return false;
 
