@@ -12,6 +12,9 @@ sensor:
     name: $zone1_name temperatur
     id: zone1_temperature
     entity_id: sensor.zone1_temperature
+    unit_of_measurement: °C
+    device_class: temperature
+    state_class: measurement
     accuracy_decimals: 2
     filters:
 #      - sliding_window_moving_average:
@@ -23,6 +26,9 @@ sensor:
     name: $zone2_name temperatur
     id: zone2_temperature
     entity_id: sensor.zone2_temperature
+    unit_of_measurement: °C
+    device_class: temperature
+    state_class: measurement
     accuracy_decimals: 2
     filters:
 #      - sliding_window_moving_average:
@@ -34,6 +40,9 @@ sensor:
     name: $zone3_name temperatur
     id: zone3_temperature
     entity_id: sensor.zone3_temperature
+    unit_of_measurement: °C
+    device_class: temperature
+    state_class: measurement
     accuracy_decimals: 2
     filters:
 #      - sliding_window_moving_average:
@@ -45,6 +54,9 @@ sensor:
     name: $zone4_name temperatur
     id: zone4_temperature
     entity_id: sensor.zone4_temperature
+    unit_of_measurement: °C
+    device_class: temperature
+    state_class: measurement
     accuracy_decimals: 2
     filters:
 #      - sliding_window_moving_average:
@@ -56,6 +68,9 @@ sensor:
 #    name: $zone5_name temperatur
 #    id: zone5_temperature
 #    entity_id: sensor.zone5_temperature
+#    unit_of_measurement: °C
+#    device_class: temperature
+#    state_class: measurement
 #    accuracy_decimals: 2
 #    filters:
 #      - sliding_window_moving_average:
@@ -67,6 +82,9 @@ sensor:
 #    name: $zone6_name temperatur
 #    id: zone6_temperature
 #    entity_id: sensor.zone6_temperature
+#    unit_of_measurement: °C
+#    device_class: temperature
+#    state_class: measurement
 #    accuracy_decimals: 2
 #    filters:
 #      - sliding_window_moving_average:
@@ -78,6 +96,9 @@ sensor:
 #    name: $zone7_name temperatur
 #    id: zone7_temperature
 #    entity_id: sensor.zone7_temperature
+#    unit_of_measurement: °C
+#    device_class: temperature
+#    state_class: measurement
 #    accuracy_decimals: 2
 #    filters:
 #      - sliding_window_moving_average:
@@ -89,6 +110,9 @@ sensor:
 #    name: $zone8_name temperatur
 #    id: zone8_temperature
 #    entity_id: sensor.zone8_temperature
+#    unit_of_measurement: °C
+#    device_class: temperature
+#    state_class: measurement
 #    accuracy_decimals: 2
 #    filters:
 #      - sliding_window_moving_average:

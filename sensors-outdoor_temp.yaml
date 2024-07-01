@@ -30,6 +30,9 @@ sensor:
   # Remote outdoor temperature sensor (Home Assistant)
   - platform: homeassistant
     id: outdoor_temperature_remote
+    unit_of_measurement: °C
+    device_class: temperature
+    state_class: measurement
     accuracy_decimals: 2
     entity_id: sensor.utetemperatur
     filters:
