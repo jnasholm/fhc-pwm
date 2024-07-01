@@ -37,6 +37,7 @@ sensor:
     entity_id: sensor.utetemperatur
     filters:
       - heartbeat: 20s
+      - lambda: if ( !isnan(id(outdoor_temperature_remote).state) ) return x; else return 10.0;
 
 #  # Digital outdoor temperature sensor (DS18B20)
 #  - platform: dallas_temp
