@@ -130,7 +130,7 @@ binary_sensor:
           temp_sm = 20.5;
         if ( id(${node_name}_controller_summer_mode).state == 0 ) {
           if ( temp_od >= temp_sm ) {
-            id(${node_name}_controller_summer_mode).publish_state(true);
+            id(${node_name}_controller_summer_mode).turn_on();
             return true;
           } else {
             return false;          
@@ -138,7 +138,7 @@ binary_sensor:
         }
         if ( id(${node_name}_controller_summer_mode).state ) {
           if ( temp_od <= temp_sm - 4.0 ) {
-            id(${node_name}_controller_summer_mode).publish_state(false);
+            id(${node_name}_controller_summer_mode).turn_off();
             return false;
           } else {
             return true;          
