@@ -222,14 +222,22 @@ script:
       - lambda: |-
           if ( id(${node_name}_controller_mode).state ) {
             id(${node_name}_controller_summer_mode).publish_state(true);
-            id(zone1_relay).turn_on();
-            id(zone2_relay).turn_on();
-            id(zone3_relay).turn_on();
-            id(zone4_relay).turn_on();
-            // id(zone5_relay).turn_on();
-            // id(zone6_relay).turn_on();
-            // id(zone7_relay).turn_on();
-            // id(zone8_relay).turn_on();
+            id(zone1_modulation).set_min_power(1.0);
+            id(zone2_modulation).set_min_power(1.0);
+            id(zone3_modulation).set_min_power(1.0);
+            id(zone4_modulation).set_min_power(1.0);
+            // id(zone5_modulation).set_min_power(1.0);
+            // id(zone6_modulation).set_min_power(1.0);
+            // id(zone7_modulation).set_min_power(1.0);
+            // id(zone8_modulation).set_min_power(1.0);
+            id(zone1_modulation).set_zero_means_zero(false);
+            id(zone2_modulation).set_zero_means_zero(false);
+            id(zone3_modulation).set_zero_means_zero(false);
+            id(zone4_modulation).set_zero_means_zero(false);
+            // id(zone5_modulation).set_zero_means_zero(false);
+            // id(zone6_modulation).set_zero_means_zero(false);
+            // id(zone7_modulation).set_zero_means_zero(false);
+            // id(zone8_modulation).set_zero_means_zero(false);
             id(${node_name}_circulation_pump_status).publish_state(true);
           }
   # Disable summer mode
@@ -239,22 +247,22 @@ script:
       - script.stop: enable_summer_mode
       - lambda: |-
           id(${node_name}_controller_summer_mode).publish_state(false);
-          if ( id(zone1_modulation_level).state == 0.0 )
-            id(zone1_relay).turn_off();
-          if ( id(zone2_modulation_level).state == 0.0 )
-            id(zone2_relay).turn_off();
-          if ( id(zone3_modulation_level).state == 0.0 )
-            id(zone3_relay).turn_off();
-          if ( id(zone4_modulation_level).state == 0.0 )
-            id(zone4_relay).turn_off();
-          // if ( id(zone5_modulation_level).state == 0.0 )
-          //   id(zone5_relay).turn_off();
-          // if ( id(zone6_modulation_level).state == 0.0 )
-          //   id(zone6_relay).turn_off();
-          // if ( id(zone7_modulation_level).state == 0.0 )
-          //   id(zone7_relay).turn_off();
-          // if ( id(zone8_modulation_level).state == 0.0 )
-          //   id(zone8_relay).turn_off();
+          id(zone1_modulation).set_min_power(0.3);
+          id(zone2_modulation).set_min_power(0.3);
+          id(zone3_modulation).set_min_power(0.3);
+          id(zone4_modulation).set_min_power(0.3);
+          // id(zone5_modulation).set_min_power(0.3);
+          // id(zone6_modulation).set_min_power(0.3);
+          // id(zone7_modulation).set_min_power(0.3);
+          // id(zone8_modulation).set_min_power(0.3);
+          id(zone1_modulation).set_zero_means_zero(true);
+          id(zone2_modulation).set_zero_means_zero(true);
+          id(zone3_modulation).set_zero_means_zero(true);
+          id(zone4_modulation).set_zero_means_zero(true);
+          // id(zone5_modulation).set_zero_means_zero(true);
+          // id(zone6_modulation).set_zero_means_zero(true);
+          // id(zone7_modulation).set_zero_means_zero(true);
+          // id(zone8_modulation).set_zero_means_zero(true);
   # Enable manual mode
   - id: enable_manual_mode
     mode: single
