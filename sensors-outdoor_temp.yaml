@@ -19,11 +19,11 @@ sensor:
     accuracy_decimals: 2
     update_interval: 20s
     lambda: |-
-      if ( id(outdoor_temperature_remote).state > -40.0 )
+      if ( !isnan(id(outdoor_temperature_remote).state) )
         return id(outdoor_temperature_remote).state;
-      //if ( id(outdoor_temperature_analog).state > -40.0 )
+      //if ( !isnan(id(outdoor_temperature_analog).state) )
       //  return id(outdoor_temperature_analog).state;
-      //if ( id(outdoor_temperature_digital).state > -40.0 )
+      //if ( !isnan(id(outdoor_temperature_digital).state) )
       //  return id(outdoor_temperature_digital).state;
       return 10.0;
 
@@ -37,7 +37,6 @@ sensor:
     entity_id: sensor.utetemperatur
     filters:
       - heartbeat: 20s
-      - lambda: if ( !isnan(id(outdoor_temperature_remote).state) ) return x; else return 10.0;
 
 #  # Digital outdoor temperature sensor (DS18B20)
 #  - platform: dallas_temp
