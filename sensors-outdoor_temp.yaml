@@ -4,6 +4,7 @@
 #one_wire:
 #  - platform: gpio
 #    pin: GPIO14
+#    #pin: GPIO25
 #    id: outdoor_temperature_bus
 
 # Sensor configurations
@@ -105,6 +106,7 @@ sensor:
 #switch:
 #  - platform: gpio
 #    pin: GPIO13
+#    #pin: GPIO27
 #    id: outdoor_analog_sensor_power
 #
 ## Analog temperature sensor update interval

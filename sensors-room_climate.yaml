@@ -4,6 +4,8 @@
 i2c:
   sda: GPIO13
   scl: GPIO14
+  #sda: GPIO14
+  #scl: GPIO27
   scan: true
 
 # Input multiplexer configuration (TCA9548A)

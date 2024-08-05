@@ -4,6 +4,7 @@
 #one_wire:
 #  - platform: gpio
 #    pin: GPIO13
+#    #pin: GPIO26
 #    id: room_temperature_bus
 
 # Remote floor heating zone temperature sensors (Home Assistant)

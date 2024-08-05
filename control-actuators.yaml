@@ -7,48 +7,56 @@ switch:
     id: zone1_relay
     pin:
       number: GPIO16
+      #number: GPIO04
       inverted: false
   # Zone 2 actuator relay
   - platform: gpio
     id: zone2_relay
     pin:
       number: GPIO17
+      #number: GPIO16
       inverted: false
   # Zone 3 actuator relay
   - platform: gpio
     id: zone3_relay
     pin:
       number: GPIO18
+      #number: GPIO17
       inverted: false
   # Zone 4 actuator relay
   - platform: gpio
     id: zone4_relay
     pin:
       number: GPIO19
+      #number: GPIO18
       inverted: false
 #  # Zone 5 actuator relay
 #  - platform: gpio
 #    id: zone5_relay
 #    pin:
 #      number: GPIO22
+#      #number: GPIO19
 #      inverted: false
 #  # Zone 6 actuator relay
 #  - platform: gpio
 #    id: zone6_relay
 #    pin:
 #      number: GPIO23
+#      #number: GPIO21
 #      inverted: false
 #  # Zone 7 actuator relay
 #  - platform: gpio
 #    id: zone7_relay
 #    pin:
 #      number: GPIO25
+#      #number: GPIO22
 #      inverted: false
 #  # Zone 8 actuator relay
 #  - platform: gpio
 #    id: zone8_relay
 #    pin:
 #      number: GPIO26
+#      #number: GPIO23
 #      inverted: false
 
 # Zone actuator configuration
