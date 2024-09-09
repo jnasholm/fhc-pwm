@@ -1,0 +1,13 @@
+{# Home Assistant Template Sensor Helper
+   Outdoor temperature sensor with fail-over
+#}
+{% if states('sensor.et_utetemperatur') not in ('none','unavailable','unknown') %}
+  {% set temp_ext = states('sensor.et_utetemperatur') | float %}
+{% else %}
+  {% if states('sensor.gvs_utetemperatur_analog') not in ('none','unavailable','unknown') %}
+    {% set temp_ext = states('sensor.gvs_utetemperatur_analog') | float %}
+  {% else %}
+    {% set temp_ext = 6.0 %}
+  {% endif %}
+{% endif %}
+{{ temp_ext | round(1) }}
