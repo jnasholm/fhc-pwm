@@ -1,1 +1,2 @@
-*.jinja linguist-detectable=false
+*.yaml linguist-detectable=true
+*.jinja linguist-detectable=true  
