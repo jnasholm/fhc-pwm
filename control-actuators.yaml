@@ -625,3 +625,17 @@ binary_sensor:
 #      if ( id(zone8_manual_enable).state )
 #        return true;
 #      return false;
+
+# Broadcast valve actuator operational indicators
+udp:
+  update_interval: 10s
+  encryption: !secret broadcast_key
+  binary_sensors:
+    - zone1_actuator_status
+    - zone2_actuator_status
+    - zone3_actuator_status
+    - zone4_actuator_status
+#    - zone5_actuator_status
+#    - zone6_actuator_status
+#    - zone7_actuator_status
+#    - zone8_actuator_status
