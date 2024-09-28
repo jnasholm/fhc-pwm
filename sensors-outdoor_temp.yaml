@@ -7,6 +7,15 @@
 #    #pin: GPIO25
 #    id: outdoor_temperature_bus
 
+# Broadcast provider configuration
+substitutions:
+  provider_node_name: ets1
+
+udp:
+  providers:
+    - name: $provider_node_name
+      encryption: !secret broadcast_key
+
 # Sensor configurations
 sensor:
   # Active outdoor temperature sensor (automatic fail-over with backup value)
@@ -22,6 +31,8 @@ sensor:
     lambda: |-
       if ( !isnan(id(outdoor_temperature_remote).state) )
         return id(outdoor_temperature_remote).state;
+      if ( !isnan(id(outdoor_temperature_broadcast).state) )
+        return id(outdoor_temperature_broadcast).state;
       //if ( !isnan(id(outdoor_temperature_analog).state) )
       //  return id(outdoor_temperature_analog).state;
       //if ( !isnan(id(outdoor_temperature_digital).state) )
@@ -38,6 +49,16 @@ sensor:
     entity_id: sensor.utetemperatur
     filters:
       - heartbeat: 20s
+
+  # Remote outdoor temperature sensor (Broadcast)
+  - platform: udp
+    provider: $provider_node_name
+    id: outdoor_temperature_broadcast
+    unit_of_measurement: °C
+    device_class: temperature
+    state_class: measurement
+    accuracy_decimals: 2
+    remote_id: outdoor_temperature
 
 #  # Digital outdoor temperature sensor (DS18B20)
 #  - platform: dallas_temp
@@ -142,7 +163,7 @@ binary_sensor:
           }
         }
         if ( id(${node_name}_controller_summer_mode).state ) {
-          if ( temp_od <= temp_sm - 4.0 ) {
+          if ( temp_od <= temp_sm - 6.0 ) {
             id(${node_name}_controller_summer_mode).turn_off();
             return false;
           } else {
