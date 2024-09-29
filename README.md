@@ -57,6 +57,15 @@ The controller enters summer mode when the outdoor temperature is above the conf
 ### Manual mode
 This is the idle state (3) for the actuators. No thermostat function or modulation is in effect. The actuators are operated in the front-end through manual switches, one for each zone. Each actuator remains energised until the corresponding switch in the front-end is turned off.
 
+### Controller block diagram
+
+```mermaid
+flowchart TD
+    A[Zone Temperature (1-8)]==>B[Zone Actuator Controller]
+    C[Outdoor Temperature]==>B
+    B==>D[Zone Actuator (1-8)]
+```
+
 ## Front-end configuration and control
 
 |Configuration and control|Description|Default|
