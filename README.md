@@ -13,6 +13,7 @@ Project to create a smart floor heating controller for private homes with a hydr
 - The switching modules are equipped with [solid state relays](https://www.velleman.eu/products/view?id=461416).
 - The controller can operate up to 8 zone valve actuators.
 - Integration with [Home Assistant](https://www.home-assistant.io/) is recommended. Sensor data and configuration parameters can be imported to operate the controller.
+- Direct communication between ESP nodes through the network broadcast [UDP Component](https://esphome.io/components/udp) in ESPHome from version 2024.9.
 
 > [!TIP]
 > In case the supply line controller needs the same upgrade: [ESP32 SSR Mixing valve actuator controller](https://github.com/jnasholm/mvc-pwm)
