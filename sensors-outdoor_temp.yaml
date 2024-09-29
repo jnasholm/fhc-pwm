@@ -9,11 +9,11 @@
 
 # Broadcast provider configuration
 substitutions:
-  provider_node_name: ets1
+  temperature_provider_node_name: ets1
 
 udp:
   providers:
-    - name: $provider_node_name
+    - name: $temperature_provider_node_name
       encryption: !secret broadcast_key
 
 # Sensor configurations
@@ -52,7 +52,7 @@ sensor:
 
   # Remote outdoor temperature sensor (Broadcast)
   - platform: udp
-    provider: $provider_node_name
+    provider: $temperature_provider_node_name
     id: outdoor_temperature_broadcast
     unit_of_measurement: °C
     device_class: temperature
