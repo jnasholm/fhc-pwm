@@ -61,9 +61,9 @@ This is the idle state (3) for the actuators. No thermostat function or modulati
 
 ```mermaid
 flowchart TD
-    A[Zone Temperature (1-8)]==>B[Zone Actuator Controller]
+    A[Zone Temperature 1-8]==>B[Zone Actuator Controller]
     C[Outdoor Temperature]==>B
-    B==>D[Zone Actuator (1-8)]
+    B==>D[Zone Actuator 1-8]
 ```
 
 ## Front-end configuration and control
