@@ -82,17 +82,17 @@ The following parameters are configurable in the source code of ```control-actua
 |Parameter|Value|Description|
 |--------------------|:----:|--------------------------------------------------|
 |```kp```|4.8|PID climate proportional control parameter|
-|```ki```|0.00277778|PID climate integral control parameter|
-|```kd```|9.0|PID climate derivative control parameter|
+|```ki```|0.00208333|PID climate integral control parameter|
+|```kd```|12.0|PID climate derivative control parameter|
 |```output_averaging_samples```|3|PID climate output averaging|
 |```derivative_averaging_samples```|5|PID climate derivative averaging|
 |```threshold_high```|0.16°C|PID climate deadband upper limit|
 |```threshold_low```|0°C|PID climate deadband lower limit|
-|```kp_multiplier```|0.1|PID climate deadband proportional scaling|
-|```ki_multiplier```|0.2|PID climate deadband integral scaling|
-|```kd_multiplier```|0.4|PID climate deadband derivative scaling|
-|```min_temperature```|17.0°C|PID climate thermostat lower limit|
-|```max_temperature```|25.0°C|PID climate thermostat upper limit|
+|```kp_multiplier```|0.04|PID climate deadband proportional scaling|
+|```ki_multiplier```|0.06|PID climate deadband integral scaling|
+|```kd_multiplier```|0|PID climate deadband derivative scaling|
+|```min_temperature```|16.0°C|PID climate thermostat lower limit|
+|```max_temperature```|26.0°C|PID climate thermostat upper limit|
 |```temperature_step```|0.1°C|PID climate thermostat minimum change|
 
 > [!NOTE]
@@ -103,6 +103,21 @@ The following parameters are configurable in the source code of ```control-actua
 Finding and fine tuning the PID controller parameters can be a bit easier with a structured approach. I have had the best results with the [Ziegler-Nichols method](https://en.wikipedia.org/wiki/Ziegler%E2%80%93Nichols_method) (Åström and Hägglund). Suggested reading on this topic is the [Principles of PID](https://blog.opticontrols.com/archives/344).
 
 This is how the parameters for my current controller are calculated. The same control parameters are used for all zones. Work in progress and probably far from optimized.
+
+### Winter season 2024-2025
+
+|Parameter|Value|Description or calculation|
+|--------------------|:----:|--------------------------------------------------|
+|Sampling time, Ts|10 s|Update interval of the zone temperature sensor|
+|Critical gain, Kc|8.0|Proportional constant causing oscillation|
+|Critical period, Pc|960 s|Cycle time at oscillating condition|
+|Integral time, Ti|480 s|0.50 x Pc|
+|Derivative time, Td|120 s|0.25 x Ti|
+|Proportional constant, kp|4.8|0.60 x Kc|
+|Integral constant, ki|0.00208333|1/Ti|
+|Derivative constant, kd|12.0|Td/Ts|
+
+### Winter season 2023-2024
 
 |Parameter|Value|Description or calculation|
 |--------------------|:----:|--------------------------------------------------|
