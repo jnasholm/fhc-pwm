@@ -2,10 +2,8 @@
 
 # Input configuration room sensors
 i2c:
-  sda: GPIO13
-  scl: GPIO14
-  #sda: GPIO14
-  #scl: GPIO27
+  sda: $room_sensor_sda_pin
+  scl: $room_sensor_scl_pin
   scan: true
 
 # Input multiplexer configuration (TCA9548A)

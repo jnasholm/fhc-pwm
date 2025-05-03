@@ -4,7 +4,7 @@
 output:
   - platform: ledc
     id: ${node_name}_controller_status
-    pin: GPIO33
+    pin: $controller_led_pin
 
 # System status indicator
 light:
@@ -12,7 +12,7 @@ light:
     name: $node_prefix systemstatus
     id: ${node_name}_system_status_indicator
     pin:
-      number: GPIO32
+      number: $system_led_pin
       inverted: true
 # Controller status indicator
   - platform: monochromatic

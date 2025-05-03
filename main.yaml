@@ -23,11 +23,8 @@ substitutions:
 esphome:
   project:
     name: "jnasholm.fhc-pwm"
-    version: "0.2"
+    version: "0.3"
   name: $node_name
-  platform: ESP32
-  board: esp32-devkitlipo
-#  board: esp32-poe-iso
 
 # Flash write interval
 preferences:
@@ -62,8 +59,7 @@ sensor:
 
 # Include packages
 packages:
-  wifi: !include wifi.yaml
-#  ethernet: !include ethernet.yaml
+  boardconfig: !include boardconfig.yaml
 #  battery: !include battery.yaml
   time: !include time.yaml
   status: !include status.yaml

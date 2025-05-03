@@ -3,19 +3,18 @@
 # Battery voltage sensor
 sensor:
   - platform: adc
-    pin: GPIO35
+    pin: $battery_pin
     name: $node_prefix batteri
     icon: mdi:battery
     attenuation: auto
     filters:
-      - multiply: 1.784   # 3.3V/3.7V*2.0, voltage divider (470+470)/470kohm
+      - multiply: $battery_factor
 
 # Charging voltage sensor
   - platform: adc
-    pin: GPIO39
+    pin: $charging_pin
     name: $node_prefix laddning
     icon: mdi:lightning-bolt
     attenuation: auto
     filters:
-      - multiply: 1.468   # 5.0V/5.0V*1.4681, voltage divider (220+470)/470kohm [esp32-devkitlipo]
-    #  - multiply: 1.470   # 5.0V/5.0V*1.4700, voltage divider (47+100)/100kohm [esp32-poe-iso]
+      - multiply: $charging_factor

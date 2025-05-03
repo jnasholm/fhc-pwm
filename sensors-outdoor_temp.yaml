@@ -3,9 +3,8 @@
 # Digital outdoor temperature sensor bus configuration
 #one_wire:
 #  - platform: gpio
-#    pin: GPIO14
-#    #pin: GPIO25
 #    id: outdoor_temperature_bus
+#    pin: $digital_temp_pin
 
 # Broadcast provider configuration
 substitutions:
@@ -114,7 +113,7 @@ sensor:
 #  # Voltage measurement (range 0.15-2.45V)
 #  - platform: adc
 #    id: outdoor_temperature_analog_measure
-#    pin: GPIO34
+#    pin: $analog_temp_pin
 #    update_interval: never
 #    attenuation: 12db
 #    filters:
@@ -126,8 +125,7 @@ sensor:
 ## Analog temperature sensor power source configuration
 #switch:
 #  - platform: gpio
-#    pin: GPIO13
-#    #pin: GPIO27
+#    pin: $analog_power_pin
 #    id: outdoor_analog_sensor_power
 #
 ## Analog temperature sensor update interval

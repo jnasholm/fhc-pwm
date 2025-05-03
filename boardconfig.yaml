@@ -1,0 +1,72 @@
+# Board configurations
+
+# Olimex ESP32-DevKit-LiPo
+esp32:
+  board:    esp32-devkitlipo
+packages:
+  wifi: !include wifi.yaml
+substitutions:
+  # status.yaml
+  system_led_pin:      GPIO32
+  controller_led_pin:  GPIO33
+  # control-actuators.yaml
+  relay_zone1_pin:     GPIO16   # GPIO04
+  relay_zone2_pin:     GPIO17   # GPIO16
+  relay_zone3_pin:     GPIO18   # GPIO17
+  relay_zone4_pin:     GPIO19   # GPIO18
+  relay_zone5_pin:     GPIO22   # GPIO19
+  relay_zone6_pin:     GPIO23   # GPIO21
+  relay_zone7_pin:     GPIO25   # GPIO22
+  relay_zone8_pin:     GPIO26   # GPIO23
+  # sensors-outdoor_temp.yaml
+  digital_temp_pin:    GPIO14
+  analog_temp_pin:     GPIO34
+  analog_power_pin:    GPIO13   # GPIO27
+  # sensors-room_climate.yaml
+  room_sensor_sda_pin: GPIO13   # GPIO14
+  room_sensor_scl_pin: GPIO14   # GPIO27
+  # sensors-room_temp.yaml
+  digital_room_temperature_pin: GPIO13   # GPIO26
+  # battery.yaml
+  battery_pin:         GPIO35
+  charging_pin:        GPIO39
+  battery_factor:      '1.784'   # 3.3V/3.7V*2.0, voltage divider (470+470)/470kohm
+  charging_factor:     '1.468'   # 5.0V/5.0V*1.4681, voltage divider (220+470)/470kohm
+
+## Olimex ESP32-C3-DevKit-Lipo
+#esp32:
+#  board:    esp32-c3-devkitm-1
+#packages:
+#  wifi: !include wifi.yaml
+#substitutions:
+#  # status.yaml
+#  system_led_pin:      GPIO1
+#  controller_led_pin:  GPIO2
+#  # sensors-outdoor_temp.yaml
+#  digital_temp_pin:    GPIO7
+#  analog_temp_pin:     GPIO5
+#  analog_power_pin:    GPIO6
+#  # battery.yaml
+#  battery_pin:         GPIO3
+#  charging_pin:        GPIO4
+#  battery_factor:      '1.784'   # 3.3V/3.7V*2.0, voltage divider (470+470)/470kohm
+#  charging_factor:     '1.468'   # 5.0V/5.0V*1.4681, voltage divider (220+470)/470kohm
+
+## Olimex ESP32-POE-ISO
+#esp32:
+#  board:    esp32-poe-iso
+#packages:
+#  ethernet: !include ethernet.yaml
+#substitutions:
+#  # status.yaml
+#  system_led_pin:      GPIO32
+#  controller_led_pin:  GPIO33
+#  # sensors-outdoor_temp.yaml
+#  digital_temp_pin:    GPIO14
+#  analog_temp_pin:     GPIO34
+#  analog_power_pin:    GPIO13
+#  # battery.yaml
+#  battery_pin:         GPIO35
+#  charging_pin:        GPIO39
+#  battery_factor:      '1.784'   # 3.3V/3.7V*2.0, voltage divider (470+470)/470kohm
+#  charging_factor:     '1.470'   # 5.0V/5.0V*1.4700, voltage divider (47+100)/100kohm

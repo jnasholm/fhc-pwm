@@ -3,8 +3,7 @@
 # Digital floor heating zone temperature sensor bus configuration
 #one_wire:
 #  - platform: gpio
-#    pin: GPIO13
-#    #pin: GPIO26
+#    pin: $digital_room_temperature_pin
 #    id: room_temperature_bus
 
 # Broadcast provider configuration
