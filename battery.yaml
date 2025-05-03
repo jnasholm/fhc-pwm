@@ -8,6 +8,10 @@ sensor:
     icon: mdi:battery
     attenuation: auto
     filters:
+      - exponential_moving_average:
+          alpha: 0.06
+          send_every: 3
+          send_first_at: 1
       - multiply: $battery_factor
 
 # Charging voltage sensor
@@ -17,4 +21,8 @@ sensor:
     icon: mdi:lightning-bolt
     attenuation: auto
     filters:
+      - exponential_moving_average:
+          alpha: 0.06
+          send_every: 3
+          send_first_at: 1
       - multiply: $charging_factor
