@@ -25,6 +25,8 @@ esphome:
     name: "jnasholm.fhc-pwm"
     version: "0.3"
   name: $node_name
+  friendly_name: Floor Heating Controller
+  min_version: 2025.4.0
 
 # Flash write interval
 preferences:
