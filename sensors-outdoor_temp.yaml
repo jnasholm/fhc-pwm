@@ -8,7 +8,7 @@
 
 # Broadcast provider configuration
 substitutions:
-  temperature_provider_node_name: ets1
+  temperature_provider_node_name: et
 
 udp:
   providers:
@@ -19,7 +19,7 @@ udp:
 sensor:
   # Active outdoor temperature sensor (automatic fail-over with backup value)
   - platform: template
-    name: $node_prefix utetemperatur
+    name: Utetemperatur
     id: outdoor_temperature
     icon: mdi:thermometer
     unit_of_measurement: °C
@@ -61,7 +61,7 @@ sensor:
 
 #  # Digital outdoor temperature sensor (DS18B20)
 #  - platform: dallas_temp
-#    name: $node_prefix utetemperatur digital
+#    name: Utetemperatur digital
 #    id: outdoor_temperature_digital
 #    accuracy_decimals: 2
 #    update_interval: 20s
@@ -73,7 +73,7 @@ sensor:
 #  # NTC Beta factor calculated according to the equation below
 #  # https://www.ametherm.com/thermistor/ntc-thermistor-beta
 #  - platform: ntc
-#    name: $node_prefix utetemperatur analog
+#    name: Utetemperatur analog
 #    id: outdoor_temperature_analog
 #    accuracy_decimals: 2
 #    sensor: outdoor_temperature_analog_sensor
@@ -104,7 +104,7 @@ sensor:
 ##      - offset: -0.4
 #  # Resistance calculation
 #  - platform: resistance
-#    name: $node_prefix utetemperatur analog sensor
+#    name: Utetemperatur analog sensor
 #    id: outdoor_temperature_analog_sensor
 #    icon: mdi:omega
 #    sensor: outdoor_temperature_analog_measure
@@ -141,7 +141,7 @@ sensor:
 # Summer mode operational control and indicator
 binary_sensor:
   - platform: template
-    name: $node_prefix sommarläge aktiv
+    name: Sommarläge aktiv
     id: ${node_name}_summer_mode
     icon: mdi:weather-sunny
     filters:
@@ -174,7 +174,7 @@ binary_sensor:
 # Summer mode temperature configuration
 number:
   - platform: template
-    name: $node_prefix sommarlägestemperatur
+    name: Sommarlägestemperatur
     id: ${node_name}_summer_mode_temp
     unit_of_measurement: °C
     initial_value: 20.0

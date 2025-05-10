@@ -12,15 +12,15 @@ captive_portal:
 # WiFi information sensors
 sensor:
   - platform: wifi_signal
-    name: $node_prefix signalstyrka
+    name: Signalstyrka
     update_interval: 60s
 text_sensor:
   - platform: wifi_info
     ip_address:
-      name: $node_prefix IP
+      name: IP
       icon: mdi:ip-network-outline
     mac_address:
-      name: $node_prefix MAC
+      name: MAC
       icon: mdi:network-outline
 
 # Web server settings

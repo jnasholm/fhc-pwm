@@ -12,10 +12,10 @@ ethernet:
 text_sensor:
   - platform: ethernet_info
     ip_address:
-      name: $node_prefix IP
+      name: IP
       icon: mdi:ip-network-outline
     mac_address:
-      name: $node_prefix MAC
+      name: MAC
       icon: mdi:network-outline
 
 # Web server settings

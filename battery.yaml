@@ -4,7 +4,7 @@
 sensor:
   - platform: adc
     pin: $battery_pin
-    name: $node_prefix batteri
+    name: Batteri
     icon: mdi:battery
     attenuation: auto
     filters:
@@ -17,7 +17,7 @@ sensor:
 # Charging voltage sensor
   - platform: adc
     pin: $charging_pin
-    name: $node_prefix laddning
+    name: Laddning
     icon: mdi:lightning-bolt
     attenuation: auto
     filters:

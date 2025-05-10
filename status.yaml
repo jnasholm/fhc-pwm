@@ -9,14 +9,14 @@ output:
 # System status indicator
 light:
   - platform: status_led
-    name: $node_prefix systemstatus
+    name: Systemstatus
     id: ${node_name}_system_status_indicator
     pin:
       number: $system_led_pin
       inverted: true
 # Controller status indicator
   - platform: monochromatic
-    name: $node_prefix reglerstatus
+    name: Reglerstatus
     id: ${node_name}_controller_status_indicator
     output: ${node_name}_controller_status
     effects:
@@ -36,7 +36,7 @@ light:
 # Controller operational status codes
 sensor:
   - platform: template
-    name: $node_prefix driftläge
+    name: Driftläge
     id: ${node_name}_controller_status_code
     icon: mdi:message
     accuracy_decimals: 0
@@ -81,7 +81,7 @@ sensor:
 # Controller operational status messages
 text_sensor:
   - platform: template
-    name: $node_prefix driftmeddelande
+    name: Driftmeddelande
     id: ${node_name}_controller_status_message
     icon: mdi:message
     lambda: |-

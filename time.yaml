@@ -10,7 +10,7 @@ time:
 # Current time in controller
 text_sensor:
   - platform: template
-    name: $node_prefix tid
+    name: Tid
     id: ${node_name}_controller_current_time
     icon: mdi:clock-outline
     update_interval: 60s

@@ -3,7 +3,7 @@
 # Circulation pump active indicator
 binary_sensor:
   - platform: template
-    name: $node_prefix cirkulationspump aktiv
+    name: Cirkulationspump aktiv
     id: ${node_name}_circulation_pump_status
     icon: mdi:arrow-right-drop-circle
     filters:
@@ -52,7 +52,7 @@ binary_sensor:
 # Circulation pump relay IP configuration
 #text_sensor:
 #  - platform: template
-#    name: $node_prefix cirkulationspump IP
+#    name: Cirkulationspump IP
 #    id: ${node_name}_circulation_pump_relay_ip
 #    icon: mdi:ip-network-outline
 #    lambda: |-
@@ -81,7 +81,7 @@ binary_sensor:
 # Circulation pump relay control
 #switch:
 #  - platform: template
-#    name: $node_prefix cirkulationspump
+#    name: Cirkulationspump
 #    id: ${node_name}_circulation_pump_relay
 #    icon: mdi:arrow-right-drop-circle
 #    restore_state: true

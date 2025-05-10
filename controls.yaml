@@ -12,7 +12,7 @@ esphome:
 switch:
   # Operational mode
   - platform: template
-    name: $node_prefix automatiskt driftläge
+    name: Automatiskt driftläge
     id: ${node_name}_controller_mode
     icon: mdi:thermostat-auto
     restore_mode: ALWAYS_ON
@@ -24,7 +24,7 @@ switch:
       - script.execute: enable_manual_mode
   # Operational summer mode
   - platform: template
-    name: $node_prefix sommardriftläge
+    name: Sommardriftläge
     id: ${node_name}_controller_summer_mode
     icon: mdi:sun-thermometer
     restore_mode: ALWAYS_OFF

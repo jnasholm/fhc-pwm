@@ -4,20 +4,20 @@
 #sensor:
 #  # Outdoor temperature
 #  - platform: homeassistant
-#    name: $node_prefix utetemperatur
+#    name: Utetemperatur
 #    id: outdoor_temperature
 #    entity_id: sensor.utetemperatur
 #    filters:
 #      - heartbeat: 10s
 #  # Supply line temperature
 #  - platform: homeassistant
-#    name: $node_prefix tillopp
+#    name: Tillopp
 #    id: ${node_name}_supply_line_temperature
 #    entity_id: sensor.gvc_tillopp
 #    filters:
 #      - heartbeat: 10s
 #  # Mixing valve modulation period
 #  - platform: homeassistant
-#    name: $node_prefix blandningsventil reglertid
+#    name: Blandningsventil reglertid
 #    id: ${node_name}_mixing_valve_modulation_period
 #    entity_id: input_number.golvvarme_blandningsventil_reglertid
