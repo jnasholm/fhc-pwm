@@ -6,14 +6,20 @@
 #    id: outdoor_temperature_bus
 #    pin: $digital_temp_pin
 
-# Broadcast provider configuration
+# Broadcast providers
 substitutions:
   temperature_provider_node_name: et
 
+# Packet transport configuration
 udp:
-  providers:
-    - name: $temperature_provider_node_name
-      encryption: !secret broadcast_key
+
+# Broadcast provider configuration
+packet_transport:
+  - platform: udp
+    id: transport_input
+    providers:
+      - name: $temperature_provider_node_name
+        encryption: !secret broadcast_key
 
 # Sensor configurations
 sensor:
@@ -50,14 +56,15 @@ sensor:
       - heartbeat: 20s
 
   # Remote outdoor temperature sensor (Broadcast)
-  - platform: udp
-    provider: $temperature_provider_node_name
+  - platform: packet_transport
     id: outdoor_temperature_broadcast
+    transport_id: transport_input
+    provider: $temperature_provider_node_name
+    remote_id: outdoor_temperature
     unit_of_measurement: °C
     device_class: temperature
     state_class: measurement
     accuracy_decimals: 2
-    remote_id: outdoor_temperature
 
 #  # Digital outdoor temperature sensor (DS18B20)
 #  - platform: dallas_temp

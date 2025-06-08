@@ -658,16 +658,21 @@ binary_sensor:
 #        return true;
 #      return false;
 
-# Broadcast valve actuator operational indicators
+# Packet transport configuration
 udp:
-  update_interval: 10s
-  encryption: !secret broadcast_key
-  binary_sensors:
-    - zone1_actuator_status
-    - zone2_actuator_status
-    - zone3_actuator_status
-    - zone4_actuator_status
-#    - zone5_actuator_status
-#    - zone6_actuator_status
-#    - zone7_actuator_status
-#    - zone8_actuator_status
+
+# Broadcast valve actuator operational indicators
+packet_transport:
+  - platform: udp
+    id: transport_output
+    update_interval: 10s
+    encryption: !secret broadcast_key
+    binary_sensors:
+      - zone1_actuator_status
+      - zone2_actuator_status
+      - zone3_actuator_status
+      - zone4_actuator_status
+#      - zone5_actuator_status
+#      - zone6_actuator_status
+#      - zone7_actuator_status
+#      - zone8_actuator_status

@@ -17,24 +17,29 @@
 #  provider_zone7_node_name: rcs7
 #  provider_zone8_node_name: rcs8
 
+# Packet transport configuration
 #udp:
-#  providers:
-#    - name: $provider_zone1_node_name
-#      encryption: !secret broadcast_key
-#    - name: $provider_zone2_node_name
-#      encryption: !secret broadcast_key
-#    - name: $provider_zone3_node_name
-#      encryption: !secret broadcast_key
-#    - name: $provider_zone4_node_name
-#      encryption: !secret broadcast_key
-#    - name: $provider_zone5_node_name
-#      encryption: !secret broadcast_key
-#    - name: $provider_zone6_node_name
-#      encryption: !secret broadcast_key
-#    - name: $provider_zone7_node_name
-#      encryption: !secret broadcast_key
-#    - name: $provider_zone8_node_name
-#      encryption: !secret broadcast_key
+
+#packet_transport:
+#  - platform: udp
+#    id: transport_input
+#    providers:
+#      - name: $provider_zone1_node_name
+#        encryption: !secret broadcast_key
+#      - name: $provider_zone2_node_name
+#        encryption: !secret broadcast_key
+#      - name: $provider_zone3_node_name
+#        encryption: !secret broadcast_key
+#      - name: $provider_zone4_node_name
+#        encryption: !secret broadcast_key
+#      - name: $provider_zone5_node_name
+#        encryption: !secret broadcast_key
+#      - name: $provider_zone6_node_name
+#        encryption: !secret broadcast_key
+#      - name: $provider_zone7_node_name
+#        encryption: !secret broadcast_key
+#      - name: $provider_zone8_node_name
+#        encryption: !secret broadcast_key
 
 # Remote floor heating zone temperature sensors (Home Assistant)
 sensor:
@@ -152,91 +157,100 @@ sensor:
 #      - lambda: if ( !isnan(id(zone8_temperature).state) ) return x; else return 20.0;
 
 # Remote floor heating zone temperature sensors (Broadcast)
-#  - platform: udp
-#    provider: $provider_zone1_node_name
+#sensor:
+#  - platform: packet_transport
 #    id: zone1_temperature
+#    transport_id: transport_input
+#    provider: $provider_zone1_node_name
+#    remote_id: zone_temperature
 #    unit_of_measurement: °C
 #    device_class: temperature
 #    state_class: measurement
 #    accuracy_decimals: 2
-#    remote_id: zone_temperature
 #    filters:
 #      - heartbeat: 10s
 #      - lambda: if ( !isnan(id(zone1_temperature).state) ) return x; else return 20.0;
-#  - platform: udp
-#    provider: $provider_zone2_node_name
+#  - platform: packet_transport
 #    id: zone2_temperature
+#    transport_id: transport_input
+#    provider: $provider_zone2_node_name
+#    remote_id: zone_temperature
 #    unit_of_measurement: °C
 #    device_class: temperature
 #    state_class: measurement
 #    accuracy_decimals: 2
-#    remote_id: zone_temperature
 #    filters:
 #      - heartbeat: 10s
 #      - lambda: if ( !isnan(id(zone2_temperature).state) ) return x; else return 20.0;
-#  - platform: udp
-#    provider: $provider_zone3_node_name
+#  - platform: packet_transport
 #    id: zone3_temperature
+#    transport_id: transport_input
+#    provider: $provider_zone3_node_name
+#    remote_id: zone_temperature
 #    unit_of_measurement: °C
 #    device_class: temperature
 #    state_class: measurement
 #    accuracy_decimals: 2
-#    remote_id: zone_temperature
 #    filters:
 #      - heartbeat: 10s
 #      - lambda: if ( !isnan(id(zone3_temperature).state) ) return x; else return 20.0;
-#  - platform: udp
-#    provider: $provider_zone4_node_name
+#  - platform: packet_transport
 #    id: zone4_temperature
+#    transport_id: transport_input
+#    provider: $provider_zone4_node_name
+#    remote_id: zone_temperature
 #    unit_of_measurement: °C
 #    device_class: temperature
 #    state_class: measurement
 #    accuracy_decimals: 2
-#    remote_id: zone_temperature
 #    filters:
 #      - heartbeat: 10s
 #      - lambda: if ( !isnan(id(zone4_temperature).state) ) return x; else return 20.0;
-#  - platform: udp
-#    provider: $provider_zone5_node_name
+#  - platform: packet_transport
 #    id: zone5_temperature
+#    transport_id: transport_input
+#    provider: $provider_zone5_node_name
+#    remote_id: zone_temperature
 #    unit_of_measurement: °C
 #    device_class: temperature
 #    state_class: measurement
 #    accuracy_decimals: 2
-#    remote_id: zone_temperature
 #    filters:
 #      - heartbeat: 10s
 #      - lambda: if ( !isnan(id(zone5_temperature).state) ) return x; else return 20.0;
-#  - platform: udp
-#    provider: $provider_zone6_node_name
+#  - platform: packet_transport
 #    id: zone6_temperature
+#    transport_id: transport_input
+#    provider: $provider_zone6_node_name
+#    remote_id: zone_temperature
 #    unit_of_measurement: °C
 #    device_class: temperature
 #    state_class: measurement
 #    accuracy_decimals: 2
-#    remote_id: zone_temperature
 #    filters:
 #      - heartbeat: 10s
 #      - lambda: if ( !isnan(id(zone6_temperature).state) ) return x; else return 20.0;
-#  - platform: udp
-#    provider: $provider_zone7_node_name
+#  - platform: packet_transport
 #    id: zone7_temperature
+#    transport_id: transport_input
+#    provider: $provider_zone7_node_name
+#    remote_id: zone_temperature
 #    unit_of_measurement: °C
 #    device_class: temperature
 #    state_class: measurement
 #    accuracy_decimals: 2
-#    remote_id: zone_temperature
 #    filters:
 #      - heartbeat: 10s
 #      - lambda: if ( !isnan(id(zone7_temperature).state) ) return x; else return 20.0;
-#  - platform: udp
-#    provider: $provider_zone8_node_name
+#  - platform: packet_transport
 #    id: zone8_temperature
+#    transport_id: transport_input
+#    provider: $provider_zone8_node_name
+#    remote_id: zone_temperature
 #    unit_of_measurement: °C
 #    device_class: temperature
 #    state_class: measurement
 #    accuracy_decimals: 2
-#    remote_id: zone_temperature
 #    filters:
 #      - heartbeat: 10s
 #      - lambda: if ( !isnan(id(zone8_temperature).state) ) return x; else return 20.0;
