@@ -3,9 +3,14 @@
 # Network time configuration
 time:
   - platform: sntp
-    id: sntp_time
+    id: net_time
     timezone: "Europe/Stockholm"
     servers: [ 0.pool.ntp.org, 1.pool.ntp.org, 2.pool.ntp.org ]
+
+# Home Assistant time configuration
+#time:
+#  - platform: homeassistant
+#    id: net_time
 
 # Current time in controller
 text_sensor:
@@ -16,6 +21,6 @@ text_sensor:
     update_interval: 60s
     lambda: |-
       char str[21];
-      time_t currTime = id(sntp_time).now().timestamp;
+      time_t currTime = id(net_time).now().timestamp;
       strftime(str, sizeof(str), "%Y-%m-%d %H:%M:%S", localtime(&currTime));
       return { str };
