@@ -9,21 +9,21 @@ binary_sensor:
     filters:
       - delayed_on_off: 400ms
     lambda: |-
-      if ( id(zone1_modulation_level).state > 0 )
+      if ( id(zone1_modulation_level).state > 0.0 )
         return true;
-      if ( id(zone2_modulation_level).state > 0 )
+      if ( id(zone2_modulation_level).state > 0.0 )
         return true;
-      if ( id(zone3_modulation_level).state > 0 )
+      if ( id(zone3_modulation_level).state > 0.0 )
         return true;
-      if ( id(zone4_modulation_level).state > 0 )
+      if ( id(zone4_modulation_level).state > 0.0 )
         return true;
-      // if ( id(zone5_modulation_level).state > 0 )
+      // if ( id(zone5_modulation_level).state > 0.0 )
       //  return true;
-      // if ( id(zone6_modulation_level).state > 0 )
+      // if ( id(zone6_modulation_level).state > 0.0 )
       //  return true;
-      // if ( id(zone7_modulation_level).state > 0 )
+      // if ( id(zone7_modulation_level).state > 0.0 )
       //  return true;
-      // if ( id(zone8_modulation_level).state > 0 )
+      // if ( id(zone8_modulation_level).state > 0.0 )
       //  return true;
       if ( id(zone1_manual_enable).state )
         return true;
