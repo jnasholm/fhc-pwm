@@ -238,7 +238,6 @@ script:
             // id(zone6_modulation).set_zero_means_zero(false);
             // id(zone7_modulation).set_zero_means_zero(false);
             // id(zone8_modulation).set_zero_means_zero(false);
-            id(${node_name}_circulation_pump_status).publish_state(true);
           }
   # Disable summer mode
   - id: disable_summer_mode
@@ -278,7 +277,7 @@ script:
           // id(zone7_relay).turn_off();
           // id(zone8_relay).turn_off();
           id(${node_name}_controller_mode).publish_state(false);
-          id(${node_name}_controller_summer_mode).publish_state(false);
+          id(${node_name}_controller_summer_mode).turn_off();
           id(zone1_temperature_controller).make_call().set_mode("OFF").perform();
           id(zone2_temperature_controller).make_call().set_mode("OFF").perform();
           id(zone3_temperature_controller).make_call().set_mode("OFF").perform();
