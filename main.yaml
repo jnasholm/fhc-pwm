@@ -19,7 +19,7 @@ substitutions:
 #  zone7_name: Sovrum
 #  zone8_name: Teverum
 
-# Board configuration
+# Project configuration
 esphome:
   project:
     name: "jnasholm.fhc-pwm"
