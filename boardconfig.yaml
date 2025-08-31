@@ -3,6 +3,8 @@
 # Olimex ESP32-DevKit-LiPo
 esp32:
   board:    esp32-devkitlipo
+  framework:
+    type: esp-idf
 packages:
   wifi: !include wifi.yaml
 substitutions:
@@ -36,6 +38,8 @@ substitutions:
 ## Olimex ESP32-C3-DevKit-Lipo
 #esp32:
 #  board:    esp32-c3-devkitm-1
+#  framework:
+#    type: esp-idf
 #packages:
 #  wifi: !include wifi.yaml
 #substitutions:
@@ -55,6 +59,8 @@ substitutions:
 ## Olimex ESP32-POE-ISO
 #esp32:
 #  board:    esp32-poe-iso
+#  framework:
+#    type: esp-idf
 #packages:
 #  ethernet: !include ethernet.yaml
 #substitutions:
