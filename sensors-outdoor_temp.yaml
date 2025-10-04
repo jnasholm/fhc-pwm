@@ -154,29 +154,34 @@ binary_sensor:
     filters:
       - delayed_on_off: 400ms
     lambda: |-
-      if ( id(${node_name}_controller_mode).state ) {
-        float temp_sm = id(${node_name}_summer_mode_temp).state;
-        float temp_od = id(outdoor_temperature).state;
-        if ( temp_sm < 10.0 || temp_sm > 40.0 )
-          temp_sm = 20.5;
-        if ( id(${node_name}_controller_summer_mode).state == 0 ) {
-          if ( temp_od >= temp_sm ) {
-            id(${node_name}_controller_summer_mode).turn_on();
-            return true;
-          } else {
-            return false;          
-          }
-        }
-        if ( id(${node_name}_controller_summer_mode).state ) {
-          if ( temp_od <= temp_sm - 6.0 ) {
-            id(${node_name}_controller_summer_mode).turn_off();
-            return false;
-          } else {
-            return true;          
-          }
-        }
-      }
-      return false;
+      if ( id(${node_name}_controller_summer_mode).state )
+        return true;
+      else
+        return false;
+#
+#      if ( id(${node_name}_controller_mode).state ) {
+#        float temp_sm = id(${node_name}_summer_mode_temp).state;
+#        float temp_od = id(outdoor_temperature).state;
+#        if ( temp_sm < 10.0 || temp_sm > 40.0 )
+#          temp_sm = 20.5;
+#        if ( id(${node_name}_controller_summer_mode).state == 0 ) {
+#          if ( temp_od >= temp_sm ) {
+#            id(${node_name}_controller_summer_mode).turn_on();
+#            return true;
+#          } else {
+#            return false;          
+#          }
+#        }
+#        if ( id(${node_name}_controller_summer_mode).state ) {
+#          if ( temp_od <= temp_sm - 6.0 ) {
+#            id(${node_name}_controller_summer_mode).turn_off();
+#            return false;
+#          } else {
+#            return true;          
+#          }
+#        }
+#      }
+#      return false;
 
 # Summer mode temperature configuration
 number:
