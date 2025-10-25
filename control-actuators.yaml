@@ -543,7 +543,7 @@ binary_sensor:
     id: zone1_actuator_status
     icon: mdi:circle-slice-8
     filters:
-      - delayed_on_off: 400ms
+      - delayed_on_off: 200ms
     lambda: |-
       if ( id(zone1_modulation_level).state > 0.0 )
         return true;
@@ -558,7 +558,7 @@ binary_sensor:
     id: zone2_actuator_status
     icon: mdi:circle-slice-8
     filters:
-      - delayed_on_off: 400ms
+      - delayed_on_off: 200ms
     lambda: |-
       if ( id(zone2_modulation_level).state > 0.0 )
         return true;
@@ -573,7 +573,7 @@ binary_sensor:
     id: zone3_actuator_status
     icon: mdi:circle-slice-8
     filters:
-      - delayed_on_off: 400ms
+      - delayed_on_off: 200ms
     lambda: |-
       if ( id(zone3_modulation_level).state > 0.0 )
         return true;
@@ -588,7 +588,7 @@ binary_sensor:
     id: zone4_actuator_status
     icon: mdi:circle-slice-8
     filters:
-      - delayed_on_off: 400ms
+      - delayed_on_off: 200ms
     lambda: |-
       if ( id(zone4_modulation_level).state > 0.0 )
         return true;
@@ -603,7 +603,7 @@ binary_sensor:
 #    id: zone5_actuator_status
 #    icon: mdi:circle-slice-8
 #    filters:
-#      - delayed_on_off: 400ms
+#      - delayed_on_off: 200ms
 #    lambda: |-
 #      if ( id(zone5_modulation_level).state > 0.0 )
 #        return true;
@@ -618,7 +618,7 @@ binary_sensor:
 #    id: zone6_actuator_status
 #    icon: mdi:circle-slice-8
 #    filters:
-#      - delayed_on_off: 400ms
+#      - delayed_on_off: 200ms
 #    lambda: |-
 #      if ( id(zone6_modulation_level).state > 0.0 )
 #        return true;
@@ -633,7 +633,7 @@ binary_sensor:
 #    id: zone7_actuator_status
 #    icon: mdi:circle-slice-8
 #    filters:
-#      - delayed_on_off: 400ms
+#      - delayed_on_off: 200ms
 #    lambda: |-
 #      if ( id(zone7_modulation_level).state > 0.0 )
 #        return true;
@@ -648,7 +648,7 @@ binary_sensor:
 #    id: zone8_actuator_status
 #    icon: mdi:circle-slice-8
 #    filters:
-#      - delayed_on_off: 400ms
+#      - delayed_on_off: 200ms
 #    lambda: |-
 #      if ( id(zone8_modulation_level).state > 0.0 )
 #        return true;
