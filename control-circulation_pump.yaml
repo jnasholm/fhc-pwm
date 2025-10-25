@@ -7,7 +7,7 @@ binary_sensor:
     id: ${node_name}_circulation_pump_status
     icon: mdi:arrow-right-drop-circle
     filters:
-      - delayed_on_off: 400ms
+      - delayed_on_off: 200ms
     lambda: |-
       if ( id(zone1_modulation_level).state > 0.0 )
         return true;
