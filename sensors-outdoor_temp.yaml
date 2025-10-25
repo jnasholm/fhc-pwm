@@ -147,17 +147,13 @@ sensor:
 
 # Summer mode operational control and indicator
 binary_sensor:
-  - platform: template
+  - platform: switch
     name: Sommarläge aktiv
     id: ${node_name}_summer_mode
     icon: mdi:weather-sunny
+    source_id: ${node_name}_controller_summer_mode
     filters:
-      - delayed_on_off: 400ms
-    lambda: |-
-      if ( id(${node_name}_controller_summer_mode).state )
-        return true;
-      else
-        return false;
+      delayed_on_off: 200ms
 #
 #      if ( id(${node_name}_controller_mode).state ) {
 #        float temp_sm = id(${node_name}_summer_mode_temp).state;
