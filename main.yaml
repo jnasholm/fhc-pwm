@@ -27,7 +27,7 @@ esphome:
   name: $node_name
   friendly_name: $node_prefix
   comment: Floor Heating Controller
-  min_version: 2025.5.0
+  min_version: 2025.11.0
 
 # Flash write interval
 preferences:
@@ -59,6 +59,13 @@ sensor:
     name: Drifttid
     icon: mdi:timer-outline
     update_interval: 60s
+
+# Node connection status
+binary_sensor:
+  - platform: status
+    name: Anslutning
+    id: ${node_name}_connection_status
+    icon: mdi:lan
 
 # Include packages
 packages:

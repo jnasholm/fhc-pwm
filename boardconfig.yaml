@@ -45,7 +45,7 @@ substitutions:
 #substitutions:
 #  # status.yaml
 #  system_led_pin:      GPIO1
-#  controller_led_pin:  GPIO2
+#  controller_led_pin:  GPIO8     # default on-board LED
 #  # sensors-outdoor_temp.yaml
 #  digital_temp_pin:    GPIO7
 #  analog_temp_pin:     GPIO5
