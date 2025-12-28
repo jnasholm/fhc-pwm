@@ -193,7 +193,10 @@ sensor:
 #    accuracy_decimals: 2
 #    filters:
 #      - heartbeat: 10s
-#      - lambda: if ( !isnan(id(zone1_temperature).state) ) return x; else return 20.0;
+#      - lambda: |-
+#          if ( id(${node_name}_connection_status).state )
+#            if ( !isnan(id(zone1_temperature).state) ) return x;
+#          return 20.0;
 #  - platform: packet_transport
 #    id: zone2_temperature
 #    transport_id: transport_input
@@ -205,7 +208,10 @@ sensor:
 #    accuracy_decimals: 2
 #    filters:
 #      - heartbeat: 10s
-#      - lambda: if ( !isnan(id(zone2_temperature).state) ) return x; else return 20.0;
+#      - lambda: |-
+#          if ( id(${node_name}_connection_status).state )
+#            if ( !isnan(id(zone2_temperature).state) ) return x;
+#          return 20.0;
 #  - platform: packet_transport
 #    id: zone3_temperature
 #    transport_id: transport_input
@@ -217,7 +223,10 @@ sensor:
 #    accuracy_decimals: 2
 #    filters:
 #      - heartbeat: 10s
-#      - lambda: if ( !isnan(id(zone3_temperature).state) ) return x; else return 20.0;
+#      - lambda: |-
+#          if ( id(${node_name}_connection_status).state )
+#            if ( !isnan(id(zone3_temperature).state) ) return x;
+#          return 20.0;
 #  - platform: packet_transport
 #    id: zone4_temperature
 #    transport_id: transport_input
@@ -229,7 +238,10 @@ sensor:
 #    accuracy_decimals: 2
 #    filters:
 #      - heartbeat: 10s
-#      - lambda: if ( !isnan(id(zone4_temperature).state) ) return x; else return 20.0;
+#      - lambda: |-
+#          if ( id(${node_name}_connection_status).state )
+#            if ( !isnan(id(zone4_temperature).state) ) return x;
+#          return 20.0;
 #  - platform: packet_transport
 #    id: zone5_temperature
 #    transport_id: transport_input
@@ -241,7 +253,10 @@ sensor:
 #    accuracy_decimals: 2
 #    filters:
 #      - heartbeat: 10s
-#      - lambda: if ( !isnan(id(zone5_temperature).state) ) return x; else return 20.0;
+#      - lambda: |-
+#          if ( id(${node_name}_connection_status).state )
+#            if ( !isnan(id(zone5_temperature).state) ) return x;
+#          return 20.0;
 #  - platform: packet_transport
 #    id: zone6_temperature
 #    transport_id: transport_input
@@ -253,7 +268,10 @@ sensor:
 #    accuracy_decimals: 2
 #    filters:
 #      - heartbeat: 10s
-#      - lambda: if ( !isnan(id(zone6_temperature).state) ) return x; else return 20.0;
+#      - lambda: |-
+#          if ( id(${node_name}_connection_status).state )
+#            if ( !isnan(id(zone6_temperature).state) ) return x;
+#          return 20.0;
 #  - platform: packet_transport
 #    id: zone7_temperature
 #    transport_id: transport_input
@@ -265,7 +283,10 @@ sensor:
 #    accuracy_decimals: 2
 #    filters:
 #      - heartbeat: 10s
-#      - lambda: if ( !isnan(id(zone7_temperature).state) ) return x; else return 20.0;
+#      - lambda: |-
+#          if ( id(${node_name}_connection_status).state )
+#            if ( !isnan(id(zone7_temperature).state) ) return x;
+#          return 20.0;
 #  - platform: packet_transport
 #    id: zone8_temperature
 #    transport_id: transport_input
@@ -277,7 +298,10 @@ sensor:
 #    accuracy_decimals: 2
 #    filters:
 #      - heartbeat: 10s
-#      - lambda: if ( !isnan(id(zone8_temperature).state) ) return x; else return 20.0;
+#      - lambda: |-
+#          if ( id(${node_name}_connection_status).state )
+#            if ( !isnan(id(zone8_temperature).state) ) return x;
+#          return 20.0;
 
 #  Digital zone 1 temperature (DS18B20)
 #  - platform: dallas_temp
