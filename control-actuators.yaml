@@ -192,6 +192,7 @@ output:
 #   Proportional constant, kp:   4.8        (0.60 x Kc)
 #   Integral constant, ki:       0.00208333 (1/Ti)
 #   Derivative constant, kd:    12.0        (Td/Ts)
+#   Minimum integral term:       0.0
 
 # Temperature controllers
 climate:
@@ -200,6 +201,7 @@ climate:
     name: $zone1_name
     id: zone1_temperature_controller
     sensor: zone1_temperature
+    humidity_sensor: zone1_humidity
     default_target_temperature: 21.0°C
     heat_output: zone1_modulation
     on_control:
@@ -208,6 +210,7 @@ climate:
       kp: 4.8
       ki: 0.00208333
       kd: 12.0
+      min_integral: 0
       output_averaging_samples: 3
       derivative_averaging_samples: 5
     deadband_parameters:
@@ -225,6 +228,7 @@ climate:
     name: $zone2_name
     id: zone2_temperature_controller
     sensor: zone2_temperature
+    humidity_sensor: zone2_humidity
     default_target_temperature: 21.0°C
     heat_output: zone2_modulation
     on_control:
@@ -233,6 +237,7 @@ climate:
       kp: 4.8
       ki: 0.00208333
       kd: 12.0
+      min_integral: 0
       output_averaging_samples: 3
       derivative_averaging_samples: 5
     deadband_parameters:
@@ -250,6 +255,7 @@ climate:
     name: $zone3_name
     id: zone3_temperature_controller
     sensor: zone3_temperature
+    humidity_sensor: zone3_humidity
     default_target_temperature: 21.0°C
     heat_output: zone3_modulation
     on_control:
@@ -258,6 +264,7 @@ climate:
       kp: 4.8
       ki: 0.00208333
       kd: 12.0
+      min_integral: 0
       output_averaging_samples: 3
       derivative_averaging_samples: 5
     deadband_parameters:
@@ -275,6 +282,7 @@ climate:
     name: $zone4_name
     id: zone4_temperature_controller
     sensor: zone4_temperature
+    humidity_sensor: zone4_humidity
     default_target_temperature: 21.0°C
     heat_output: zone4_modulation
     on_control:
@@ -283,6 +291,7 @@ climate:
       kp: 4.8
       ki: 0.00208333
       kd: 12.0
+      min_integral: 0
       output_averaging_samples: 3
       derivative_averaging_samples: 5
     deadband_parameters:
@@ -300,6 +309,7 @@ climate:
 #    name: $zone5_name
 #    id: zone5_temperature_controller
 #    sensor: zone5_temperature
+#    humidity_sensor: zone5_humidity
 #    default_target_temperature: 21.0°C
 #    heat_output: zone5_modulation
 #    on_control:
@@ -308,6 +318,7 @@ climate:
 #      kp: 4.8
 #      ki: 0.00208333
 #      kd: 12.0
+#      min_integral: 0
 #      output_averaging_samples: 3
 #      derivative_averaging_samples: 5
 #    deadband_parameters:
@@ -325,6 +336,7 @@ climate:
 #    name: $zone6_name
 #    id: zone6_temperature_controller
 #    sensor: zone6_temperature
+#    humidity_sensor: zone6_humidity
 #    default_target_temperature: 21.0°C
 #    heat_output: zone6_modulation
 #    on_control:
@@ -333,6 +345,7 @@ climate:
 #      kp: 4.8
 #      ki: 0.00208333
 #      kd: 12.0
+#      min_integral: 0
 #      output_averaging_samples: 3
 #      derivative_averaging_samples: 5
 #    deadband_parameters:
@@ -350,6 +363,7 @@ climate:
 #    name: $zone7_name
 #    id: zone7_temperature_controller
 #    sensor: zone7_temperature
+#    humidity_sensor: zone7_humidity
 #    default_target_temperature: 21.0°C
 #    heat_output: zone7_modulation
 #    on_control:
@@ -358,6 +372,7 @@ climate:
 #      kp: 4.8
 #      ki: 0.00208333
 #      kd: 12.0
+#      min_integral: 0
 #      output_averaging_samples: 3
 #      derivative_averaging_samples: 5
 #    deadband_parameters:
@@ -375,6 +390,7 @@ climate:
 #    name: $zone8_name
 #    id: zone8_temperature_controller
 #    sensor: zone8_temperature
+#    humidity_sensor: zone8_humidity
 #    default_target_temperature: 21.0°C
 #    heat_output: zone8_modulation
 #    on_control:
@@ -383,6 +399,7 @@ climate:
 #      kp: 4.8
 #      ki: 0.00208333
 #      kd: 12.0
+#      min_integral: 0
 #      output_averaging_samples: 3
 #      derivative_averaging_samples: 5
 #    deadband_parameters:
