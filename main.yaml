@@ -27,7 +27,7 @@ esphome:
   name: $node_name
   friendly_name: $node_prefix
   comment: Floor Heating Controller
-  min_version: 2026.9.0
+  min_version: 2026.10.0
 
 # Flash write interval
 preferences:

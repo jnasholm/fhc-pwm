@@ -45,22 +45,24 @@
 sensor:
   # Zone 1
   - platform: homeassistant
-    name: $zone1_name temperatur
-    id: zone1_temperature
+    id: zone1_temperature_sensor
     entity_id: sensor.zone1_temperature
     unit_of_measurement: °C
     device_class: temperature
     state_class: measurement
-    accuracy_decimals: 2
     filters:
-#      - sliding_window_moving_average:
-#          window_size: 3
-#          send_every: 1
       - heartbeat: 10s
       - lambda: |-
           if ( id(${node_name}_connection_status).state )
             if ( !isnan(id(zone1_temperature).state) ) return x;
           return 20.0;
+  - platform: exponential_moving_average
+    name: $zone1_name temperatur
+    id: zone1_temperature
+    sensor: zone1_temperature_sensor
+    accuracy_decimals: 2
+    time_constant: 6min
+    time_weighting: new
   - platform: homeassistant
     name: $zone1_name luftfuktighet
     id: zone1_humidity
@@ -71,22 +73,24 @@ sensor:
     accuracy_decimals: 1
   # Zone 2
   - platform: homeassistant
-    name: $zone2_name temperatur
-    id: zone2_temperature
+    id: zone2_temperature_sensor
     entity_id: sensor.zone2_temperature
     unit_of_measurement: °C
     device_class: temperature
     state_class: measurement
-    accuracy_decimals: 2
     filters:
-#      - sliding_window_moving_average:
-#          window_size: 3
-#          send_every: 1
       - heartbeat: 10s
       - lambda: |-
           if ( id(${node_name}_connection_status).state )
             if ( !isnan(id(zone2_temperature).state) ) return x;
           return 20.0;
+  - platform: exponential_moving_average
+    name: $zone2_name temperatur
+    id: zone2_temperature
+    sensor: zone2_temperature_sensor
+    accuracy_decimals: 2
+    time_constant: 6min
+    time_weighting: new
   - platform: homeassistant
     name: $zone2_name luftfuktighet
     id: zone2_humidity
@@ -97,22 +101,24 @@ sensor:
     accuracy_decimals: 1
   # Zone 3
   - platform: homeassistant
-    name: $zone3_name temperatur
-    id: zone3_temperature
+    id: zone3_temperature_sensor
     entity_id: sensor.zone3_temperature
     unit_of_measurement: °C
     device_class: temperature
     state_class: measurement
-    accuracy_decimals: 2
     filters:
-#      - sliding_window_moving_average:
-#          window_size: 3
-#          send_every: 1
       - heartbeat: 10s
       - lambda: |-
           if ( id(${node_name}_connection_status).state )
             if ( !isnan(id(zone3_temperature).state) ) return x;
           return 20.0;
+  - platform: exponential_moving_average
+    name: $zone3_name temperatur
+    id: zone3_temperature
+    sensor: zone3_temperature_sensor
+    accuracy_decimals: 2
+    time_constant: 6min
+    time_weighting: new
   - platform: homeassistant
     name: $zone3_name luftfuktighet
     id: zone3_humidity
@@ -123,22 +129,24 @@ sensor:
     accuracy_decimals: 1
   # Zone 4
   - platform: homeassistant
-    name: $zone4_name temperatur
-    id: zone4_temperature
+    id: zone4_temperature_sensor
     entity_id: sensor.zone4_temperature
     unit_of_measurement: °C
     device_class: temperature
     state_class: measurement
-    accuracy_decimals: 2
     filters:
-#      - sliding_window_moving_average:
-#          window_size: 3
-#          send_every: 1
       - heartbeat: 10s
       - lambda: |-
           if ( id(${node_name}_connection_status).state )
             if ( !isnan(id(zone4_temperature).state) ) return x;
           return 20.0;
+  - platform: exponential_moving_average
+    name: $zone4_name temperatur
+    id: zone4_temperature
+    sensor: zone4_temperature_sensor
+    accuracy_decimals: 2
+    time_constant: 6min
+    time_weighting: new
   - platform: homeassistant
     name: $zone4_name luftfuktighet
     id: zone4_humidity
@@ -149,22 +157,24 @@ sensor:
     accuracy_decimals: 1
 #  # Zone 5
 #  - platform: homeassistant
-#    name: $zone5_name temperatur
-#    id: zone5_temperature
+#    id: zone5_temperature_sensor
 #    entity_id: sensor.zone5_temperature
 #    unit_of_measurement: °C
 #    device_class: temperature
 #    state_class: measurement
-#    accuracy_decimals: 2
 #    filters:
-#      - sliding_window_moving_average:
-#          window_size: 3
-#          send_every: 1
 #      - heartbeat: 10s
 #      - lambda: |-
 #          if ( id(${node_name}_connection_status).state )
 #            if ( !isnan(id(zone5_temperature).state) ) return x;
 #          return 20.0;
+#  - platform: exponential_moving_average
+#    name: $zone5_name temperatur
+#    id: zone5_temperature
+#    sensor: zone5_temperature_sensor
+#    accuracy_decimals: 2
+#    time_constant: 6min
+#    time_weighting: new
 #  - platform: homeassistant
 #    name: $zone5_name luftfuktighet
 #    id: zone5_humidity
@@ -175,22 +185,24 @@ sensor:
 #    accuracy_decimals: 1
 #  # Zone 6
 #  - platform: homeassistant
-#    name: $zone6_name temperatur
-#    id: zone6_temperature
+#    id: zone6_temperature_sensor
 #    entity_id: sensor.zone6_temperature
 #    unit_of_measurement: °C
 #    device_class: temperature
 #    state_class: measurement
-#    accuracy_decimals: 2
 #    filters:
-#      - sliding_window_moving_average:
-#          window_size: 3
-#          send_every: 1
 #      - heartbeat: 10s
 #      - lambda: |-
 #          if ( id(${node_name}_connection_status).state )
 #            if ( !isnan(id(zone6_temperature).state) ) return x;
 #          return 20.0;
+#  - platform: exponential_moving_average
+#    name: $zone6_name temperatur
+#    id: zone6_temperature
+#    sensor: zone6_temperature_sensor
+#    accuracy_decimals: 2
+#    time_constant: 6min
+#    time_weighting: new
 #  - platform: homeassistant
 #    name: $zone6_name luftfuktighet
 #    id: zone6_humidity
@@ -201,22 +213,24 @@ sensor:
 #    accuracy_decimals: 1
 #  # Zone 7
 #  - platform: homeassistant
-#    name: $zone7_name temperatur
-#    id: zone7_temperature
+#    id: zone7_temperature_sensor
 #    entity_id: sensor.zone7_temperature
 #    unit_of_measurement: °C
 #    device_class: temperature
 #    state_class: measurement
-#    accuracy_decimals: 2
 #    filters:
-#      - sliding_window_moving_average:
-#          window_size: 3
-#          send_every: 1
 #      - heartbeat: 10s
 #      - lambda: |-
 #          if ( id(${node_name}_connection_status).state )
 #            if ( !isnan(id(zone7_temperature).state) ) return x;
 #          return 20.0;
+#  - platform: exponential_moving_average
+#    name: $zone7_name temperatur
+#    id: zone7_temperature
+#    sensor: zone7_temperature_sensor
+#    accuracy_decimals: 2
+#    time_constant: 6min
+#    time_weighting: new
 #  - platform: homeassistant
 #    name: $zone7_name luftfuktighet
 #    id: zone7_humidity
@@ -227,22 +241,24 @@ sensor:
 #    accuracy_decimals: 1
 #  # Zone 8
 #  - platform: homeassistant
-#    name: $zone8_name temperatur
-#    id: zone8_temperature
+#    id: zone8_temperature_sensor
 #    entity_id: sensor.zone8_temperature
 #    unit_of_measurement: °C
 #    device_class: temperature
 #    state_class: measurement
-#    accuracy_decimals: 2
 #    filters:
-#      - sliding_window_moving_average:
-#          window_size: 3
-#          send_every: 1
 #      - heartbeat: 10s
 #      - lambda: |-
 #          if ( id(${node_name}_connection_status).state )
 #            if ( !isnan(id(zone8_temperature).state) ) return x;
 #          return 20.0;
+#  - platform: exponential_moving_average
+#    name: $zone8_name temperatur
+#    id: zone8_temperature
+#    sensor: zone8_temperature_sensor
+#    accuracy_decimals: 2
+#    time_constant: 6min
+#    time_weighting: new
 #  - platform: homeassistant
 #    name: $zone8_name luftfuktighet
 #    id: zone8_humidity
@@ -384,6 +400,8 @@ sensor:
 #    address: 0x6C00000CA32B7B_S1
 #    resolution: 12
 #    accuracy_decimals: 2
+#    filters:
+#      - heartbeat: 20s
 #  Digital zone 2 temperature (DS18B20)
 #  - platform: dallas_temp
 #    name: $zone2_name temperatur
@@ -393,6 +411,8 @@ sensor:
 #    address: 0x6C00000CA32B7B_S2
 #    resolution: 12
 #    accuracy_decimals: 2
+#    filters:
+#      - heartbeat: 20s
 #  Digital zone 3 temperature (DS18B20)
 #  - platform: dallas_temp
 #    name: $zone3_name temperatur
@@ -402,6 +422,8 @@ sensor:
 #    address: 0x6C00000CA32B7B_S3
 #    resolution: 12
 #    accuracy_decimals: 2
+#    filters:
+#      - heartbeat: 20s
 #  Digital zone 4 temperature (DS18B20)
 #  - platform: dallas_temp
 #    name: $zone4_name temperatur
@@ -411,6 +433,8 @@ sensor:
 #    address: 0x6C00000CA32B7B_S4
 #    resolution: 12
 #    accuracy_decimals: 2
+#    filters:
+#      - heartbeat: 20s
 #  Digital zone 5 temperature (DS18B20)
 #  - platform: dallas_temp
 #    name: $zone5_name temperatur
@@ -420,6 +444,8 @@ sensor:
 #    address: 0x6C00000CA32B7B_S5
 #    resolution: 12
 #    accuracy_decimals: 2
+#    filters:
+#      - heartbeat: 20s
 #  Digital zone 6 temperature (DS18B20)
 #  - platform: dallas_temp
 #    name: $zone6_name temperatur
@@ -429,6 +455,8 @@ sensor:
 #    address: 0x6C00000CA32B7B_S6
 #    resolution: 12
 #    accuracy_decimals: 2
+#    filters:
+#      - heartbeat: 20s
 #  Digital zone 7 temperature (DS18B20)
 #  - platform: dallas_temp
 #    name: $zone7_name temperatur
@@ -438,6 +466,8 @@ sensor:
 #    address: 0x6C00000CA32B7B_S7
 #    resolution: 12
 #    accuracy_decimals: 2
+#    filters:
+#      - heartbeat: 20s
 #  Digital zone 8 temperature (DS18B20)
 #  - platform: dallas_temp
 #    name: $zone8_name temperatur
@@ -447,3 +477,5 @@ sensor:
 #    address: 0x6C00000CA32B7B_S8
 #    resolution: 12
 #    accuracy_decimals: 2
+#    filters:
+#      - heartbeat: 20s
